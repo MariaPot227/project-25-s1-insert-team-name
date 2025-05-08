@@ -14,10 +14,10 @@ different methods for each room
 
 
 Rooms sections // 4 + end boss
-electronics 
-clothing 
-camping 
-toys
+electronics Karl
+clothing Michael
+camping Logan
+toys Mohammad
 cooking 
 kitchen
 food

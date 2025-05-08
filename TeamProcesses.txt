@@ -1,0 +1,34 @@
+How and when to communicate with the team:
+
+Inside of class: Just talk to eachother. 
+
+Outside of class: Regularly check Teams channels for updates.
+
+@ eachother when needed. 
+
+Use the correct channels.
+
+
+
+Process for resolving merge conflicts:
+
+Make sure to pull before committing to lessen chance of merge conflicts. 
+
+If there is a merge conflict, try and leave it if possible, otherwise contact the person that the conflicting commit belongs to. 
+
+Use common sense. 
+
+Allocate people to work on their own Method/Room. Make sure to adequately comment your code and describe what you've changed in your commit.
+
+
+
+Basic standards to check code before pushing to Origin/Main:
+
+Cross-Reference your code against others to make sure it is coherent/up to standard.
+
+Check to see if it conflicts with others' work.
+
+Make sure it is easy to understand.
+
+Ensure your committed work is functional/complete.
+

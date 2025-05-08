@@ -1,0 +1,42 @@
+Dungeon crawler 
+escaped mental patient in kmart??? --- exiting boss is cops
+
+kmart ??? 
+
+sections instead of rooms 
+navigation system to move around 
+different methods for each room 
+
+
+Rooms // 4 + end boss
+
+
+
+
+each sections has a mini boss guarding the item you need 
+Bosses // 
+
+
+List of items you need to get 
+
+possible consumables - random chance between rooms or from boss drops - I for inventory
+currency 
+bribery 
+gambling
+fighting a granny 
+random number for fights/ riddles 
+dodge 
+
+Items // 
+
+
+cant steal items in store maybe ??
+stored in inventory prob and {array}
+exit of the store has a boss before you can leave 
+riddles one room - stored in an array 
+
+
+possible fights between rooms. array picks one at random 
+keep it simple 
+resource (HP SP) meters  set per room or battle if 0 death method (git good)
+colours 

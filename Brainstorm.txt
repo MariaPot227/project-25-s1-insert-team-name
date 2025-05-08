@@ -1,4 +1,9 @@
 Dungeon crawler 
+
+Name ////
+Kmart experience
+
+
 escaped mental patient in kmart??? --- exiting boss is cops
 
 kmart ??? 
@@ -8,26 +13,44 @@ navigation system to move around
 different methods for each room 
 
 
-Rooms // 4 + end boss
-
-
+Rooms sections // 4 + end boss
+electronics 
+clothing 
+camping 
+toys
+cooking 
+kitchen
+food
 
 
 each sections has a mini boss guarding the item you need 
 Bosses // 
+Cops final boss 
+room themed bosses eg toy boss - fuzz lightyear
 
 
-List of items you need to get 
+Enemies // 
+Granny
+
+
+List of items you need to get Shopping list 
+No end boss if normal law abiding 
 
 possible consumables - random chance between rooms or from boss drops - I for inventory
 currency 
 bribery 
 gambling
-fighting a granny 
+fighting 
 random number for fights/ riddles 
-dodge 
+dodge Randomly gen
 
 Items // 
+healing drink / food 
+stats 
+items for weapons single use 
+
+
+fists 
 
 
 cant steal items in store maybe ??
@@ -40,3 +63,6 @@ possible fights between rooms. array picks one at random
 keep it simple 
 resource (HP SP) meters  set per room or battle if 0 death method (git good)
 colours 
+
+
+Extras ??? // 

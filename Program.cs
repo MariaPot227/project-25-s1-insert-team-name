@@ -10,9 +10,13 @@ namespace TeamCSFile
         public static int[] InventoryAmount = {0, 0, 0, 0};
         public static string[] InventoryName = {"Item 1", "Item 2", "Item 3", "Item 4"};
 
+
+        //Global Combat Variables
         public static int Health = 100;
 
         public static int Stamina = 100;
+        //------------------------------
+
         static void Main()
         {
          
@@ -152,11 +156,18 @@ namespace TeamCSFile
 
             // v Attack List
 
-            int Light = 1, Strong = 2;
+            int Light = 10, Strong = 20; // < values are how much damage each attack does (and stamina drained?)
+
+            // v Amount of enemies, random number per battle
+
+            int enemies = 0;
+
+            Random rand = new Random();
+
+            enemies = rand.Next(1, 4);
 
             
-
-
+            
 
 
 

@@ -4,6 +4,9 @@ namespace TeamCSFile
 {
     internal class Program
     {
+
+        public static int[] InventoryAmount = {0, 0, 0, 0};
+        public static string[] InventoryName = {"Item 1", "Item 2", "Item 3", "Item 4"};
         static void Main()
         {
             
@@ -38,12 +41,13 @@ namespace TeamCSFile
 
         static void Inventory()
         {
-
-
-
-
-
-
+            Console.Clear();
+            for (int i = 0; i < InventoryAmount.Length; i++)
+            {
+                Console.WriteLine($"You have {InventoryAmount[i]} {InventoryName[i]}s.");
+            }
+            Console.WriteLine("Press enter to continue.");
+            Console.ReadLine();
 
         }
 

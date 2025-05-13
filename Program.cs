@@ -20,10 +20,66 @@ namespace TeamCSFile
 
 
 
-        static void Hub()
+        public static void Hub()
         {
 
 
+            int num = 0;
+            bool inMenu = true;
+            // can only use clear console twice
+            do
+            {
+                Console.Clear();
+
+                Console.WriteLine("Main Menu\n" + "Please select from the numbers below\n");
+                Console.WriteLine("1  Task 1\n" +
+                                  "2  Task 2\n" +
+                                  "3  Task 3\n" +
+                                  "4  Task 4\n" +
+                                  "0 Exit The Menu");
+
+                try
+                {
+                    num = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Invalid Input");
+                    Console.ReadLine();
+                }
+
+                Console.Clear();
+
+                switch (num)
+                {
+                    case 1:
+                        Task1();
+                        break;
+
+                    case 2:
+                        Task2();
+                        break;
+
+                    case 3:
+                        Task3();
+                        break;
+
+                    case 4:
+                        Task4();
+                        break;
+
+                    case 0:
+                        Exit();
+                        inMenu = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input. Please keep it between 0-4");
+                        Console.ReadLine();
+                        break;
+                }
+
+
+            } while (inMenu);
 
 
 

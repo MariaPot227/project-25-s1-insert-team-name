@@ -23,20 +23,27 @@ namespace TeamCSFile
         public static void Hub()
         {
 
+            // move rooms - to which room new method
+            // rest? 
+            // place to check inventory 
+            // show  list of rooms completed
+            // cross off shopping list
+            // 
 
             int num = 0;
             bool inMenu = true;
-            // can only use clear console twice
+            
             do
             {
                 Console.Clear();
 
                 Console.WriteLine("Main Menu\n" + "Please select from the numbers below\n");
-                Console.WriteLine("1  Task 1\n" +
-                                  "2  Task 2\n" +
-                                  "3  Task 3\n" +
-                                  "4  Task 4\n" +
-                                  "0 Exit The Menu");
+                Console.WriteLine("1  Rest\n" +
+                                  "2  Room Selection\n" +
+                                  "3  Check Your inventory\n" +
+                                  "4  Show rooms completed\n" +
+                                  "5  Shopping list\n" +
+                                  "0  Exit The Menu");
 
                 try
                 {
@@ -44,7 +51,7 @@ namespace TeamCSFile
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Invalid Input");
+                    Console.WriteLine("Huh");
                     Console.ReadLine();
                 }
 
@@ -53,23 +60,23 @@ namespace TeamCSFile
                 switch (num)
                 {
                     case 1:
-                        Task1();
+                        //Task1();
                         break;
 
                     case 2:
-                        Task2();
+                        //Task2();
                         break;
 
                     case 3:
-                        Task3();
+                        //Task3();
                         break;
 
                     case 4:
-                        Task4();
+                        //Task4();
                         break;
 
                     case 0:
-                        Exit();
+                        //Exit();
                         inMenu = false;
                         break;
                     default:
@@ -81,7 +88,32 @@ namespace TeamCSFile
 
             } while (inMenu);
 
+            string RoomSelection()
+            {
+                switch (num)
+                {
+                    case 1:
+                        //Task1();
+                        break;
 
+                    case 2:
+                        //Task2();
+                        break;
+
+                    case 3:
+                        //Task3();
+                        break;
+
+                    case 4:
+                        //Task4();
+                        break;
+
+                    case 0:
+                        //Exit();
+                        inMenu = false;
+                        break;
+                    
+                }
 
 
 

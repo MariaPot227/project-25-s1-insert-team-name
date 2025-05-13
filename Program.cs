@@ -19,7 +19,10 @@ namespace TeamCSFile
 
         static void Main()
         {
-         
+            Console.WriteLine("You have entered K-mart and you need to collect a few items");
+            Hub();
+            
+
 
 
 

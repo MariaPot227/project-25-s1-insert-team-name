@@ -19,6 +19,54 @@ namespace TeamCSFile
 
 
 
+
+        static void Hub()
+        {
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+        static void Inventory()
+        {
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+        static void Combat()
+        {
+
+
+
+
+
+
+
+        }
+
+
+
+
+
         static void Clothing()
         {
 

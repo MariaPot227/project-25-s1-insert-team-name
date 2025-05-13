@@ -1,0 +1,40 @@
+Navigation
+Command-based: Go Electronics, Inspect Shelf, Use Item, Fight, etc.
+
+Internally: a Dictionary<string, Room> to look up sections by name.
+
+Combat & Puzzles
+Random Encounters: wandering “Granny” shoppers—simple fight or flee roll.
+
+Mini-bosses: fixed fights/puzzles at the section’s climax.
+
+Final Boss: cops—high HP, uses ranged “bribe” or “fight” options.
+
+Riddles/Quizzes stored in an array; one is picked when you “Search Speaker” or similar.
+
+Inventory & Resources
+Inventory: List<Item> or array with fixed size.
+
+Currency: Gift cards or cash tokens used for bribes or gambling machines.
+
+Consumables: healing drinks, single-use weapon items (like “broken bat”).
+
+Stats: HP, SP (stamina or sanity), Attack, Defense.
+
+
+
+
+5. Flow Example
+Start → show back-story, commands help.
+
+Navigate to Electronics → random Granny fight?
+
+Solve the PA riddle or fight the Cashier.
+
+Pick up Gift Card; it goes into Inventory & adds currency.
+
+Repeat for Clothing, Camping, Toys.
+
+Final: at exit, cops appear—choose Fight (roll vs. their stats) or Bribe (spend currency).
+
+Win → Escape! Lose → Game Over.

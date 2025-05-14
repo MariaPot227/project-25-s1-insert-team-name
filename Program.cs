@@ -254,9 +254,15 @@ namespace TeamCSFile
 
             // ^ Intro to combat scenario
 
+
+
+
             // v Attack List
 
             int Light = 10, Strong = 20; // < values are how much damage each attack does (and stamina drained?)
+
+
+
 
             // v Amount of enemies, random number per battle
 
@@ -269,42 +275,86 @@ namespace TeamCSFile
             enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
 
                for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
-               {
+                {
                     switch (Room)   // < depending on current room
                     {
                         case 2:             // < if player is in Room 2 (Camping Section)
-                            
+
                             int PullEnemy = rand.Next(Room2Enemies.Length);     // < generates random number to pick random enemy from available
 
                             onfield[i] = Room2Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
-                    
-                    
-                    
 
+                            break;
 
-
-
-
-
-
-
-
-
-
-
+                        default:
+                            break;
 
                     }
-
-
-                    
-
-
 
 
 
 
 
                 }
+
+
+
+
+                // v Combat UI
+
+                switch (enemies)                        // < changes starting text depending on number of enemies
+                {
+
+                    case 1:                            // < if there is only one enemy
+
+                        Console.WriteLine($"\n\nA wild {onfield[0]} approaches!");  // < tells user what enemy they are facing
+
+                        break;
+
+                    case 2:
+
+                        Console.WriteLine($"\n\nYou are stopped by {onfield[0]} and {onfield[1]}.");
+
+                        break;
+
+                    case 3:
+
+                        Console.WriteLine($"\n\nYou run into {onfield[0]}, {onfield[1]} and {onfield[2]}");
+
+                        break;
+
+
+                    default:
+                                    // < for boss battles?
+                        break;
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

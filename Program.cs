@@ -120,64 +120,68 @@ namespace TeamCSFile
             {
                 int num = 0;
                 bool inMenu = true;
-                
 
-                Console.WriteLine("Main Menu\n" + "Please select from the numbers below\n");
-                Console.WriteLine("1  Clothign\n" +
-                                  "2  Electronics\n" +
-                                  "3  Toys\n" +
-                                  "4  Camping\n" +
-                                  "0  Exit The Menu");
-
-                
-
-
-                try
+                do
                 {
-                    num = Convert.ToInt32(Console.ReadLine());
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Huh");
-                    Console.ReadLine();
-                }
+                    Console.Clear();
 
-                switch (num)
-                {
-                    case 1:
-                        Clothing();
-                        Console.WriteLine("This is Clothing\n" + "Press 0 to exit");
-                        return "Clothing";
+                    Console.WriteLine("Main Menu\n" + "Please select from the numbers below\n");
+                    Console.WriteLine("1  Clothign\n" +
+                                      "2  Electronics\n" +
+                                      "3  Toys\n" +
+                                      "4  Camping\n" +
+                                      "0  Exit The Menu");
 
 
-                    case 2:
-                        Electronics();
-                        Console.WriteLine("This is Electronics\n" + "Press 0 to exit");
-                        return "Electronics";
 
-                    case 3:
-                        Toys();
-                        Console.WriteLine("This is Toys\n" + "Press 0 to exit");
-                        return "Toys";
 
-                    case 4:
-                        Camping();
-                        Console.WriteLine("This is Camping\n" + "Press 0 to exit");
-                        return "Camping";
-
-                    case 0:
-                        //Console.WriteLine("This is task 1\n" + "Press 0 to exit");
-
-                        //return to menu;
-                        inMenu = false;
-                        return "Exiting";
-                    default:
-                        Console.WriteLine("Invalid Input. Please keep it between 0-4");
+                    try
+                    {
+                        num = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Huh");
                         Console.ReadLine();
-                        return "Invalid";
+                    }
 
-                }
+                    switch (num)
+                    {
+                        case 1:
+                            Clothing();
+                            Console.WriteLine("This is Clothing\n" + "Press 0 to exit");
+                            return "Clothing";
 
+
+                        case 2:
+                            Electronics();
+                            Console.WriteLine("This is Electronics\n" + "Press 0 to exit");
+                            return "Electronics";
+
+                        case 3:
+                            Toys();
+                            Console.WriteLine("This is Toys\n" + "Press 0 to exit");
+                            return "Toys";
+
+                        case 4:
+                            Camping();
+                            Console.WriteLine("This is Camping\n" + "Press 0 to exit");
+                            return "Camping";
+
+                        case 0:
+                            //Console.WriteLine("This is task 1\n" + "Press 0 to exit");
+
+                            //return to menu;
+                            inMenu = false;
+                            return "Exiting";
+                        default:
+                            Console.WriteLine("Invalid Input. Please keep it between 0-4");
+                            Console.ReadLine();
+                            return "Invalid";
+
+                    }
+
+                } while (inMenu);
 
 
             }

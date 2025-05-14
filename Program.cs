@@ -15,6 +15,8 @@ namespace TeamCSFile
         public static int Health = 100;
 
         public static int Stamina = 100;
+
+        public static int Room = 0; // < lets combat method know which room the player is in and thus which set of enemies to pull from
         //------------------------------
 
         static void Main()
@@ -158,7 +160,14 @@ namespace TeamCSFile
 
 
         static void Combat()
-        {
+            {
+
+                string[] Room2Enemies = {"TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5"};
+
+
+
+
+
             Console.Clear();
 
             Console.BackgroundColor = ConsoleColor.Red;
@@ -251,14 +260,26 @@ namespace TeamCSFile
 
             // v Amount of enemies, random number per battle
 
-            int enemies = 0;
+            int enemies = 0;        // < number of enemies in battle
+
+            string[] onfield = {"null", "null", "null"};    // < array of the enemies that are on the field, will be populated by pulling from room's array of possible enemies
 
             Random rand = new Random();
 
-            enemies = rand.Next(1, 4);
+            enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
 
-            
-            
+               for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
+               {
+                    switch (Room)   // < depending on current room
+                    {
+                        case 2:             // < if player is in Room 2 (Camping Section)
+                            
+                            int PullEnemy = rand.Next(Room2Enemies.Length);     // < generates random number to pick random enemy from available
+
+                            onfield[i] = Room2Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
+                    
+                    
+                    
 
 
 
@@ -266,13 +287,39 @@ namespace TeamCSFile
 
 
 
-        }
 
 
 
 
 
-        static void Clothing()
+
+                    }
+
+
+                    
+
+
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+            static void Clothing()
         {
 
 
@@ -287,7 +334,7 @@ namespace TeamCSFile
 
 
 
-        static void Outdoor()
+        static void Camping()
         {
 
 

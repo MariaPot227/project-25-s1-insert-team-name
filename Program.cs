@@ -348,6 +348,8 @@ namespace TeamCSFile
 
             Console.Clear();
 
+            Thread.Sleep(1500);
+
             Console.ReadLine();
 
             // ^ Intro to combat scenario
@@ -422,7 +424,7 @@ namespace TeamCSFile
 
 
 
-            // v Combat UI
+            // v Enemy Names and amount
 
             switch (enemies)                        // < changes starting text depending on number of enemies
             {
@@ -456,38 +458,37 @@ namespace TeamCSFile
             }
 
 
+            Thread.Sleep(1000);                         
 
+            Console.Clear();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            CombatUI();
 
         }
 
-
+        static void CombatUI()
+        {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }
 
 
 
@@ -553,6 +554,42 @@ namespace TeamCSFile
 
 
         }
+           
+        {
+                string[] kmartItems = new string[]
+           {
+                //Electronics
+
+                 "Bluetooth Speaker",
+                 "Smart Phone",
+                 "gaming Console",
+                 "Smart Watch",
+                 "Portable Charger",
+                 
+                 //Clothing
+
+                 "Men's Hoodie",
+                 "Women's Jeans",
+                 "Running Shoes",
+                 "Baseball cap",
+                 "Swimsuit",
+
+                 //Camping
+                
+                 "Sleeping Bag",
+                 "Tent",
+                 "Camping Stove",
+                 "Flashlight",
+                 "portable Cooler",
+
+                 //Toys
+
+                 "Remote Control Car",
+                 "Building Blocks Set",
+                 "Action Figure",
+                 "Board Game",
+                 "Plush Teddy Bare",
+           };
 
 
 
@@ -603,7 +640,7 @@ namespace TeamCSFile
 
 
 
-    }
+            }
 }
 
 

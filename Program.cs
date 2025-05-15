@@ -485,8 +485,8 @@ namespace TeamCSFile
         {
             string border = new string('-', 60);        
         
-            do 
-            { 
+            //do 
+            //{ 
             
             
             
@@ -499,7 +499,7 @@ namespace TeamCSFile
             
             
             
-            }
+            //}
             
         
         
@@ -583,26 +583,35 @@ namespace TeamCSFile
             int playerChoice = 0; // player choice
             Console.Clear();
             Console.WriteLine("You step into the Electronics section.");
+            Thread.Sleep(2000);
             Console.WriteLine("Rows of glittering screens, RGB keyboards and tangled cables stretch before you.");
+            Thread.Sleep(3000);
             Console.WriteLine($"You’re here for: ");  // e.g. “Smart Phone”
-
+            Thread.Sleep(2000);
             do
             {
-                Console.WriteLine("As you scan the shelves, you see:\r\n  " +
-                                  "A) A neat stack of USB cables.\r\n  " +
-                                  "B) A half-broken display of portable chargers.\r\n  " +
-                                  "C) A frazzled Granny clutching a tangled headset.\r\n");
-                Console.WriteLine("What do you want to do?\r\n  " +
-                                  "1) Approach the USB cables.\r\n  " +
-                                  "2) Investigate the portable chargers.\r\n  " +
-                                  "3) Help the Granny with her headset.\r\n  " +
-                                  "0) Leave the section.\r\n");
+                Console.WriteLine("As you scan the shelves, you see:\n  " +
+                                  "A) A neat stack of USB cables.\n  " +
+                                  "B) A half-broken display of portable chargers.\n  " +
+                                  "C) A frazzled Granny clutching a tangled headset.\n");
+                Console.WriteLine("Press Enter to continue.");
+                Console.ReadLine();
+                Console.Clear();
+                Console.WriteLine("What do you want to do?\n  " +
+                                  "1) Approach the USB cables.\n  " +
+                                  "2) Investigate the portable chargers.\n  " +
+                                  "3) Help the Granny with her headset.\n  " +
+                                  "0) Leave the section.\n");
+                Thread.Sleep(2000);
+                Console.Clear();
+
                 playerChoice = Convert.ToInt32(Console.ReadLine());
 
                 switch (playerChoice)
                 {
                     case 0:
                         Console.WriteLine("You decide to leave the Electronics section.");
+                        sectionActive = false;
                         break;
                     case 1:
                         Console.WriteLine("You approach the USB cables. ");

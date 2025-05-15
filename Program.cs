@@ -7,7 +7,7 @@ namespace TeamCSFile
     internal class Program
     {
 
-
+        // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
         public static string[] InventoryName = { "Item 1", "Item 2", "Item 3", "Item 4" };
 
@@ -99,7 +99,7 @@ namespace TeamCSFile
                         break;
 
                     case 0:
-                        //Exit();
+                        Exit();
                         inMenu = false;
                         break;
                     default:
@@ -126,7 +126,7 @@ namespace TeamCSFile
                     Console.Clear();
 
                     Console.WriteLine("Main Menu\n" + "Please select from the numbers below\n");
-                    Console.WriteLine("1  Clothign\n" +
+                    Console.WriteLine("1  Clothing\n" +
                                       "2  Electronics\n" +
                                       "3  Toys\n" +
                                       "4  Camping\n" +
@@ -421,7 +421,8 @@ namespace TeamCSFile
 
         static void Clothing()
         {
-
+            Console.Clear();
+            Console.WriteLine("You enter the Clothing section in order to find the ______.");
 
 
 

@@ -68,7 +68,7 @@ namespace TeamCSFile
                 {
                     num = Convert.ToInt32(Console.ReadLine());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Console.WriteLine("Huh");
                     Console.ReadLine();
@@ -135,7 +135,7 @@ namespace TeamCSFile
                     {
                         num = Convert.ToInt32(Console.ReadLine());
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Console.WriteLine("Huh");
                         Console.ReadLine();
@@ -494,7 +494,7 @@ namespace TeamCSFile
         {
 
 
-            // Needs a boss: 
+            // Needs a boss: electronic parts come together to make a huge boss that - asks riddles and if you fail it you fight  
             // Enemies: 
             // Electronics related riddles 
             // Descriptions of areas and whats around as you go 
@@ -503,11 +503,12 @@ namespace TeamCSFile
             // Extra pop-up quest to help someone adds for good ending or gives bonus loot
 
             Console.WriteLine("You enter the electronics section.");
+            
 
 
         }
            
-        {
+        
                 string[] kmartItems = new string[]
            {
                 //Electronics

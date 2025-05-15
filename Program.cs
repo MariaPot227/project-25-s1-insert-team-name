@@ -301,6 +301,8 @@ namespace TeamCSFile
 
             Console.Clear();
 
+            Thread.Sleep(1500);
+
             Console.ReadLine();
 
             // ^ Intro to combat scenario
@@ -333,7 +335,31 @@ namespace TeamCSFile
 
                         int PullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
 
-                        onfield[i] = Room2Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
+                        onfield[i] = Room1Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
+
+                        break;
+
+                    case 2:             
+
+                        PullEnemy = rand.Next(Room2Enemies.Length);     
+
+                        onfield[i] = Room2Enemies[PullEnemy];               
+
+                        break;
+
+                    case 3:
+
+                        PullEnemy = rand.Next(Room3Enemies.Length);
+
+                        onfield[i] = Room3Enemies[PullEnemy];
+
+                        break;
+
+                    case 4:
+
+                        PullEnemy = rand.Next(Room4Enemies.Length);
+
+                        onfield[i] = Room4Enemies[PullEnemy];
 
                         break;
 
@@ -351,7 +377,7 @@ namespace TeamCSFile
 
 
 
-            // v Combat UI
+            // v Enemy Names and amount
 
             switch (enemies)                        // < changes starting text depending on number of enemies
             {
@@ -385,38 +411,37 @@ namespace TeamCSFile
             }
 
 
+            Thread.Sleep(1000);                         
 
+            Console.Clear();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            CombatUI();
 
         }
 
-
+        static void CombatUI()
+        {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }
 
 
 
@@ -481,6 +506,42 @@ namespace TeamCSFile
 
 
         }
+           
+        {
+                string[] kmartItems = new string[]
+           {
+                //Electronics
+
+                 "Bluetooth Speaker",
+                 "Smart Phone",
+                 "gaming Console",
+                 "Smart Watch",
+                 "Portable Charger",
+                 
+                 //Clothing
+
+                 "Men's Hoodie",
+                 "Women's Jeans",
+                 "Running Shoes",
+                 "Baseball cap",
+                 "Swimsuit",
+
+                 //Camping
+                
+                 "Sleeping Bag",
+                 "Tent",
+                 "Camping Stove",
+                 "Flashlight",
+                 "portable Cooler",
+
+                 //Toys
+
+                 "Remote Control Car",
+                 "Building Blocks Set",
+                 "Action Figure",
+                 "Board Game",
+                 "Plush Teddy Bare",
+           };
 
 
 
@@ -531,7 +592,7 @@ namespace TeamCSFile
 
 
 
-    }
+            }
 }
 
 

@@ -337,7 +337,31 @@ namespace TeamCSFile
 
                         int PullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
 
-                        onfield[i] = Room2Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
+                        onfield[i] = Room1Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
+
+                        break;
+
+                    case 2:             
+
+                        PullEnemy = rand.Next(Room2Enemies.Length);     
+
+                        onfield[i] = Room2Enemies[PullEnemy];               
+
+                        break;
+
+                    case 3:
+
+                        PullEnemy = rand.Next(Room3Enemies.Length);
+
+                        onfield[i] = Room3Enemies[PullEnemy];
+
+                        break;
+
+                    case 4:
+
+                        PullEnemy = rand.Next(Room4Enemies.Length);
+
+                        onfield[i] = Room4Enemies[PullEnemy];
 
                         break;
 

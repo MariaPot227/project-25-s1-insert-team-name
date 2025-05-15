@@ -49,7 +49,7 @@ namespace TeamCSFile
             // cross off shopping list
             // 
 
-            int num = 0;
+            int num = 10;
             bool inMenu = true;
 
             do
@@ -94,12 +94,8 @@ namespace TeamCSFile
                         //AreasCompleted();
                         break;
 
-                    case 5:
-                        //ShoppingList();
-                        break;
-
                     case 0:
-                        //Exit();
+                        Exit();
                         inMenu = false;
                         break;
                     default:
@@ -130,7 +126,7 @@ namespace TeamCSFile
                                       "2  Electronics\n" +
                                       "3  Toys\n" +
                                       "4  Camping\n" +
-                                      "0  Exit The Menu");
+                                      "0  Back to the menu");
 
 
 
@@ -481,7 +477,7 @@ namespace TeamCSFile
             // Items to pick up or skip 
             // Extra pop-up quest to help someone adds for good ending or gives bonus loot
 
-
+            Console.WriteLine("You enter the electronics section.");
 
 
         }

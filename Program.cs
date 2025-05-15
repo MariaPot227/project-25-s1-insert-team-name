@@ -241,6 +241,36 @@ namespace TeamCSFile
                         Console.ReadLine();
                     }
                     break;
+                case 2:
+                    if (CombatInventoryAmount[temp] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp]}");
+                        Health = Health + 25;
+                        Console.WriteLine($"You gain 25 Health.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
+                case 3:
+                    if (CombatInventoryAmount[temp] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp]}");
+                        Health = Health + 50;
+                        Console.WriteLine($"You gain 50 Health.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
+                case 0:
+                    break;
                 default:
                     Console.WriteLine("Invalid Input. Please keep it between 0-3");
                     Console.ReadLine();

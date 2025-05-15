@@ -215,12 +215,13 @@ namespace TeamCSFile
 
         static void Combat()
         {
+            string[] Room1Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
             string[] Room2Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
+            string[] Room3Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
-
-
+            string[] Room4Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
             Console.Clear();
 
@@ -332,9 +333,9 @@ namespace TeamCSFile
             {
                 switch (Room)   // < depending on current room
                 {
-                    case 2:             // < if player is in Room 2 (Camping Section)
+                    case 1:             // < if player is in Room 1 (Clothing Section)
 
-                        int PullEnemy = rand.Next(Room2Enemies.Length);     // < generates random number to pick random enemy from available
+                        int PullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
 
                         onfield[i] = Room2Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
 

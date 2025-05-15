@@ -24,9 +24,12 @@ namespace TeamCSFile
         //------------------------------
 
         static void Main()
-        {
-            Console.WriteLine("You have entered K-mart and you need to collect a few items");
-            Hub();
+         { // Intro :
+                Console.WriteLine("Your goal is to get an item form four  rooms/sections each room has different obstacles Find all four items and, make it to checkout and you win " +
+                    "GOOD LUCK ");
+                Console.WriteLine("Press Enter to proceed");
+                Console.ReadLine();
+                Hub();
 
 
 
@@ -34,15 +37,14 @@ namespace TeamCSFile
 
 
 
-
-        }
-
+            }
 
 
 
 
 
-        static void Hub()
+
+            static void Hub()
         {
 
             // move rooms - to which room new method

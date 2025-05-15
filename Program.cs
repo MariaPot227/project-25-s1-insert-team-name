@@ -79,7 +79,7 @@ namespace TeamCSFile
                 switch (num)
                 {
                     case 1:
-                        //Rest(); // replenshes HP?
+                        //Rest(); // replenishes HP?
                         break;
 
                     case 2:
@@ -126,7 +126,7 @@ namespace TeamCSFile
                     Console.Clear();
 
                     Console.WriteLine("Main Menu\n" + "Please select from the numbers below\n");
-                    Console.WriteLine("1  Clothign\n" +
+                    Console.WriteLine("1  Clothing\n" +
                                       "2  Electronics\n" +
                                       "3  Toys\n" +
                                       "4  Camping\n" +
@@ -149,22 +149,26 @@ namespace TeamCSFile
                     {
                         case 1:
                             Clothing();
+                            Room = 1;
                             Console.WriteLine("This is Clothing\n" + "Press 0 to exit");
                             return "Clothing";
 
 
                         case 2:
                             Electronics();
+                            Room = 2;
                             Console.WriteLine("This is Electronics\n" + "Press 0 to exit");
                             return "Electronics";
 
                         case 3:
                             Toys();
+                            Room = 3;
                             Console.WriteLine("This is Toys\n" + "Press 0 to exit");
                             return "Toys";
 
                         case 4:
-                            Camping();
+                            Camping(); 
+                            Room = 4;
                             Console.WriteLine("This is Camping\n" + "Press 0 to exit");
                             return "Camping";
 

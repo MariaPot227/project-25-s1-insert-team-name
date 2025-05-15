@@ -24,7 +24,8 @@ namespace TeamCSFile
         //------------------------------
 
         static void Main()
-         { // Intro :
+
+            { // Intro :
                 Console.WriteLine("Your goal is to get an item form four  rooms/sections each room has different obstacles Find all four items and, make it to checkout and you win " +
                     "GOOD LUCK ");
                 Console.WriteLine("Press Enter to proceed");

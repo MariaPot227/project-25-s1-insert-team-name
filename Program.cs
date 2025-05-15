@@ -79,7 +79,7 @@ namespace TeamCSFile
                 switch (num)
                 {
                     case 1:
-                        //Rest(); // replenshes HP?
+                        //Rest(); // replenishes HP?
                         break;
 
                     case 2:
@@ -149,22 +149,26 @@ namespace TeamCSFile
                     {
                         case 1:
                             Clothing();
+                            Room = 1;
                             Console.WriteLine("This is Clothing\n" + "Press 0 to exit");
                             return "Clothing";
 
 
                         case 2:
                             Electronics();
+                            Room = 2;
                             Console.WriteLine("This is Electronics\n" + "Press 0 to exit");
                             return "Electronics";
 
                         case 3:
                             Toys();
+                            Room = 3;
                             Console.WriteLine("This is Toys\n" + "Press 0 to exit");
                             return "Toys";
 
                         case 4:
-                            Camping();
+                            Camping(); 
+                            Room = 4;
                             Console.WriteLine("This is Camping\n" + "Press 0 to exit");
                             return "Camping";
 
@@ -211,12 +215,13 @@ namespace TeamCSFile
 
         static void Combat()
         {
+            string[] Room1Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
             string[] Room2Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
+            string[] Room3Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
-
-
+            string[] Room4Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
             Console.Clear();
 
@@ -328,11 +333,35 @@ namespace TeamCSFile
             {
                 switch (Room)   // < depending on current room
                 {
-                    case 2:             // < if player is in Room 2 (Camping Section)
+                    case 1:             // < if player is in Room 1 (Clothing Section)
 
-                        int PullEnemy = rand.Next(Room2Enemies.Length);     // < generates random number to pick random enemy from available
+                        int PullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
 
-                        onfield[i] = Room2Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
+                        onfield[i] = Room1Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
+
+                        break;
+
+                    case 2:             
+
+                        PullEnemy = rand.Next(Room2Enemies.Length);     
+
+                        onfield[i] = Room2Enemies[PullEnemy];               
+
+                        break;
+
+                    case 3:
+
+                        PullEnemy = rand.Next(Room3Enemies.Length);
+
+                        onfield[i] = Room3Enemies[PullEnemy];
+
+                        break;
+
+                    case 4:
+
+                        PullEnemy = rand.Next(Room4Enemies.Length);
+
+                        onfield[i] = Room4Enemies[PullEnemy];
 
                         break;
 

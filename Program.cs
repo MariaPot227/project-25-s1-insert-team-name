@@ -327,9 +327,13 @@ namespace TeamCSFile
 
             string[] onfield = { "null", "null", "null" };    // < array of the enemies that are on the field, will be populated by pulling from room's array of possible enemies
 
+            int PullEnemy = 0;
+
             Random rand = new Random();
 
             enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
+
+            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0;              //< initialize enemy healthbars
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
             {
@@ -337,7 +341,7 @@ namespace TeamCSFile
                 {
                     case 1:             // < if player is in Room 1 (Clothing Section)
 
-                        int PullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
+                        PullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
 
                         onfield[i] = Room1Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
 
@@ -390,17 +394,29 @@ namespace TeamCSFile
 
                     Console.WriteLine($"\n\nA wild {onfield[0]} approaches!");  // < tells user what enemy they are facing
 
+                    enem1Health = 50;
+
                     break;
 
                 case 2:
 
                     Console.WriteLine($"\n\nYou are stopped by {onfield[0]} and {onfield[1]}.");
 
+                    enem1Health = 50;
+
+                    enem2Health = 50;
+
                     break;
 
                 case 3:
 
                     Console.WriteLine($"\n\nYou run into {onfield[0]}, {onfield[1]} and {onfield[2]}");
+
+                    enem1Health = 50;
+
+                    enem2Health = 50;
+
+                    enem3Health = 50;
 
                     break;
 
@@ -425,6 +441,24 @@ namespace TeamCSFile
 
         static void CombatUI()
         {
+            string border = new string('-', 60);        
+        
+            do 
+            { 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            }
+            
         
         
         
@@ -440,11 +474,17 @@ namespace TeamCSFile
         
         
         
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
         }
 
 

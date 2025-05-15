@@ -579,24 +579,59 @@ namespace TeamCSFile
 
         static void Electronics()
         {
+            bool sectionActive = true; // keeps the section active until the player leaves
+            int playerChoice = 0; // player choice
+            Console.Clear();
+            Console.WriteLine("You step into the Electronics section.");
+            Console.WriteLine("Rows of glittering screens, RGB keyboards and tangled cables stretch before you.");
+            Console.WriteLine($"You’re here for: ");  // e.g. “Smart Phone”
 
+            do
+            {
+                Console.WriteLine("As you scan the shelves, you see:\r\n  " +
+                                  "A) A neat stack of USB cables.\r\n  " +
+                                  "B) A half-broken display of portable chargers.\r\n  " +
+                                  "C) A frazzled Granny clutching a tangled headset.\r\n");
+                Console.WriteLine("What do you want to do?\r\n  " +
+                                  "1) Approach the USB cables.\r\n  " +
+                                  "2) Investigate the portable chargers.\r\n  " +
+                                  "3) Help the Granny with her headset.\r\n  " +
+                                  "0) Leave the section.\r\n");
+                playerChoice = Convert.ToInt32(Console.ReadLine());
 
-            // Needs a boss: electronic parts come together to make a huge boss that - asks riddles and if you fail it you fight  
-            // Enemies: 
-            // Electronics related riddles 
-            // Descriptions of areas and whats around as you go 
-            // different options on what to do in areas or riddles 
-            // Items to pick up or skip 
-            // Extra pop-up quest to help someone adds for good ending or gives bonus loot
+                switch (playerChoice)
+                {
+                    case 0:
+                        Console.WriteLine("You decide to leave the Electronics section.");
+                        break;
+                    case 1:
+                        Console.WriteLine("You approach the USB cables. ");
+                        //Console.WriteLine("You pick up a USB cable.");
+                        
+                        break;
 
-            Console.WriteLine("You enter the electronics section.");
-            
+                    case 2:
+                        Console.WriteLine("You investigate the portable chargers. ");
+                        
+                        
+                        break;
+                    case 3:
+                        Console.WriteLine("You help the Granny with her headset.");// riddle? 
+                        
+                        
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
 
+            } while (sectionActive);
 
+            Console.ReadLine();
         }
-           
-        
-                string[] kmartItems = new string[]
+
+
+        string[] kmartItems = new string[]
            {
                 //Electronics
 

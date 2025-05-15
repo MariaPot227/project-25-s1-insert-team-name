@@ -305,6 +305,8 @@ namespace TeamCSFile
 
             Console.Clear();
 
+            Thread.Sleep(1500);
+
             Console.ReadLine();
 
             // ^ Intro to combat scenario
@@ -379,7 +381,7 @@ namespace TeamCSFile
 
 
 
-            // v Combat UI
+            // v Enemy Names and amount
 
             switch (enemies)                        // < changes starting text depending on number of enemies
             {
@@ -412,39 +414,38 @@ namespace TeamCSFile
 
             }
 
+            Thread.Sleep(1000);                         
 
+            Console.Clear();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            CombatUI();
 
 
         }
 
-
+        static void CombatUI()
+        {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }
 
 
 

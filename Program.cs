@@ -7,9 +7,12 @@ namespace TeamCSFile
     internal class Program
     {
 
-
+        // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
         public static string[] InventoryName = { "Item 1", "Item 2", "Item 3", "Item 4" };
+        //This one is for combat
+        public static int[] CombatInventoryAmount = { 3, 0, 2};
+        public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion"};
 
 
         //Global Combat Variables
@@ -99,7 +102,7 @@ namespace TeamCSFile
                         break;
 
                     case 0:
-                        //Exit();
+                        Exit();
                         inMenu = false;
                         break;
                     default:
@@ -205,6 +208,46 @@ namespace TeamCSFile
             }
             Console.WriteLine("Press enter to continue.");
             Console.ReadLine();
+
+        }
+
+        static void CombatInventory()
+        {
+            Console.Clear();
+            int temp = 0;
+            for (int i = 0; i < CombatInventoryAmount.Length; i++)
+            {
+                if (CombatInventoryAmount[i] != 0)
+                {
+                    Console.WriteLine($"Enter {i} to use one of your {CombatInventoryAmount[i]} {CombatInventoryName[i]}s.");
+                }
+                
+            }
+            Console.WriteLine("Enter the item you want to do or 0 if you want to exit.");
+            temp = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            switch (temp)
+            {
+                case 1:
+                    if (CombatInventoryAmount[temp] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp]}");
+                        Health = Health + 10;
+                        Console.WriteLine($"You gain 10 Health.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid Input. Please keep it between 0-3");
+                    Console.ReadLine();
+                    break;
+
+            }
 
         }
 
@@ -491,7 +534,8 @@ namespace TeamCSFile
 
         static void Clothing()
         {
-
+            Console.Clear();
+            Console.WriteLine("You enter the Clothing section in order to find the ______.");
 
 
 

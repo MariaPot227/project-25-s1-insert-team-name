@@ -24,8 +24,8 @@ namespace TeamCSFile
         //------------------------------
 
         static void Main()
-
             { // Intro :
+
                 Console.WriteLine("Your goal is to get an item form four  rooms/sections each room has different obstacles Find all four items and, make it to checkout and you win " +
                     "GOOD LUCK ");
                 Console.WriteLine("Press Enter to proceed");
@@ -214,11 +214,12 @@ namespace TeamCSFile
         {
             Console.Clear();
             int temp = 0;
+            Console.WriteLine($"Your health is {Health}HP.");
             for (int i = 0; i < CombatInventoryAmount.Length; i++)
             {
                 if (CombatInventoryAmount[i] != 0)
                 {
-                    Console.WriteLine($"Enter {i} to use one of your {CombatInventoryAmount[i]} {CombatInventoryName[i]}s.");
+                    Console.WriteLine($"Enter {i + 1} to use one of your {CombatInventoryAmount[i]} {CombatInventoryName[i]}s.");
                 }
                 
             }
@@ -228,11 +229,15 @@ namespace TeamCSFile
             switch (temp)
             {
                 case 1:
-                    if (CombatInventoryAmount[temp] > 0)
+                    if (CombatInventoryAmount[temp - 1] > 0)
                     {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp]}");
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
                         Health = Health + 10;
-                        Console.WriteLine($"You gain 10 Health.\nEnter to continue");
+                        if (Health > 100)
+                        {
+                            Health = 100;
+                        }
+                        Console.WriteLine($"You gain 10 Health. You have now have {Health}HP.\nEnter to continue");
                         Console.ReadLine();
                     }
                     else
@@ -242,11 +247,15 @@ namespace TeamCSFile
                     }
                     break;
                 case 2:
-                    if (CombatInventoryAmount[temp] > 0)
+                    if (CombatInventoryAmount[temp - 1] > 0)
                     {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp]}");
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
                         Health = Health + 25;
-                        Console.WriteLine($"You gain 25 Health.\nEnter to continue");
+                        if (Health > 100)
+                        {
+                            Health = 100;
+                        }
+                        Console.WriteLine($"You gain 25 Health. You have now have {Health}HP.\nEnter to continue");
                         Console.ReadLine();
                     }
                     else
@@ -256,11 +265,15 @@ namespace TeamCSFile
                     }
                     break;
                 case 3:
-                    if (CombatInventoryAmount[temp] > 0)
+                    if (CombatInventoryAmount[temp - 1] > 0)
                     {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp]}");
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
                         Health = Health + 50;
-                        Console.WriteLine($"You gain 50 Health.\nEnter to continue");
+                        if (Health > 100)
+                        {
+                            Health = 100;
+                        }
+                        Console.WriteLine($"You gain 50 Health. You have now have {Health}HP.\nEnter to continue");
                         Console.ReadLine();
                     }
                     else

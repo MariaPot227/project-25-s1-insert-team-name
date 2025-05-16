@@ -9,11 +9,13 @@ namespace TeamCSFile
 
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
-        public static string[] InventoryName = { "Item 1", "Item 2", "Item 3", "Item 4" };
+        public static string[] InventoryName = { "Item 1", "Item 2", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
         //This one is for combat
         public static int[] CombatInventoryAmount = { 3, 0, 2};
         public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion"};
-
+        
+        //Random added
+        public static Random rand = new Random();
 
         //Global Combat Variables
         public static int Health = 100;
@@ -150,8 +152,8 @@ namespace TeamCSFile
                     switch (num)
                     {
                         case 1:
-                            Clothing();
                             Room = 1;
+                            Clothing();
                             Console.WriteLine("This is Clothing\n" + "Press 0 to exit");
                             return "Clothing";
 
@@ -213,7 +215,6 @@ namespace TeamCSFile
         static void CombatInventory()
         {
             Console.Clear();
-            int temp = 0;
             Console.WriteLine($"Your health is {Health}HP.");
             for (int i = 0; i < CombatInventoryAmount.Length; i++)
             {
@@ -224,7 +225,7 @@ namespace TeamCSFile
                 
             }
             Console.WriteLine("Enter the item you want to do or 0 if you want to exit.");
-            temp = Convert.ToInt32(Console.ReadLine());
+            int temp = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             switch (temp)
             {
@@ -232,7 +233,7 @@ namespace TeamCSFile
                     if (CombatInventoryAmount[temp - 1] > 0)
                     {
                         Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Health = Health + 10;
+                        Health = Health + 10;  //Change this and the other values like this for the amount of health you want the potion to do. 
                         if (Health > 100)
                         {
                             Health = 100;
@@ -577,15 +578,61 @@ namespace TeamCSFile
         static void Clothing()
         {
             Console.Clear();
-            Console.WriteLine("You enter the Clothing section in order to find the ______.");
-
-
-
-
-
-
+            Console.WriteLine("You enter the Clothing section in order to find the ______."); //Need variable option for what you're finding
+            Thread.Sleep(3000);
+            bool running = true;
+            while (running)
+            {
+                Console.Clear();
+                Console.WriteLine("You look around to see racks of clothing all around you, maybe what you're searching for is in these racks.");
+                Console.WriteLine("You also see that you can continue forward between these racks, but it looks like the prime spot for you to get jumped.\nDo you");
+                Console.WriteLine("1: Search the clothing racks in hopes of finding the lost item.\n2: Continue forward, knowing you are most likely to get jumped.");
+                Console.WriteLine("3: Leave.");
+                int temp = 0;
+                try
+                {
+                    temp = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Huh");
+                    Console.ReadLine();
+                }
+                Console.Clear();
+                switch (temp)
+                {
+                    case 1:
+                        Console.WriteLine("You look in the clothing racks.");
+                        Thread.Sleep(2000);
+                        temp = rand.Next(1000);
+                        if (temp == 365)
+                        {
+                            Console.WriteLine("And found the ______!");
+                            //Thing to add the item
+                        }
+                        else
+                        {
+                            Console.WriteLine("And found nothing.");
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("You venture between the racks to find the item.");
+                        ClothingDeeper();
+                        break;
+                    case 3:
+                        Console.WriteLine("You decided to leave.\nEnter to continue.");
+                        running = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
-
+        static void ClothingDeeper()
+        {
+            Console.Clear();
+            //Continue with it here for clean look.
+        }
 
 
 

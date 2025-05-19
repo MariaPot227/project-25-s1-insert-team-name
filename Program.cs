@@ -11,9 +11,9 @@ namespace TeamCSFile
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
         public static string[] InventoryName = { "Item 1", "Item 2", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
         //This one is for combat
-        public static int[] CombatInventoryAmount = { 3, 0, 2};
-        public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion"};
-        
+        public static int[] CombatInventoryAmount = { 3, 0, 2 };
+        public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion" };
+
         //Random added
         public static Random rand = new Random();
 
@@ -26,28 +26,28 @@ namespace TeamCSFile
         //------------------------------
 
         static void Main()
-            { // Intro :
+        { // Intro :
 
-                Console.WriteLine("Your goal is to get an item form four  rooms/sections each room has different obstacles Find all four items and, make it to checkout and you win " +
-                    "GOOD LUCK ");
-                Console.WriteLine("Press Enter to proceed");
-                Console.ReadLine();
-                Hub();
-
-
-
-
-
-
-
-            }
+            Console.WriteLine("Your goal is to get an item form four  rooms/sections each room has different obstacles Find all four items and, make it to checkout and you win " +
+                "GOOD LUCK ");
+            Console.WriteLine("Press Enter to proceed");
+            Console.ReadLine();
+            Hub();
 
 
 
 
 
 
-            static void Hub()
+
+        }
+
+
+
+
+
+
+        static void Hub()
         {
 
             // move rooms - to which room new method
@@ -171,15 +171,13 @@ namespace TeamCSFile
                             return "Toys";
 
                         case 4:
-                            Camping(); 
+                            Camping();
                             Room = 4;
                             Console.WriteLine("This is Camping\n" + "Press 0 to exit");
                             return "Camping";
 
                         case 0:
-                            //Console.WriteLine("This is task 1\n" + "Press 0 to exit");
 
-                            //return to menu;
                             inMenu = false;
                             return "Exiting";
                         default:
@@ -222,7 +220,7 @@ namespace TeamCSFile
                 {
                     Console.WriteLine($"Enter {i + 1} to use one of your {CombatInventoryAmount[i]} {CombatInventoryName[i]}s.");
                 }
-                
+
             }
             Console.WriteLine("Enter the item you want to do or 0 if you want to exit.");
             int temp = Convert.ToInt32(Console.ReadLine());
@@ -433,11 +431,11 @@ namespace TeamCSFile
 
                         break;
 
-                    case 2:             
+                    case 2:
 
-                        PullEnemy = rand.Next(Room2Enemies.Length);     
+                        PullEnemy = rand.Next(Room2Enemies.Length);
 
-                        onfield[i] = Room2Enemies[PullEnemy];               
+                        onfield[i] = Room2Enemies[PullEnemy];
 
                         break;
 
@@ -517,7 +515,7 @@ namespace TeamCSFile
             }
 
 
-            Thread.Sleep(1000);                         
+            Thread.Sleep(1000);
 
             Console.Clear();
 
@@ -527,39 +525,39 @@ namespace TeamCSFile
 
         static void CombatUI()
         {
-            string border = new string('-', 60);        
-        
+            string border = new string('-', 60);
+
             //do 
             //{ 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
+
+
+
+
             //}
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -669,21 +667,22 @@ namespace TeamCSFile
 
         static void Electronics()
         {
-            bool sectionActive = true; // keeps the section active until the player leaves
-            int playerChoice = 0; // player choice
+            bool sectionActive = true, gotItem = false; // keeps the section active until the player leaves
+            int playerChoice = 0;
+           
             Console.Clear();
             Console.WriteLine("You step into the Electronics section.");
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
             Console.WriteLine("Rows of glittering screens, RGB keyboards and tangled cables stretch before you.");
-            Thread.Sleep(3000);
-            Console.WriteLine($"You’re here for: ");  // e.g. “Smart Phone”
-            Thread.Sleep(2000);
+            //Thread.Sleep(3000);
+            Console.WriteLine($"You’re here looking for a  ");  // e.g. “Smart Phone”
+            //Thread.Sleep(2000);
             do
             {
                 Console.WriteLine("As you scan the shelves, you see:\n  " +
-                                  "A) A neat stack of USB cables.\n  " +
-                                  "B) A half-broken display of portable chargers.\n  " +
-                                  "C) A frazzled Granny clutching a tangled headset.\n");
+                                  "1) A neat stack of USB cables.\n  " +
+                                  "2) A half-broken display of portable chargers.\n  " +
+                                  "3) A frazzled Granny clutching a tangled headset.\n");
                 Console.WriteLine("Press Enter to continue.");
                 Console.ReadLine();
                 Console.Clear();
@@ -692,10 +691,17 @@ namespace TeamCSFile
                                   "2) Investigate the portable chargers.\n  " +
                                   "3) Help the Granny with her headset.\n  " +
                                   "0) Leave the section.\n");
-                Thread.Sleep(2000);
-                Console.Clear();
+                
+                
 
-                playerChoice = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    playerChoice = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid Input");
+                }
 
                 switch (playerChoice)
                 {
@@ -705,28 +711,34 @@ namespace TeamCSFile
                         break;
                     case 1:
                         Console.WriteLine("You approach the USB cables. ");
-                        //Console.WriteLine("You pick up a USB cable.");
-                        
+                        Thread.Sleep(500);
+                        Console.WriteLine("You pick up a USB cable that stands out as its the only one there that is un-spooled.");
+
                         break;
 
                     case 2:
-                        Console.WriteLine("You investigate the portable chargers. ");
-                        
-                        
+                        Console.WriteLine("You investigate the portable chargers.");
+                        Combat();
+
                         break;
                     case 3:
-                        Console.WriteLine("You help the Granny with her headset.");// riddle? 
-                        
-                        
+                        Console.WriteLine("You decide to help the Granny with her headset.");// riddle? 
+
+
                         break;
                     default:
-                        Console.WriteLine("Invalid choice. Please try again.");
+                        Console.WriteLine("Invalid choice, please pick 1, 2 or 3.");
                         break;
+                }
+                Console.Clear();
+
+                if (gotItem == true)
+                {
+                    sectionActive = false;
                 }
 
             } while (sectionActive);
-
-            Console.ReadLine();
+       
         }
 
 
@@ -814,7 +826,7 @@ namespace TeamCSFile
 
 
 
-            }
+    }
 }
 
 

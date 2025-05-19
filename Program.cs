@@ -682,7 +682,8 @@ namespace TeamCSFile
                 Console.WriteLine("As you scan the shelves, you see:\n  " +
                                   "1) A neat stack of USB cables.\n  " +
                                   "2) A half-broken display of portable chargers.\n  " +
-                                  "3) A frazzled Granny clutching a tangled headset.\n");
+                                  "3) A frazzled Granny clutching a tangled headset.\n" +
+                                  "4) A dimly lit aisle that makes it hard to see what’s ahead.");
                 Console.WriteLine("Press Enter to continue.");
                 Console.ReadLine();
                 Console.Clear();
@@ -690,6 +691,7 @@ namespace TeamCSFile
                                   "1) Approach the USB cables.\n  " +
                                   "2) Investigate the portable chargers.\n  " +
                                   "3) Help the Granny with her headset.\n  " +
+                                  "4) Go down the dimly lit aisle.\n  " +
                                   "0) Leave the section.\n");
                 
                 
@@ -717,14 +719,22 @@ namespace TeamCSFile
                         break;
 
                     case 2:
-                        Console.WriteLine("You investigate the portable chargers.");
-                        Combat();
+                        Console.WriteLine("You sort through the pile of portable chargers. One claims to charge a fridge. Another has three buttons and no ports.\n" +
+                          $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[1]} just sitting there like a free sample.\n  You casually slip it into your inventory before anyone notices.");// I could change this to something else 
+                        // add to inventory 
+                        Console.Write("\nPress enter to continue.");
+                        Console.ReadLine();
 
                         break;
                     case 3:
-                        Console.WriteLine("You decide to help the Granny with her headset.");// riddle? 
+                        Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\n'Excuse me,' she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.");// riddle? 
 
-
+                        Console.Write("\nPress enter to continue.");
+                        Console.ReadLine();
+                        break;
+                    case 4:
+                        Console.WriteLine("You step cautiously into the dimly lit aisle. The flickering lights above barely illuminate the path ahead.");// boss fight room if you dont get the item 
+                        Combat();
                         break;
                     default:
                         Console.WriteLine("Invalid choice, please pick 1, 2 or 3.");

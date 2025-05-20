@@ -27,7 +27,7 @@ namespace TeamCSFile
 
         static void Main()
         { // Intro :
-
+            
             Console.WriteLine("Your goal is to get an item from all four rooms/sections. \nEach room has different obstacles. \nFind all four items and make it to checkout to finish shopping" +
                 $" GOOD LUCK. \nYou need to find a {InventoryName[0]}, a {InventoryName[1]}, a {InventoryName[2]} and a {InventoryName[3]}");
             Console.WriteLine("Press Enter to proceed");
@@ -167,8 +167,8 @@ namespace TeamCSFile
                             return "Toys";
 
                         case 4:
-                            Camping();
                             Room = 4;
+                            Camping();
                             Console.WriteLine("This is Camping\n" + "Press 0 to exit");
                             return "Camping";
 
@@ -689,7 +689,7 @@ namespace TeamCSFile
 
         static void Camping()
         {
-
+            Combat();
 
 
 

@@ -29,7 +29,7 @@ namespace TeamCSFile
 
         static void Main()
         { // Intro :
-            
+
             Console.WriteLine("Your goal is to get an item from all four rooms/sections. \nEach room has different obstacles. \nFind all four items and make it to checkout to finish shopping" +
                 $" GOOD LUCK. \nYou need to find a {InventoryName[0]}, a {InventoryName[1]}, a {InventoryName[2]} and a {InventoryName[3]}");
             Console.WriteLine("Press Enter to proceed");
@@ -71,7 +71,7 @@ namespace TeamCSFile
                                   "2  Room Selection\n" +
                                   "3  Check Your inventory\n" +
                                   "4  Show areas completed\n" +
-                                  "5  Shopping list\n" +
+                                  "5  Shopping list\n" + // exiting the store checkout if you have all the items you can leave final boss
                                   "0  Exit The Menu");
 
                 try
@@ -506,37 +506,37 @@ namespace TeamCSFile
                     break;
 
 
-                
+
 
             }
 
             Thread.Sleep(1000);
 
             Console.Clear();
-            
+
             // Combat UI v
 
             string border = new string('-', 60);
 
-            do 
-            { 
-              Console.Write(border);
+            do
+            {
+                Console.Write(border);
 
-              Thread.Sleep(1000);
+                Thread.Sleep(1000);
 
-              Console.Write("\n\n\t\t\t\tENEMIES");
+                Console.Write("\n\n\t\t\t\tENEMIES");
 
-              if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
+                if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
                 {
                     Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
                 }
 
-              else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
+                else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
                 {
                     Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP");
                 }
 
-               else if (enem1Health > 0 && enem2Health <= 0 && enem3Health <= 0)    // if only enemy 1 is alive
+                else if (enem1Health > 0 && enem2Health <= 0 && enem3Health <= 0)    // if only enemy 1 is alive
                 {
                     Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP");
                 }
@@ -561,7 +561,7 @@ namespace TeamCSFile
                     Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
                 }
 
-                
+
 
 
 
@@ -721,8 +721,8 @@ namespace TeamCSFile
             int playerChoice = 0, pickUp = 0;
             string answer;
             rand = new Random();
-            
-           
+
+
             Console.Clear();
             Console.WriteLine("You step into the Electronics section.");
             //Thread.Sleep(2000);
@@ -746,8 +746,8 @@ namespace TeamCSFile
                                   "3) Help the Granny with her headset.\n  " +
                                   "4) Go down the dimly lit aisle.\n  " +
                                   "0) Leave the section.\n");
-                
-                
+
+
 
                 try
                 {
@@ -781,7 +781,7 @@ namespace TeamCSFile
 
                     case 3:
                         Granny();
-                        
+
                         Console.Write("\nPress enter to continue.");
                         Console.ReadLine();
                         break;
@@ -816,23 +816,35 @@ namespace TeamCSFile
 
             void Granny()
             {
+                //bool help = false;
+                string yn;
                 Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\n'Excuse me,' she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.\n\n");// riddle? 
-                Thread.Sleep(2000);
-                Console.WriteLine("Now listen here, dear — this thing says it's wireless, but I don’t see how it works without a wire!\nMaybe you can figure it out if you’re clever:\nI travel through air,\nbut I’m not a bird.\nI carry music,\nyet say not a word.\nWhat am I?");// bluetooth 
-                answer = Convert.ToString(Console.ReadLine().Trim().ToLower());
-                if (answer == "bluetooth" ||  answer == "signal")
+                Console.Write("\nDo you want to help her y/n?");
+                yn = Console.ReadLine().Trim().ToLower();
+                if (yn == "y" || yn == "yes")
                 {
-                    Console.WriteLine($"Granny blinks, then breaks into a wide grin.\n“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.”\nShe digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\n“Here, take this. I grabbed it earlier thinking it was a fancy hearing aid, but it’s actually what you’re after.”\nShe hands you the {InventoryName[1]}.\n“Don’t let it bite!”");
-                    
-                    InventoryAmount[1] += 1;
-                    Console.WriteLine("Item acquired! You successfully found what you were looking for.");
-                    gotItem = true;
+                    Console.Clear();
+                    Console.WriteLine("You say you will help her\n");
+                    Console.WriteLine("Now listen here, dear — this thing says it's wireless, but I don’t see how it works without a wire!\nMaybe you can figure it out if you’re clever:\nI travel through air,\nbut I’m not a bird.\nI carry music,\nyet say not a word.\nWhat am I?");// bluetooth 
+                    answer = Convert.ToString(Console.ReadLine().Trim().ToLower());
+                    if (answer == "bluetooth" || answer == "signal" || answer == "wifi")
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine($"Granny blinks, then breaks into a wide grin.\n“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.”\nShe digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\n“Here, take this. I grabbed it earlier thinking it was a fancy hearing aid, but it’s actually what you’re after.”\nShe hands you the {InventoryName[1]}.\n“Don’t let it bite!”");
+
+                        InventoryAmount[1] += 1;
+                        Console.WriteLine("Item acquired! You successfully found what you were looking for.");
+                        gotItem = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Oh heavens, I was hoping you knew. Maybe we should both go back to using tin cans and string!");
+                        // exit interaction
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Oh heavens, I was hoping you knew. Maybe we should both go back to using tin cans and string!");
-                    // exit interaction
-                }
+
+
 
             }
 

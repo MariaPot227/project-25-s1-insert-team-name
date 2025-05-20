@@ -563,7 +563,7 @@ namespace TeamCSFile
                     Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
                 }
 
-
+                Console.Read();
 
 
 

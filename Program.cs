@@ -506,10 +506,11 @@ namespace TeamCSFile
                     break;
 
 
-
+                
 
             }
 
+            Console.ReadLine();
 
             Thread.Sleep(1000);
 
@@ -521,6 +522,71 @@ namespace TeamCSFile
 
             do 
             { 
+              Console.Write(border);
+
+              Thread.Sleep(1000);
+
+              Console.Write("\n\n\t\t\t\tENEMIES");
+
+              if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
+                {
+                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                }
+
+              else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
+                {
+                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP");
+                }
+
+               else if (enem1Health > 0 && enem2Health <= 0 && enem3Health <= 0)    // if only enemy 1 is alive
+                {
+                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP");
+                }
+
+                else if (enem1Health > 0 && enem2Health <= 0 && enem3Health > 0)        // if only enemy 1 and 3 are alive
+                {
+                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[2]}: {enem3Health}HP");
+                }
+
+                else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 and 3 are alive
+                {
+                    Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                }
+
+                else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 is alive
+                {
+                    Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP");
+                }
+
+                else       // if only enemy 3 is alive
+                {
+                    Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

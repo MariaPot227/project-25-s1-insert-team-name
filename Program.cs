@@ -515,16 +515,16 @@ namespace TeamCSFile
 
             Console.Clear();
 
-            CombatUI();
+            CombatUI(enem1Health, enem2Health, enem3Health);
 
         }
 
-        static void CombatUI()
+        public static void CombatUI(int enem1Health, int enem2Health, int enem3Health)
         {
             string border = new string('-', 60);
 
-            //do 
-            //{ 
+            do 
+            { 
 
 
 
@@ -537,32 +537,22 @@ namespace TeamCSFile
 
 
 
-            //}
+            }
+            while (Health > 0 || enem1Health > 0 && enem2Health > 0 && enem3Health > 0);
 
+            Console.Clear();
 
+            if (Health <= 0)
+            {
+                Console.WriteLine("\n\nYOU DIED");
+            }
 
+            else
+            {
+                Console.WriteLine("\n\nYou Won!");
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            Console.Clear();
 
 
         }

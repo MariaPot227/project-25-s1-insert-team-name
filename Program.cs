@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO.Pipes;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
@@ -10,7 +11,7 @@ namespace TeamCSFile
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
 
-        public static string[] InventoryName = { "Baseball cap", "Bluetooth Speaker", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
+        public static string[] InventoryName = { "Baseball Cap", "Bluetooth Speaker", "Item 3", "Yard Chair" }; //Maybe put these inside the inventory method
 
         //This one is for combat
         public static int[] CombatInventoryAmount = { 3, 0, 2 };
@@ -396,7 +397,7 @@ namespace TeamCSFile
 
             // v Attack List
 
-            int Light = 10, Strong = 20; // < values are how much damage each attack does (and stamina drained?)
+            int Light = 20, Strong = 35; // < values are how much damage each attack does (and stamina drained?)
 
 
 
@@ -413,7 +414,7 @@ namespace TeamCSFile
 
             enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
 
-            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0;              //< initialize enemy healthbars
+            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0;              //< initialize enemy healthbars
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
             {
@@ -561,9 +562,116 @@ namespace TeamCSFile
                     Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
                 }
 
+<<<<<<< HEAD
+
+=======
+                Console.Write($"\n\n\n\nYOU\n\nHP: {Health} \t\t STM: {Stamina}\n\n1. Attack\t\t2. Items\t\t3. Guard");
+
+                option = Convert.ToInt16(Console.ReadLine());
+
+                if (option == 1)    // if Attack chosen
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("Select a target: ");
+
+                    if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
+                    {
+                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
+                    {
+                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health <= 0 && enem3Health <= 0)    // if only enemy 1 is alive
+                    {
+                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health <= 0 && enem3Health > 0)        // if only enemy 1 and 3 are alive
+                    {
+                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[2]}: {enem3Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 and 3 are alive
+                    {
+                        Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 is alive
+                    {
+                        Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP");
+                    }
+
+                    else       // if only enemy 3 is alive
+                    {
+                        Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
+                    }
+
+                    target = Convert.ToInt32(Console.ReadLine());
+
+                    Console.Clear();
+
+                    Console.WriteLine("Select an attack: ");
+
+                    Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)");
+
+                    option = Convert.ToInt32(Console.ReadLine());
+
+                    Console.Clear();
+
+                    if (option == 1)    // if Light Attack chosen
+                    {
+                        Stamina = Stamina - 10;
+
+                        switch (target) //enemy chosen
+                        {
+
+                            case 1:
+                                enem1Health = enem1Health - 20;
+                                break;
+
+                            case 2:
+                                enem2Health = enem2Health - 20;
+                                break;
+
+                            default:
+                                enem3Health = enem3Health - 20;
+                                break;
+                        }
+>>>>>>> ff5a0bb7190d13cd0252b6fdc188500f445d2e25
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                }
 
 
 
@@ -609,7 +717,7 @@ namespace TeamCSFile
 
             else
             {
-                Console.WriteLine("\n\nYou Won!");
+                Console.WriteLine("\n\nA WINNER IS YOU");
             }
 
             Console.Clear();
@@ -679,7 +787,53 @@ namespace TeamCSFile
             Console.Clear();
             //Continue with it here for clean look.
             Console.WriteLine($"After passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
-            Console.WriteLine("It looks like there is a dial beneath the glass container on the pedestal.");
+            Console.WriteLine("It looks like there is a dial on the pedestal that unlocks the glass container. Or maybe you just break the glass.\nDo you");
+            bool running = true;
+            while (running)
+            {
+                Console.WriteLine("1: Break the glass.\n2: Try the dial.\n3: Leave.");
+                int temp = 0;
+                try
+                {
+                    temp = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Huh");
+                    Console.ReadLine();
+                }
+                Console.Clear();
+                switch (temp)
+                {
+                    case 1:
+                        Console.WriteLine("You try to break the glass.");
+                        Thread.Sleep(1000);
+                        temp = rand.Next(100);
+                        if (temp == 65)
+                        {
+                            Console.WriteLine($"And succeed!");
+                            Console.WriteLine($"You got a {InventoryName[0]}!");
+                            InventoryAmount[0]++;
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("And failed.");
+                            Console.ReadLine();
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("You take a closer look at the dial.");
+                        break;
+                    case 3:
+                        Console.WriteLine("You decided to leave.\nEnter to continue.");
+                        running = false;
+                        break;
+                    default:
+                        break;
+                }
+                Console.Clear();
+            }
         }
 
 
@@ -687,7 +841,7 @@ namespace TeamCSFile
 
         static void Camping()
         {
-            Combat();
+            
 
 
 

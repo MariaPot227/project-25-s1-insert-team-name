@@ -136,9 +136,6 @@ namespace TeamCSFile
                                       "4  Camping\n" +
                                       "0  Back to the menu");
 
-
-
-
                     try
                     {
                         num = Convert.ToInt32(Console.ReadLine());
@@ -156,7 +153,6 @@ namespace TeamCSFile
                             Clothing();
                             Console.WriteLine("This is Clothing\n" + "Press 0 to exit");
                             return "Clothing";
-
 
                         case 2:
                             Electronics();
@@ -675,16 +671,16 @@ namespace TeamCSFile
             //Thread.Sleep(2000);
             Console.WriteLine("Rows of glittering screens, RGB keyboards and tangled cables stretch before you.");
             //Thread.Sleep(3000);
-            Console.WriteLine($"You’re here looking for a  ");  // e.g. “Smart Phone”
+            Console.WriteLine($"\n\nYou’re here looking for a  \n");  // e.g. “Smart Phone”
             //Thread.Sleep(2000);
             do
             {
                 Console.WriteLine("As you scan the shelves, you see:\n  " +
                                   "1) A neat stack of USB cables.\n  " +
                                   "2) A half-broken display of portable chargers.\n  " +
-                                  "3) A frazzled Granny clutching a tangled headset.\n" +
+                                  "3) A frazzled Granny clutching a tangled headset.\n  " +
                                   "4) A dimly lit aisle that makes it hard to see what’s ahead.");
-                Console.WriteLine("Press Enter to continue.");
+                Console.WriteLine("\n\n\nPress Enter to continue.");
                 Console.ReadLine();
                 Console.Clear();
                 Console.WriteLine("What do you want to do?\n  " +
@@ -711,34 +707,40 @@ namespace TeamCSFile
                         Console.WriteLine("You decide to leave the Electronics section.");
                         sectionActive = false;
                         break;
+
                     case 1:
-                        Console.WriteLine("You approach the USB cables. ");
+                        Console.WriteLine("You approach the USB cables. ");// combat section maybe 
                         Thread.Sleep(500);
                         Console.WriteLine("You pick up a USB cable that stands out as its the only one there that is un-spooled.");
 
+                        //Combat();
                         break;
 
                     case 2:
                         Console.WriteLine("You sort through the pile of portable chargers. One claims to charge a fridge. Another has three buttons and no ports.\n" +
                           $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[1]} just sitting there like a free sample.\n  You casually slip it into your inventory before anyone notices.");// I could change this to something else 
+                        Console.WriteLine("You don't see anything else useful in the area.");
                         // add to inventory 
                         Console.Write("\nPress enter to continue.");
                         Console.ReadLine();
-
                         break;
+
                     case 3:
                         Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\n'Excuse me,' she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.");// riddle? 
 
                         Console.Write("\nPress enter to continue.");
                         Console.ReadLine();
                         break;
+
                     case 4:
-                        Console.WriteLine("You step cautiously into the dimly lit aisle. The flickering lights above barely illuminate the path ahead.");// boss fight room if you dont get the item 
-                        Combat();
+                        Console.WriteLine("You step cautiously into the dimly lit aisle. The flickering lights above barely illuminate the path ahead.");// boss fight room if you dont get the item earlier
+                        //Combat();
                         break;
+
                     default:
                         Console.WriteLine("Invalid choice, please pick 1, 2 or 3.");
                         break;
+
                 }
                 Console.Clear();
 
@@ -749,6 +751,7 @@ namespace TeamCSFile
 
             } while (sectionActive);
        
+            // change kmartItems to an array of arrays so we can pick 1 of each as it loops as atm if we loop through it. we might get 2 from one section but not another.
         }
 
 

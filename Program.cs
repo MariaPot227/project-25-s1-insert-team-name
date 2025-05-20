@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO.Pipes;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
@@ -565,7 +566,7 @@ namespace TeamCSFile
 
                 option = Convert.ToInt16(Console.ReadLine());
 
-                if (option == 1)
+                if (option == 1)    // if Attack chosen
                 {
                     Console.Clear();
 
@@ -618,8 +619,38 @@ namespace TeamCSFile
 
                     Console.Clear();
 
-                    if (option == 1)
+                    if (option == 1)    // if Light Attack chosen
                     {
+                        Stamina = Stamina - 10;
+
+                        switch (target) //enemy chosen
+                        {
+
+                            case 1:
+                                enem1Health = enem1Health - 20;
+                                break;
+
+                            case 2:
+                                enem2Health = enem2Health - 20;
+                                break;
+
+                            default:
+                                enem3Health = enem3Health - 20;
+                                break;
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     }
 

@@ -9,7 +9,7 @@ namespace TeamCSFile
 
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
-        public static string[] InventoryName = { "Item 1", "Item 2", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
+        public static string[] InventoryName = { "Baseball cap", "Item 2", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
         //This one is for combat
         public static int[] CombatInventoryAmount = { 3, 0, 2 };
         public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion" };
@@ -28,8 +28,8 @@ namespace TeamCSFile
         static void Main()
         { // Intro :
 
-            Console.WriteLine("Your goal is to get an item form four  rooms/sections each room has different obstacles Find all four items and, make it to checkout and you win " +
-                "GOOD LUCK ");
+            Console.WriteLine("Your goal is to get an item from all four rooms/sections. \nEach room has different obstacles. \nFind all four items and make it to checkout to finish shopping" +
+                $"GOOD LUCK. \nYou need to find a {InventoryName[0]}, a {InventoryName[1]}, a {InventoryName[2]} and a {InventoryName[3]}");
             Console.WriteLine("Press Enter to proceed");
             Console.ReadLine();
             Hub();
@@ -572,7 +572,7 @@ namespace TeamCSFile
         static void Clothing()
         {
             Console.Clear();
-            Console.WriteLine("You enter the Clothing section in order to find the ______."); //Need variable option for what you're finding
+            Console.WriteLine($"You enter the Clothing section in order to find the {InventoryName[0]}."); //Need variable option for what you're finding
             Thread.Sleep(3000);
             bool running = true;
             while (running)
@@ -602,11 +602,13 @@ namespace TeamCSFile
                         if (temp == 365)
                         {
                             Console.WriteLine("And found the ______!");
+                            temp = rand.Next(1000);
                             //Thing to add the item
                         }
                         else
                         {
                             Console.WriteLine("And found nothing.");
+                            temp = rand.Next(1000);
                         }
                         break;
                     case 2:

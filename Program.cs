@@ -511,25 +511,27 @@ namespace TeamCSFile
 
             }
 
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
             Console.Clear();
 
             // Combat UI v
 
-            string border = new string('-', 60);
+            string border = new string('-', 209);
 
             do
             {
                 Console.Write(border);
 
-                Thread.Sleep(1000);
+                Console.ForegroundColor = ConsoleColor.Red;
 
-                Console.Write("\n\n\t\t\t\tENEMIES");
+                Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tENEMIES");
+
+                Console.ForegroundColor = ConsoleColor.White;
 
                 if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
                 {
-                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                    Console.Write($"\n\n\t\t\t\t\t\t\t\t\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
                 }
 
                 else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
@@ -562,8 +564,17 @@ namespace TeamCSFile
                     Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
                 }
 
+                Console.ForegroundColor = ConsoleColor.Green;
 
-                Console.Write($"\n\n\n\nYOU\n\nHP: {Health} \t\t STM: {Stamina}\n\n1. Attack\t\t2. Items\t\t3. Guard");
+                Console.Write($"\n\n\n\n\n\n\n\n\n\n  YOU");
+
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard");
+
+                Console.Write("\n\n");
+
+                Console.Write(border);
 
                 option = Convert.ToInt16(Console.ReadLine());
 

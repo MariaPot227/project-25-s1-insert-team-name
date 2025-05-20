@@ -11,7 +11,7 @@ namespace TeamCSFile
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
 
-        public static string[] InventoryName = { "Baseball cap", "Bluetooth Speaker", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
+        public static string[] InventoryName = { "Baseball Cap", "Bluetooth Speaker", "Item 3", "Yard Chair" }; //Maybe put these inside the inventory method
 
         //This one is for combat
         public static int[] CombatInventoryAmount = { 3, 0, 2 };
@@ -783,7 +783,53 @@ namespace TeamCSFile
             Console.Clear();
             //Continue with it here for clean look.
             Console.WriteLine($"After passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
-            Console.WriteLine("It looks like there is a dial beneath the glass container on the pedestal.");
+            Console.WriteLine("It looks like there is a dial on the pedestal that unlocks the glass container. Or maybe you just break the glass.\nDo you");
+            bool running = true;
+            while (running)
+            {
+                Console.WriteLine("1: Break the glass.\n2: Try the dial.\n3: Leave.");
+                int temp = 0;
+                try
+                {
+                    temp = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Huh");
+                    Console.ReadLine();
+                }
+                Console.Clear();
+                switch (temp)
+                {
+                    case 1:
+                        Console.WriteLine("You try to break the glass.");
+                        Thread.Sleep(1000);
+                        temp = rand.Next(100);
+                        if (temp == 65)
+                        {
+                            Console.WriteLine($"And succeed!");
+                            Console.WriteLine($"You got a {InventoryName[0]}!");
+                            InventoryAmount[0]++;
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("And failed.");
+                            Console.ReadLine();
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("You take a closer look at the dial.");
+                        break;
+                    case 3:
+                        Console.WriteLine("You decided to leave.\nEnter to continue.");
+                        running = false;
+                        break;
+                    default:
+                        break;
+                }
+                Console.Clear();
+            }
         }
 
 
@@ -791,7 +837,7 @@ namespace TeamCSFile
 
         static void Camping()
         {
-            Combat();
+            
 
 
 

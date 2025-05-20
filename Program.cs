@@ -9,7 +9,11 @@ namespace TeamCSFile
 
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
+<<<<<<< HEAD
+        public static string[] InventoryName = { "Item 1", "Bluetooth Speaker", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
+=======
         public static string[] InventoryName = { "Baseball cap", "Item 2", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
+>>>>>>> 76350ad389558e2eae7f6acce8be81e3b00e3564
         //This one is for combat
         public static int[] CombatInventoryAmount = { 3, 0, 2 };
         public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion" };
@@ -387,8 +391,6 @@ namespace TeamCSFile
 
             Thread.Sleep(1500);
 
-            Console.ReadLine();
-
             // ^ Intro to combat scenario
 
 
@@ -510,8 +512,6 @@ namespace TeamCSFile
 
             }
 
-            Console.ReadLine();
-
             Thread.Sleep(1000);
 
             Console.Clear();
@@ -563,7 +563,7 @@ namespace TeamCSFile
                     Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
                 }
 
-                Console.Read();
+                
 
 
 
@@ -720,14 +720,17 @@ namespace TeamCSFile
         static void Electronics()
         {
             bool sectionActive = true, gotItem = false; // keeps the section active until the player leaves
-            int playerChoice = 0;
+            int playerChoice = 0, pickUp = 0;
+            string answer;
+            rand = new Random();
+            
            
             Console.Clear();
             Console.WriteLine("You step into the Electronics section.");
             //Thread.Sleep(2000);
             Console.WriteLine("Rows of glittering screens, RGB keyboards and tangled cables stretch before you.");
             //Thread.Sleep(3000);
-            Console.WriteLine($"\n\nYou’re here looking for a  \n");  // e.g. “Smart Phone”
+            Console.WriteLine($"\n\nYou’re here looking for a {InventoryName[1]} \n");  // e.g. “Smart Phone”
             //Thread.Sleep(2000);
             do
             {
@@ -773,17 +776,14 @@ namespace TeamCSFile
                         break;
 
                     case 2:
-                        Console.WriteLine("You sort through the pile of portable chargers. One claims to charge a fridge. Another has three buttons and no ports.\n" +
-                          $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[1]} just sitting there like a free sample.\n  You casually slip it into your inventory before anyone notices.");// I could change this to something else 
-                        Console.WriteLine("You don't see anything else useful in the area.");
-                        // add to inventory 
+                        Chargers();
                         Console.Write("\nPress enter to continue.");
                         Console.ReadLine();
                         break;
 
                     case 3:
-                        Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\n'Excuse me,' she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.");// riddle? 
-
+                        Granny();
+                        
                         Console.Write("\nPress enter to continue.");
                         Console.ReadLine();
                         break;
@@ -791,6 +791,7 @@ namespace TeamCSFile
                     case 4:
                         Console.WriteLine("You step cautiously into the dimly lit aisle. The flickering lights above barely illuminate the path ahead.");// boss fight room if you dont get the item earlier
                         //Combat();
+                        // InventoryAmount[2]+ 1 when getting the item
                         break;
 
                     default:
@@ -806,7 +807,37 @@ namespace TeamCSFile
                 }
 
             } while (sectionActive);
-       
+
+            void Chargers()
+            {
+                Console.WriteLine("You sort through the pile of portable chargers. One claims to charge a fridge. Another has three buttons and no ports.\n" +
+                          $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[1]} just sitting there like a free sample.\n  You casually slip it into your inventory before anyone notices.");
+                Console.WriteLine("You don't see anything else useful in the area.");
+                CombatInventoryAmount[1] += 1;
+            }
+
+            void Granny()
+            {
+                Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\n'Excuse me,' she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.\n\n");// riddle? 
+                Thread.Sleep(2000);
+                Console.WriteLine("Now listen here, dear — this thing says it's wireless, but I don’t see how it works without a wire!\nMaybe you can figure it out if you’re clever:\nI travel through air,\nbut I’m not a bird.\nI carry music,\nyet say not a word.\nWhat am I?");// bluetooth 
+                answer = Convert.ToString(Console.ReadLine().Trim().ToLower());
+                if (answer == "bluetooth" ||  answer == "signal")
+                {
+                    Console.WriteLine($"Granny blinks, then breaks into a wide grin.\n“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.”\nShe digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\n“Here, take this. I grabbed it earlier thinking it was a fancy hearing aid, but it’s actually what you’re after.”\nShe hands you the {InventoryName[1]}.\n“Don’t let it bite!”");
+                    
+                    InventoryAmount[1] += 1;
+                    Console.WriteLine("Item acquired! You successfully found what you were looking for.");
+                    gotItem = true;
+                }
+                else
+                {
+                    Console.WriteLine("Oh heavens, I was hoping you knew. Maybe we should both go back to using tin cans and string!");
+                    // exit interaction
+                }
+
+            }
+
             // change kmartItems to an array of arrays so we can pick 1 of each as it loops as atm if we loop through it. we might get 2 from one section but not another.
         }
 

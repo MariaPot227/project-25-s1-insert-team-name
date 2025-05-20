@@ -387,8 +387,6 @@ namespace TeamCSFile
 
             Thread.Sleep(1500);
 
-            Console.ReadLine();
-
             // ^ Intro to combat scenario
 
 
@@ -510,8 +508,6 @@ namespace TeamCSFile
 
             }
 
-            Console.ReadLine();
-
             Thread.Sleep(1000);
 
             Console.Clear();
@@ -563,7 +559,7 @@ namespace TeamCSFile
                     Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
                 }
 
-                Console.Read();
+                
 
 
 

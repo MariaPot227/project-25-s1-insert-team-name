@@ -293,7 +293,7 @@ namespace TeamCSFile
 
 
 
-        static void Combat()
+        public static void Combat()
         {
             string[] Room1Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 

@@ -474,7 +474,7 @@ namespace TeamCSFile
 
                     Console.WriteLine($"\n\nA wild {onfield[0]} approaches!");  // < tells user what enemy they are facing
 
-                    enem1Health = 50;
+                    enem1Health = 100;
 
                     break;
 
@@ -482,9 +482,9 @@ namespace TeamCSFile
 
                     Console.WriteLine($"\n\nYou are stopped by {onfield[0]} and {onfield[1]}.");
 
-                    enem1Health = 50;
+                    enem1Health = 100;
 
-                    enem2Health = 50;
+                    enem2Health = 100;
 
                     break;
 
@@ -492,11 +492,11 @@ namespace TeamCSFile
 
                     Console.WriteLine($"\n\nYou run into {onfield[0]}, {onfield[1]} and {onfield[2]}");
 
-                    enem1Health = 50;
+                    enem1Health = 100;
 
-                    enem2Health = 50;
+                    enem2Health = 100;
 
-                    enem3Health = 50;
+                    enem3Health = 100;
 
                     break;
 

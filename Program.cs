@@ -29,7 +29,7 @@ namespace TeamCSFile
         { // Intro :
 
             Console.WriteLine("Your goal is to get an item from all four rooms/sections. \nEach room has different obstacles. \nFind all four items and make it to checkout to finish shopping" +
-                $"GOOD LUCK. \nYou need to find a {InventoryName[0]}, a {InventoryName[1]}, a {InventoryName[2]} and a {InventoryName[3]}");
+                $" GOOD LUCK. \nYou need to find a {InventoryName[0]}, a {InventoryName[1]}, a {InventoryName[2]} and a {InventoryName[3]}");
             Console.WriteLine("Press Enter to proceed");
             Console.ReadLine();
             Hub();
@@ -563,7 +563,7 @@ namespace TeamCSFile
         {
             Console.Clear();
             Console.WriteLine($"You enter the Clothing section in order to find the {InventoryName[0]}."); //Need variable option for what you're finding
-            Thread.Sleep(3000);
+            Console.ReadLine();
             bool running = true;
             while (running)
             {
@@ -587,18 +587,18 @@ namespace TeamCSFile
                 {
                     case 1:
                         Console.WriteLine("You look in the clothing racks.");
-                        Thread.Sleep(2000);
+                        Thread.Sleep(1000);
                         temp = rand.Next(1000);
                         if (temp == 365)
                         {
-                            Console.WriteLine("And found the ______!");
-                            temp = rand.Next(1000);
-                            //Thing to add the item
+                            Console.WriteLine($"And found a {InventoryName[0]}!");
+                            InventoryAmount[0]++;
+                            Console.ReadLine();
                         }
                         else
                         {
                             Console.WriteLine("And found nothing.");
-                            temp = rand.Next(1000);
+                            Console.ReadLine();
                         }
                         break;
                     case 2:
@@ -618,6 +618,8 @@ namespace TeamCSFile
         {
             Console.Clear();
             //Continue with it here for clean look.
+            Console.WriteLine($"After passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
+            Console.WriteLine("It looks like there is a dial beneath the glass container on the pedestal.");
         }
 
 

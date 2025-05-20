@@ -398,7 +398,7 @@ namespace TeamCSFile
 
             // v Attack List
 
-            int Light = 10, Strong = 20; // < values are how much damage each attack does (and stamina drained?)
+            int Light = 20, Strong = 35; // < values are how much damage each attack does (and stamina drained?)
 
 
 
@@ -415,7 +415,7 @@ namespace TeamCSFile
 
             enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
 
-            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0;              //< initialize enemy healthbars
+            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0;              //< initialize enemy healthbars
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
             {
@@ -563,9 +563,82 @@ namespace TeamCSFile
                     Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
                 }
 
-                
+                Console.Write($"\n\n\n\nYOU\n\nHP: {Health} \t\t STM: {Stamina}\n\n1. Attack\t\t2. Items\t\t3. Guard");
+
+                option = Convert.ToInt16(Console.ReadLine());
+
+                if (option == 1)
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("Select a target: ");
+
+                    if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
+                    {
+                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
+                    {
+                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health <= 0 && enem3Health <= 0)    // if only enemy 1 is alive
+                    {
+                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health <= 0 && enem3Health > 0)        // if only enemy 1 and 3 are alive
+                    {
+                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[2]}: {enem3Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 and 3 are alive
+                    {
+                        Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                    }
+
+                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 is alive
+                    {
+                        Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP");
+                    }
+
+                    else       // if only enemy 3 is alive
+                    {
+                        Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
+                    }
+
+                    target = Convert.ToInt32(Console.ReadLine());
+
+                    Console.Clear();
+
+                    Console.WriteLine("Select an attack: ");
+
+                    Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)");
+
+                    option = Convert.ToInt32(Console.ReadLine());
+
+                    Console.Clear();
+
+                    if (option == 1)
+                    {
+
+                    }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+                }
 
 
 
@@ -611,7 +684,7 @@ namespace TeamCSFile
 
             else
             {
-                Console.WriteLine("\n\nYou Won!");
+                Console.WriteLine("\n\nA WINNER IS YOU");
             }
 
             Console.Clear();

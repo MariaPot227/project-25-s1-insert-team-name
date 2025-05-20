@@ -562,9 +562,7 @@ namespace TeamCSFile
                     Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
                 }
 
-<<<<<<< HEAD
 
-=======
                 Console.Write($"\n\n\n\nYOU\n\nHP: {Health} \t\t STM: {Stamina}\n\n1. Attack\t\t2. Items\t\t3. Guard");
 
                 option = Convert.ToInt16(Console.ReadLine());
@@ -641,7 +639,7 @@ namespace TeamCSFile
                                 enem3Health = enem3Health - 20;
                                 break;
                         }
->>>>>>> ff5a0bb7190d13cd0252b6fdc188500f445d2e25
+
 
 
 
@@ -924,7 +922,7 @@ namespace TeamCSFile
                         Thread.Sleep(500);
                         Console.WriteLine("You pick up a USB cable that stands out as its the only one there that is un-spooled.");
 
-                        //Combat();
+                        Combat();
                         break;
 
                     case 2:

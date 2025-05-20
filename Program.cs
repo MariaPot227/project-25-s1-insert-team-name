@@ -514,13 +514,9 @@ namespace TeamCSFile
             Thread.Sleep(1000);
 
             Console.Clear();
+            
+            // Combat UI v
 
-            CombatUI(enem1Health, enem2Health, enem3Health);
-
-        }
-
-        public static void CombatUI(int enem1Health, int enem2Health, int enem3Health)
-        {
             string border = new string('-', 60);
 
             do 

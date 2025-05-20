@@ -9,7 +9,11 @@ namespace TeamCSFile
 
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
+<<<<<<< HEAD
         public static string[] InventoryName = { "Item 1", "Bluetooth Speaker", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
+=======
+        public static string[] InventoryName = { "Baseball cap", "Item 2", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
+>>>>>>> 76350ad389558e2eae7f6acce8be81e3b00e3564
         //This one is for combat
         public static int[] CombatInventoryAmount = { 3, 0, 2 };
         public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion" };
@@ -28,8 +32,8 @@ namespace TeamCSFile
         static void Main()
         { // Intro :
 
-            Console.WriteLine("Your goal is to get an item form four  rooms/sections each room has different obstacles Find all four items and, make it to checkout and you win " +
-                "GOOD LUCK ");
+            Console.WriteLine("Your goal is to get an item from all four rooms/sections. \nEach room has different obstacles. \nFind all four items and make it to checkout to finish shopping" +
+                $"GOOD LUCK. \nYou need to find a {InventoryName[0]}, a {InventoryName[1]}, a {InventoryName[2]} and a {InventoryName[3]}");
             Console.WriteLine("Press Enter to proceed");
             Console.ReadLine();
             Hub();
@@ -293,7 +297,7 @@ namespace TeamCSFile
 
 
 
-        static void Combat()
+        public static void Combat()
         {
             string[] Room1Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
 
@@ -387,8 +391,6 @@ namespace TeamCSFile
 
             Thread.Sleep(1500);
 
-            Console.ReadLine();
-
             // ^ Intro to combat scenario
 
 
@@ -474,7 +476,7 @@ namespace TeamCSFile
 
                     Console.WriteLine($"\n\nA wild {onfield[0]} approaches!");  // < tells user what enemy they are facing
 
-                    enem1Health = 50;
+                    enem1Health = 100;
 
                     break;
 
@@ -482,9 +484,9 @@ namespace TeamCSFile
 
                     Console.WriteLine($"\n\nYou are stopped by {onfield[0]} and {onfield[1]}.");
 
-                    enem1Health = 50;
+                    enem1Health = 100;
 
-                    enem2Health = 50;
+                    enem2Health = 100;
 
                     break;
 
@@ -492,11 +494,11 @@ namespace TeamCSFile
 
                     Console.WriteLine($"\n\nYou run into {onfield[0]}, {onfield[1]} and {onfield[2]}");
 
-                    enem1Health = 50;
+                    enem1Health = 100;
 
-                    enem2Health = 50;
+                    enem2Health = 100;
 
-                    enem3Health = 50;
+                    enem3Health = 100;
 
                     break;
 
@@ -506,25 +508,62 @@ namespace TeamCSFile
                     break;
 
 
-
+                
 
             }
-
 
             Thread.Sleep(1000);
 
             Console.Clear();
+            
+            // Combat UI v
 
-            CombatUI();
-
-        }
-
-        static void CombatUI()
-        {
             string border = new string('-', 60);
 
-            //do 
-            //{ 
+            do 
+            { 
+              Console.Write(border);
+
+              Thread.Sleep(1000);
+
+              Console.Write("\n\n\t\t\t\tENEMIES");
+
+              if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
+                {
+                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                }
+
+              else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
+                {
+                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP");
+                }
+
+               else if (enem1Health > 0 && enem2Health <= 0 && enem3Health <= 0)    // if only enemy 1 is alive
+                {
+                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP");
+                }
+
+                else if (enem1Health > 0 && enem2Health <= 0 && enem3Health > 0)        // if only enemy 1 and 3 are alive
+                {
+                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[2]}: {enem3Health}HP");
+                }
+
+                else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 and 3 are alive
+                {
+                    Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                }
+
+                else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 is alive
+                {
+                    Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP");
+                }
+
+                else       // if only enemy 3 is alive
+                {
+                    Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
+                }
+
+                
 
 
 
@@ -537,7 +576,6 @@ namespace TeamCSFile
 
 
 
-            //}
 
 
 
@@ -561,8 +599,22 @@ namespace TeamCSFile
 
 
 
+            }
+            while (Health > 0 || enem1Health > 0 && enem2Health > 0 && enem3Health > 0);
 
+            Console.Clear();
 
+            if (Health <= 0)
+            {
+                Console.WriteLine("\n\nYOU DIED");
+            }
+
+            else
+            {
+                Console.WriteLine("\n\nYou Won!");
+            }
+
+            Console.Clear();
 
 
         }
@@ -572,7 +624,7 @@ namespace TeamCSFile
         static void Clothing()
         {
             Console.Clear();
-            Console.WriteLine("You enter the Clothing section in order to find the ______."); //Need variable option for what you're finding
+            Console.WriteLine($"You enter the Clothing section in order to find the {InventoryName[0]}."); //Need variable option for what you're finding
             Thread.Sleep(3000);
             bool running = true;
             while (running)
@@ -602,11 +654,13 @@ namespace TeamCSFile
                         if (temp == 365)
                         {
                             Console.WriteLine("And found the ______!");
+                            temp = rand.Next(1000);
                             //Thing to add the item
                         }
                         else
                         {
                             Console.WriteLine("And found nothing.");
+                            temp = rand.Next(1000);
                         }
                         break;
                     case 2:

@@ -9,11 +9,9 @@ namespace TeamCSFile
 
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
-<<<<<<< HEAD
-        public static string[] InventoryName = { "Item 1", "Bluetooth Speaker", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
-=======
-        public static string[] InventoryName = { "Baseball cap", "Item 2", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
->>>>>>> 76350ad389558e2eae7f6acce8be81e3b00e3564
+
+        public static string[] InventoryName = { "Baseball cap", "Bluetooth Speaker", "Item 3", "Item 4" }; //Maybe put these inside the inventory method
+
         //This one is for combat
         public static int[] CombatInventoryAmount = { 3, 0, 2 };
         public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion" };
@@ -159,14 +157,14 @@ namespace TeamCSFile
                             return "Clothing";
 
                         case 2:
-                            Electronics();
                             Room = 2;
+                            Electronics();
                             Console.WriteLine("This is Electronics\n" + "Press 0 to exit");
                             return "Electronics";
 
                         case 3:
-                            Toys();
                             Room = 3;
+                            Toys();
                             Console.WriteLine("This is Toys\n" + "Press 0 to exit");
                             return "Toys";
 

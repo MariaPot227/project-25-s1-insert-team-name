@@ -628,6 +628,7 @@ namespace TeamCSFile
                             Console.BackgroundColor = ConsoleColor.Black;
 
                             Console.Clear();
+
                         }
 
                         else
@@ -637,6 +638,7 @@ namespace TeamCSFile
                             Thread.Sleep(1500);
 
                             Console.Clear();
+
                         }
 
                        
@@ -684,6 +686,7 @@ namespace TeamCSFile
                             Thread.Sleep(1500);
 
                             Console.Clear();
+
                         }
 
 
@@ -721,6 +724,8 @@ namespace TeamCSFile
 
                             Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
 
+
+
                         }
 
                         else
@@ -735,17 +740,12 @@ namespace TeamCSFile
                     }
 
 
-
-
-
-
-
-
-
-
                 }
 
-
+                else if (option == 2)  // if Items chosen
+                {
+                    CombatInventory();
+                }
 
 
 

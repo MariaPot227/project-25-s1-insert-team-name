@@ -414,7 +414,7 @@ namespace TeamCSFile
 
             enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
 
-            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0;              //< initialize enemy healthbars
+            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0;             //< initialize variables
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
             {
@@ -632,15 +632,62 @@ namespace TeamCSFile
 
                         else
                         {
-                            Console.WriteLine("Not enough Stamina");
+                            Console.WriteLine("\n\nNot enough Stamina");
+
+                            Thread.Sleep(1500);
+
+                            Console.Clear();
+                        }
+
+                       
+                    }
+
+                    else if (option == 2)    // if Heavy Attack chosen
+                    {
+                        if (Stamina >= 20)
+                        {
+                            Stamina = Stamina - 20;
+
+                            switch (target) //enemy chosen
+                            {
+
+                                case 1:
+                                    enem1Health = enem1Health - 40;
+                                    break;
+
+                                case 2:
+                                    enem2Health = enem2Health - 40;
+                                    break;
+
+                                default:
+                                    enem3Health = enem3Health - 40;
+                                    break;
+                            }
+
+                            Console.Clear();
+
+                            Console.BackgroundColor = ConsoleColor.White;
+
+                            Console.Clear();
+
+                            Thread.Sleep(100);
+
+                            Console.BackgroundColor = ConsoleColor.Black;
+
+                            Console.Clear();
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("\n\nNot enough Stamina");
+
+                            Thread.Sleep(1500);
+
+                            Console.Clear();
                         }
 
 
-
-
                     }
-
-
 
 
 

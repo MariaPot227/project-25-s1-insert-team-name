@@ -531,7 +531,7 @@ namespace TeamCSFile
 
                 if (enem1Health > 0) //if enemy 1 is alive
                 {
-                    Console.Write($"\n\n\t\t\t\t\t\t\t\t\t{onfield[0]}: ");
+                    Console.Write($"\n\n\t\t\t\t\t\t\t\t\t1. {onfield[0]}: ");
 
                     Console.ForegroundColor = ConsoleColor.Red;
 
@@ -543,7 +543,7 @@ namespace TeamCSFile
 
                 if (enem2Health > 0) //if enemy 2 is alive
                 {
-                    Console.Write($"\t{onfield[0]}: ");
+                    Console.Write($"\t2. {onfield[0]}: ");
 
                     Console.ForegroundColor = ConsoleColor.Red;
 
@@ -555,7 +555,7 @@ namespace TeamCSFile
 
                 if (enem3Health > 0) //if enemy 3 is alive
                 {
-                    Console.Write($"\t{onfield[0]}: ");
+                    Console.Write($"\t3. {onfield[0]}: ");
 
                     Console.ForegroundColor = ConsoleColor.Red;
 
@@ -569,100 +569,71 @@ namespace TeamCSFile
 
                 Console.ForegroundColor = ConsoleColor.Green;
 
-                Console.Write($"\n\n\n\n\n\n\n\n\n\n  YOU");
+                Console.WriteLine($"\n\n\n\n\n\n\n\n\n\n  YOU");
 
                 Console.ForegroundColor = ConsoleColor.White;
 
                 Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard");
 
-                Console.Write("\n\n");
+                Console.WriteLine("\n\n");
 
                 Console.Write(border);
+
+                Console.WriteLine("\n\n");
 
                 option = Convert.ToInt16(Console.ReadLine());
 
                 if (option == 1)    // if Attack chosen
                 {
-                    if (enem1Health > 0) //if enemy 1 is alive
-                    {
-                        Console.Write($"\n\n\t\t\t\t\t\t\t\t\t{onfield[0]}: ");
-
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        Console.Write($"{enem1Health}HP ");
-
-                        Console.ForegroundColor = ConsoleColor.White;
-
-                    }
-
-                    if (enem2Health > 0) //if enemy 2 is alive
-                    {
-                        Console.Write($"\t{onfield[0]}: ");
-
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        Console.Write($"{enem2Health}HP ");
-
-                        Console.ForegroundColor = ConsoleColor.White;
-
-                    }
-
-                    if (enem3Health > 0) //if enemy 3 is alive
-                    {
-                        Console.Write($"\t{onfield[0]}: ");
-
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        Console.Write($"{enem3Health}HP ");
-
-                        Console.ForegroundColor = ConsoleColor.White;
-
-                    }
-
-                    Console.WriteLine("\n\nSelect a target: ");
-
-                    target = Convert.ToInt32(Console.ReadLine());
-
-                    Console.Clear();
-
-                    Console.WriteLine("Select an attack: ");
+                    Console.WriteLine("Select an attack:\n\n");
 
                     Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
 
                     option = Convert.ToInt32(Console.ReadLine());
 
-                    Console.Clear();
+                    Console.WriteLine("\n\nSelect a target:\n\n");
+
+                    target = Convert.ToInt32(Console.ReadLine());
 
                     if (option == 1)    // if Light Attack chosen
                     {
-                        Stamina = Stamina - 10;
-
-                        switch (target) //enemy chosen
+                        if (Stamina >= 10)
                         {
+                            Stamina = Stamina - 10;
 
-                            case 1:
-                                enem1Health = enem1Health - 20;
-                                break;
+                            switch (target) //enemy chosen
+                            {
 
-                            case 2:
-                                enem2Health = enem2Health - 20;
-                                break;
+                                case 1:
+                                    enem1Health = enem1Health - 20;
+                                    break;
 
-                            default:
-                                enem3Health = enem3Health - 20;
-                                break;
+                                case 2:
+                                    enem2Health = enem2Health - 20;
+                                    break;
+
+                                default:
+                                    enem3Health = enem3Health - 20;
+                                    break;
+                            }
+
+                            Console.Clear();
+
+                            Console.BackgroundColor = ConsoleColor.White;
+
+                            Console.Clear();
+
+                            Thread.Sleep(100);
+
+                            Console.BackgroundColor = ConsoleColor.Black;
+
+                            Console.Clear();
                         }
 
-
-
-
-
-
-
-
-
-
-
+                        else
+                        {
+                            Console.WriteLine("Not enough Stamina");
+                        }
 
 
 
@@ -716,8 +687,8 @@ namespace TeamCSFile
 
 
 
-            }
-            while (Health > 0 || enem1Health > 0 && enem2Health > 0 && enem3Health > 0);
+            }while (Health > 0 || enem1Health > 0 && enem2Health > 0 && enem3Health > 0);
+
 
             Console.Clear();
 

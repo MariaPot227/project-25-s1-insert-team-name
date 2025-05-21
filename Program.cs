@@ -1063,7 +1063,7 @@ namespace TeamCSFile
                     {
                         Console.Clear();
 
-                        Console.WriteLine($"Granny blinks, then breaks into a wide grin.\n“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.”\nShe digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\n“Here, take this. I grabbed it earlier thinking it was a fancy hearing aid, but it’s actually what you’re after.”\nShe hands you the {InventoryName[1]}.\n“Don’t let it bite!”");
+                        Console.WriteLine($"Granny blinks, then breaks into a wide grin.\n“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.”\nShe digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\n“Here, take this. I grabbed it earlier thinking it was a fancy radio, but it’s actually what you’re after.”\nShe hands you the {InventoryName[1]}.\n“Your such a nice young person, as she walks away”");
 
                         InventoryAmount[1] += 1;
                         Console.WriteLine("Item acquired! You successfully found what you were looking for.");

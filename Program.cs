@@ -585,7 +585,7 @@ namespace TeamCSFile
 
                 if (option == 1)    // if Attack chosen
                 {
-                    Console.WriteLine("Select an attack:\n\n");
+                    Console.WriteLine("\n\nSelect an attack\n\n");
 
                     Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
 
@@ -689,7 +689,50 @@ namespace TeamCSFile
 
                     }
 
+                    else    // if Hail Mary chosen
+                    {
+                        Console.Clear();
 
+                        reel1 = rand.Next(1,8);
+
+                        reel2 = rand.Next(1, 8);
+
+                        reel3 = rand.Next(1, 8);
+
+                        Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
+
+                        Thread.Sleep(500);
+
+                        Console.Write($" {reel2}");
+
+                        Thread.Sleep(500);
+
+                        Console.Write($" {reel3}");
+
+                        Thread.Sleep(500);
+
+                        if (reel1 == 7 && reel2 == 7 && reel3 == 7)
+                        {
+                            enem1Health = 0;
+
+                            enem2Health = 0;
+
+                            enem3Health = 0;
+
+                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
+
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tAlas, nothing happened");
+                        }
+
+                            Thread.Sleep(2000);
+
+                        Console.Clear();
+
+                    }
 
 
 

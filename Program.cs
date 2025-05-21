@@ -473,7 +473,7 @@ namespace TeamCSFile
 
                 case 1:                            // < if there is only one enemy
 
-                    Console.WriteLine($"\n\nA wild {onfield[0]} approaches!");  // < tells user what enemy they are facing
+                    Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tA wild {onfield[0]} approaches!");  // < tells user what enemy they are facing
 
                     enem1Health = 100;
 
@@ -481,7 +481,7 @@ namespace TeamCSFile
 
                 case 2:
 
-                    Console.WriteLine($"\n\nYou are stopped by {onfield[0]} and {onfield[1]}.");
+                    Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tYou are stopped by {onfield[0]} and {onfield[1]}.");
 
                     enem1Health = 100;
 
@@ -491,7 +491,7 @@ namespace TeamCSFile
 
                 case 3:
 
-                    Console.WriteLine($"\n\nYou run into {onfield[0]}, {onfield[1]} and {onfield[2]}");
+                    Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tYou run into {onfield[0]}, {onfield[1]} and {onfield[2]}");
 
                     enem1Health = 100;
 
@@ -511,7 +511,7 @@ namespace TeamCSFile
 
             }
 
-            Thread.Sleep(2000);
+            Thread.Sleep(2500);
 
             Console.Clear();
 
@@ -525,44 +525,47 @@ namespace TeamCSFile
 
                 Console.ForegroundColor = ConsoleColor.Red;
 
-                Console.Write("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tENEMIES");
+                Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tENEMIES");
 
                 Console.ForegroundColor = ConsoleColor.White;
 
-                if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
+                if (enem1Health > 0) //if enemy 1 is alive
                 {
-                    Console.Write($"\n\n\t\t\t\t\t\t\t\t\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                    Console.Write($"\n\n\t\t\t\t\t\t\t\t\t{onfield[0]}: ");
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.Write($"{enem1Health}HP ");
+
+                    Console.ForegroundColor = ConsoleColor.White;
+
                 }
 
-                else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
+                if (enem2Health > 0) //if enemy 2 is alive
                 {
-                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP");
+                    Console.Write($"\t{onfield[0]}: ");
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.Write($"{enem2Health}HP ");
+
+                    Console.ForegroundColor = ConsoleColor.White;
+
                 }
 
-                else if (enem1Health > 0 && enem2Health <= 0 && enem3Health <= 0)    // if only enemy 1 is alive
+                if (enem3Health > 0) //if enemy 3 is alive
                 {
-                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP");
+                    Console.Write($"\t{onfield[0]}: ");
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.Write($"{enem3Health}HP ");
+
+                    Console.ForegroundColor = ConsoleColor.White;
+
                 }
 
-                else if (enem1Health > 0 && enem2Health <= 0 && enem3Health > 0)        // if only enemy 1 and 3 are alive
-                {
-                    Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[2]}: {enem3Health}HP");
-                }
 
-                else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 and 3 are alive
-                {
-                    Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
-                }
-
-                else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 is alive
-                {
-                    Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP");
-                }
-
-                else       // if only enemy 3 is alive
-                {
-                    Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
-                }
 
                 Console.ForegroundColor = ConsoleColor.Green;
 
@@ -580,44 +583,43 @@ namespace TeamCSFile
 
                 if (option == 1)    // if Attack chosen
                 {
-                    Console.Clear();
-
-                    Console.WriteLine("Select a target: ");
-
-                    if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if all enemies are alive
+                    if (enem1Health > 0) //if enemy 1 is alive
                     {
-                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
+                        Console.Write($"\n\n\t\t\t\t\t\t\t\t\t{onfield[0]}: ");
+
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.Write($"{enem1Health}HP ");
+
+                        Console.ForegroundColor = ConsoleColor.White;
+
                     }
 
-                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health <= 0)  // if only enemy 1 and 2 are alive
+                    if (enem2Health > 0) //if enemy 2 is alive
                     {
-                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[1]}: {enem2Health}HP");
+                        Console.Write($"\t{onfield[0]}: ");
+
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.Write($"{enem2Health}HP ");
+
+                        Console.ForegroundColor = ConsoleColor.White;
+
                     }
 
-                    else if (enem1Health > 0 && enem2Health <= 0 && enem3Health <= 0)    // if only enemy 1 is alive
+                    if (enem3Health > 0) //if enemy 3 is alive
                     {
-                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP");
+                        Console.Write($"\t{onfield[0]}: ");
+
+                        Console.ForegroundColor = ConsoleColor.Red;
+
+                        Console.Write($"{enem3Health}HP ");
+
+                        Console.ForegroundColor = ConsoleColor.White;
+
                     }
 
-                    else if (enem1Health > 0 && enem2Health <= 0 && enem3Health > 0)        // if only enemy 1 and 3 are alive
-                    {
-                        Console.Write($"\n\n\t{onfield[0]}: {enem1Health}HP \t{onfield[2]}: {enem3Health}HP");
-                    }
-
-                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 and 3 are alive
-                    {
-                        Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP \t{onfield[2]}: {enem3Health}HP");
-                    }
-
-                    else if (enem1Health > 0 && enem2Health > 0 && enem3Health > 0)        // if only enemy 2 is alive
-                    {
-                        Console.Write($"\n\n\t{onfield[1]}: {enem2Health}HP");
-                    }
-
-                    else       // if only enemy 3 is alive
-                    {
-                        Console.Write($"\n\n\t{onfield[2]}: {enem3Health}HP");
-                    }
+                    Console.WriteLine("\n\nSelect a target: ");
 
                     target = Convert.ToInt32(Console.ReadLine());
 
@@ -625,7 +627,7 @@ namespace TeamCSFile
 
                     Console.WriteLine("Select an attack: ");
 
-                    Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)");
+                    Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
 
                     option = Convert.ToInt32(Console.ReadLine());
 
@@ -726,6 +728,12 @@ namespace TeamCSFile
 
             else
             {
+                enem1Health = 0;
+
+                enem2Health = 0;
+
+                enem3Health = 0;
+
                 Console.WriteLine("\n\nA WINNER IS YOU");
             }
 

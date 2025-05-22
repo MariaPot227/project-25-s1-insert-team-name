@@ -16,7 +16,7 @@ namespace TeamCSFile
 
         //This one is for combat
         public static int[] CombatInventoryAmount = { 1, 1, 1, 1, 1, 1 };
-        public static string[] CombatInventoryName = {"Small Health potion","Medium Health potion","Large Health potion","Small Stamina potion", "Medium Stamina potion", "Large Stamina potion" };
+        public static string[] CombatInventoryName = { "Small Health potion", "Medium Health potion", "Large Health potion", "Small Stamina potion", "Medium Stamina potion", "Large Stamina potion" };
 
         //Random added
         public static Random rand = new Random();
@@ -647,7 +647,7 @@ namespace TeamCSFile
                 Console.Write(border);
 
                 Console.WriteLine("\n\n");
-                
+
                 option = Convert.ToInt32(Console.ReadLine());
 
                 if (option == 1)    // if Attack chosen
@@ -659,7 +659,7 @@ namespace TeamCSFile
                     option = Convert.ToInt32(Console.ReadLine());
 
                     Console.WriteLine("\n\nSelect a target:\n\n");
-                    
+
                     target = Convert.ToInt32(Console.ReadLine());
 
                     if (option == 1)    // if Light Attack chosen
@@ -708,7 +708,7 @@ namespace TeamCSFile
 
                         }
 
-                       
+
                     }
 
                     else if (option == 2)    // if Heavy Attack chosen
@@ -763,7 +763,7 @@ namespace TeamCSFile
                     {
                         Console.Clear();
 
-                        reel1 = rand.Next(1,8);
+                        reel1 = rand.Next(1, 8);
 
                         reel2 = rand.Next(1, 8);
 
@@ -800,7 +800,7 @@ namespace TeamCSFile
                             Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tAlas, nothing happened");
                         }
 
-                            Thread.Sleep(2000);
+                        Thread.Sleep(2000);
 
                         Console.Clear();
 
@@ -834,7 +834,7 @@ namespace TeamCSFile
                         Console.Clear();
 
                         guard = true;
-                        
+
                     }
 
                     else
@@ -1035,7 +1035,7 @@ namespace TeamCSFile
 
         static void Camping()
         {
-            
+
 
 
 
@@ -1070,7 +1070,6 @@ namespace TeamCSFile
             string answer;
             rand = new Random();
 
-
             Console.Clear();
             Console.WriteLine("You step into the Electronics section.");
             //Thread.Sleep(2000);
@@ -1094,8 +1093,6 @@ namespace TeamCSFile
                                   "3) Help the Granny with her headset.\n  " +
                                   "4) Go down the dimly lit aisle.\n  " +
                                   "0) Leave the section.\n");
-
-
 
                 try
                 {
@@ -1166,8 +1163,8 @@ namespace TeamCSFile
                 LeaveCase();
                 Combat();
 
-
-                CombatInventoryAmount[3] += 1;
+                // if you win combat you get the item
+                CombatInventoryAmount[3] += 1; // how to fail combat and not get the item
             }
 
             void Chargers()
@@ -1185,18 +1182,35 @@ namespace TeamCSFile
 
             void Granny()
             {
-                
-                string yn;
-                Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\nExcuse me, she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.\n\n");
-                Thread.Sleep(1000);
-                Console.Write("\nDo you want to help her y/n?");
-                yn = Console.ReadLine().Trim().ToLower();
+                string yn = "";
+                bool validInput = false;
+
+                while (!validInput)
+                {
+                    Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\nExcuse me, she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.\n\n");
+                    Thread.Sleep(1000);
+                    Console.Write("Do you want to help her y/n? ");
+                    yn = Console.ReadLine().Trim().ToLower();
+
+                    if (yn == "y" || yn == "n")
+                    {
+                        validInput = true; // exit loop
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter 'y' for yes or 'n' for no.");
+                        Thread.Sleep(1000);
+                        Console.Clear();
+                    }
+                }
+
                 if (yn == "y" || yn == "yes")
                 {
                     Console.Clear();
                     Console.WriteLine("You say you will help her\n");
                     Thread.Sleep(1000);
                     Console.WriteLine("Now listen here, dear — this thing says it's wireless, but I don’t see how it works without a wire!\nMaybe you can figure it out if you’re clever:\nI travel through air,\nbut I’m not a bird.\nI carry music,\nyet say not a word.\nWhat am I?");
+
                     answer = Convert.ToString(Console.ReadLine().Trim().ToLower());
                     if (answer == "bluetooth" || answer == "signal" || answer == "wifi")
                     {
@@ -1208,22 +1222,26 @@ namespace TeamCSFile
                         Thread.Sleep(1000);
                         Console.WriteLine($"She digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\nHere, take this. I grabbed it earlier thinking it was a fancy radio, but it’s actually what you’re after.\nShe hands you the {InventoryName[1]}.\n");
                         Thread.Sleep(1000);
-                        Console.WriteLine("Your such a nice young person, as she walks away");
-                        Thread.Sleep(1000);
+                        Console.WriteLine("Your such a nice young person. Says the granny as she walks away");
+                        Thread.Sleep(2000);
 
                         InventoryAmount[1] += 1;
                         Console.WriteLine("Item acquired! You successfully found what you were looking for.");
                         gotItem = true;
+
                     }
                     else
                     {
                         Console.WriteLine("Oh heavens, I was hoping you knew. Maybe we should both go back to using tin cans and string!");
-                        // exit interaction
+
                     }
+                }else
+                {
+                    Console.WriteLine("You decide to leave the Granny alone.\n");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("She looks disappointed, but you can’t help everyone.");
+                    Thread.Sleep(2000);
                 }
-
-
-
             }
 
             void LeaveCase()
@@ -1231,8 +1249,6 @@ namespace TeamCSFile
                 Console.Write("\nPress enter to continue.");
                 Console.ReadLine();
             }
-
-           
         }
 
 

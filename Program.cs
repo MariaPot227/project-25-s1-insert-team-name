@@ -312,37 +312,37 @@ namespace TeamCSFile
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Yellow;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Green;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Blue;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Magenta;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Cyan;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Black;
 
@@ -352,43 +352,43 @@ namespace TeamCSFile
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Yellow;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Green;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Blue;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Magenta;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Cyan;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Black;
 
             Console.Clear();
 
-            Thread.Sleep(1500);
+            Thread.Sleep(50);
 
             // ^ Intro to combat scenario
 
@@ -581,7 +581,17 @@ namespace TeamCSFile
 
                 Console.WriteLine("\n\n");
 
-                option = Convert.ToInt16(Console.ReadLine());
+
+                try
+                {
+
+                    option = Convert.ToInt32(Console.ReadLine());
+
+                }
+                catch (Exception)
+                {
+                    Console.Clear();
+                }
 
                 if (option == 1)    // if Attack chosen
                 {
@@ -589,11 +599,41 @@ namespace TeamCSFile
 
                     Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
 
-                    option = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+
+                        option = Convert.ToInt32(Console.ReadLine());
+
+                    }
+                    catch (Exception)
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("Invalid Input");
+
+                        Thread.Sleep(1000);
+
+                        Console.Clear();
+                    }
 
                     Console.WriteLine("\n\nSelect a target:\n\n");
 
-                    target = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+
+                        target = Convert.ToInt32(Console.ReadLine());
+
+                    }
+                    catch (Exception)
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("Invalid Input");
+
+                        Thread.Sleep(1000);
+
+                        Console.Clear();
+                    }
 
                     if (option == 1)    // if Light Attack chosen
                     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO.Pipes;
+using System.Runtime.Intrinsics.X86;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 namespace TeamCSFile
@@ -480,7 +481,7 @@ namespace TeamCSFile
 
             int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0;             //< initialize variables
 
-            bool fightend = false;
+            bool fightend = false, guard = false;
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
             {
@@ -639,7 +640,7 @@ namespace TeamCSFile
 
                 Console.ForegroundColor = ConsoleColor.White;
 
-                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard");
+                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Halve damage recieved for 1 turn, req. 10 STM)");
 
                 Console.WriteLine("\n\n");
 
@@ -758,7 +759,7 @@ namespace TeamCSFile
 
                     }
 
-                    else    // if Hail Mary chosen
+                    else if (option == 3)   // if Hail Mary chosen
                     {
                         Console.Clear();
 
@@ -813,7 +814,41 @@ namespace TeamCSFile
                     CombatInventory();
                 }
 
+                else if (option == 3)  // if Guard chosen
+                {
 
+                    if (Stamina >= 10)
+                    {
+                        Stamina = Stamina - 10;
+
+                        Console.Clear();
+
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+                        Console.Clear();
+
+                        Thread.Sleep(100);
+
+                        Console.BackgroundColor = ConsoleColor.Black;
+
+                        Console.Clear();
+
+                        guard = true;
+                        
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tNot enough Stamina");
+
+                        Thread.Sleep(1500);
+
+                        Console.Clear();
+
+                    }
+
+
+                }
 
 
 
@@ -853,14 +888,14 @@ namespace TeamCSFile
 
             if (Health <= 0)
             {
-                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t   YOU DIED");
+                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tYOU DIED");
 
                 Thread.Sleep(5000);
             }
 
             else
             {
-                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t   A WINNER IS YOU");
+                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tA WINNER IS YOU");
 
                 Thread.Sleep(5000);
             }
@@ -1079,34 +1114,30 @@ namespace TeamCSFile
                         break;
 
                     case 1:
-                        Console.WriteLine("You approach the USB cables. ");// combat section maybe 
-                        Thread.Sleep(500);
-                        Console.WriteLine("You pick up a USB cable that stands out as its the only one there that is un-spooled.");
-
-                        Combat();
+                        UsbCables();
+                        LeaveCase();
                         break;
 
                     case 2:
                         Chargers();
-                        Console.Write("\nPress enter to continue.");
-                        Console.ReadLine();
+                        LeaveCase();
                         break;
 
                     case 3:
                         Granny();
 
-                        Console.Write("\nPress enter to continue.");
-                        Console.ReadLine();
+                        LeaveCase();
                         break;
 
                     case 4:
                         Console.WriteLine("You step cautiously into the dimly lit aisle. The flickering lights above barely illuminate the path ahead.");// boss fight room if you dont get the item earlier
                         //Combat();
                         // InventoryAmount[2]+ 1 when getting the item
+                        LeaveCase();
                         break;
 
                     default:
-                        Console.WriteLine("Invalid choice, please pick 1, 2 or 3.");
+                        Console.WriteLine("Invalid choice, please pick 1, 2, 3 or 4.");
                         break;
 
                 }
@@ -1119,32 +1150,66 @@ namespace TeamCSFile
 
             } while (sectionActive);
 
+            void UsbCables()
+            {
+                Console.WriteLine("You approach the USB cables. ");// combat section maybe 
+                Thread.Sleep(800);
+                Console.WriteLine("Most of them are coiled neatly on hooks... except one.");
+                Thread.Sleep(800);
+                Console.WriteLine("It lies loose on the shelf — unspooled, out of place, and strangely clean.");
+                Thread.Sleep(800);
+                Console.WriteLine("You reach for it...");
+                Thread.Sleep(800);
+                Console.WriteLine("Suddenly, it twitches.");
+                Console.WriteLine("Before you can react, it whips itself into the air — and something steps out from behind the shelf!");
+
+                LeaveCase();
+                Combat();
+
+
+                CombatInventoryAmount[3] += 1;
+            }
+
             void Chargers()
             {
-                Console.WriteLine("You sort through the pile of portable chargers. One claims to charge a fridge. Another has three buttons and no ports.\n" +
-                          $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[1]} just sitting there like a free sample.\n  You casually slip it into your inventory before anyone notices.");
+                Console.WriteLine("You sort through the pile of portable chargers. One claims to charge a fridge. Another has three buttons and no ports.\n");
+                Thread.Sleep(2000);
+
+                Console.WriteLine(
+                          $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[1]} just sitting there like a free sample.\nYou casually slip it into your inventory before anyone notices.");
+                Thread.Sleep(1500);
                 Console.WriteLine("You don't see anything else useful in the area.");
+
                 CombatInventoryAmount[1] += 1;
             }
 
             void Granny()
             {
-                //bool help = false;
+                
                 string yn;
-                Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\n'Excuse me,' she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.\n\n");// riddle? 
+                Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\nExcuse me, she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.\n\n");
+                Thread.Sleep(1000);
                 Console.Write("\nDo you want to help her y/n?");
                 yn = Console.ReadLine().Trim().ToLower();
                 if (yn == "y" || yn == "yes")
                 {
                     Console.Clear();
                     Console.WriteLine("You say you will help her\n");
-                    Console.WriteLine("Now listen here, dear — this thing says it's wireless, but I don’t see how it works without a wire!\nMaybe you can figure it out if you’re clever:\nI travel through air,\nbut I’m not a bird.\nI carry music,\nyet say not a word.\nWhat am I?");// bluetooth 
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Now listen here, dear — this thing says it's wireless, but I don’t see how it works without a wire!\nMaybe you can figure it out if you’re clever:\nI travel through air,\nbut I’m not a bird.\nI carry music,\nyet say not a word.\nWhat am I?");
                     answer = Convert.ToString(Console.ReadLine().Trim().ToLower());
                     if (answer == "bluetooth" || answer == "signal" || answer == "wifi")
                     {
                         Console.Clear();
+                        Console.WriteLine("Granny blinks, then breaks into a wide grin.\n");
+                        Thread.Sleep(1000);
 
-                        Console.WriteLine($"Granny blinks, then breaks into a wide grin.\n“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.”\nShe digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\n“Here, take this. I grabbed it earlier thinking it was a fancy radio, but it’s actually what you’re after.”\nShe hands you the {InventoryName[1]}.\n“Your such a nice young person, as she walks away”");
+                        Console.WriteLine("“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine($"She digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\nHere, take this. I grabbed it earlier thinking it was a fancy radio, but it’s actually what you’re after.\nShe hands you the {InventoryName[1]}.\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("Your such a nice young person, as she walks away");
+                        Thread.Sleep(1000);
 
                         InventoryAmount[1] += 1;
                         Console.WriteLine("Item acquired! You successfully found what you were looking for.");
@@ -1161,7 +1226,13 @@ namespace TeamCSFile
 
             }
 
-            // change kmartItems to an array of arrays so we can pick 1 of each as it loops as atm if we loop through it. we might get 2 from one section but not another.
+            void LeaveCase()
+            {
+                Console.Write("\nPress enter to continue.");
+                Console.ReadLine();
+            }
+
+           
         }
 
 

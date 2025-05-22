@@ -471,7 +471,7 @@ namespace TeamCSFile
 
             int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0;             //< initialize variables
 
-            bool fightend = false;
+            bool fightend = false, guard = false;
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
             {
@@ -630,7 +630,7 @@ namespace TeamCSFile
 
                 Console.ForegroundColor = ConsoleColor.White;
 
-                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard");
+                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Halve damage recieved for 1 turn, req. 10 STM)");
 
                 Console.WriteLine("\n\n");
 
@@ -749,7 +749,7 @@ namespace TeamCSFile
 
                     }
 
-                    else    // if Hail Mary chosen
+                    else if (option == 3)   // if Hail Mary chosen
                     {
                         Console.Clear();
 
@@ -804,7 +804,41 @@ namespace TeamCSFile
                     CombatInventory();
                 }
 
+                else if (option == 3)  // if Guard chosen
+                {
 
+                    if (Stamina >= 10)
+                    {
+                        Stamina = Stamina - 10;
+
+                        Console.Clear();
+
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+                        Console.Clear();
+
+                        Thread.Sleep(100);
+
+                        Console.BackgroundColor = ConsoleColor.Black;
+
+                        Console.Clear();
+
+                        guard = true;
+                        
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tNot enough Stamina");
+
+                        Thread.Sleep(1500);
+
+                        Console.Clear();
+
+                    }
+
+
+                }
 
 
 
@@ -844,14 +878,14 @@ namespace TeamCSFile
 
             if (Health <= 0)
             {
-                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t   YOU DIED");
+                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tYOU DIED");
 
                 Thread.Sleep(5000);
             }
 
             else
             {
-                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t   A WINNER IS YOU");
+                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tA WINNER IS YOU");
 
                 Thread.Sleep(5000);
             }

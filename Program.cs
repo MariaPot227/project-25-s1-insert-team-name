@@ -222,7 +222,16 @@ namespace TeamCSFile
 
             }
             Console.WriteLine("Enter the item you want to do or 0 if you want to exit.");
-            int temp = Convert.ToInt32(Console.ReadLine());
+            int temp = 0;
+            try
+            {
+                temp = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Huh");
+                Console.ReadLine();
+            }
             Console.Clear();
             switch (temp)
             {
@@ -305,7 +314,7 @@ namespace TeamCSFile
                         Stamina = Health + 25;
                         if (Stamina > 100)
                         {
-                            Health = 100;
+                            Stamina = 100;
                         }
                         Console.WriteLine($"You gain 25 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
                         Console.ReadLine();
@@ -923,12 +932,13 @@ namespace TeamCSFile
             Console.Clear();
             //Continue with it here for clean look.
             Console.WriteLine("Halfway to the end, something lands behind you and knocks you over.");
+            Console.ReadLine();
             Combat();
             Console.WriteLine($"After the battle and passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
-            Console.WriteLine("It looks like there is a dial on the pedestal that unlocks the glass container. Or maybe you just break the glass.\nDo you");
             bool running = true;
             while (running)
             {
+                Console.WriteLine("It looks like there is a dial on the pedestal that unlocks the glass container. Or maybe you just break the glass.\nDo you");
                 Console.WriteLine("1: Break the glass.\n2: Try the dial.\n3: Leave.");
                 int temp = 0;
                 try
@@ -967,6 +977,7 @@ namespace TeamCSFile
                         Console.WriteLine($"You got a {InventoryName[0]}!");
                         InventoryAmount[0]++;
                         Console.WriteLine($"But so caught up in collecting the {InventoryName[0]}, you fail to spot the enemy behind you.");
+                        Console.ReadLine();
                         Combat();
                         Console.WriteLine("After the battle, you decided to leave.\nEnter to continue.");
                         Console.ReadLine();

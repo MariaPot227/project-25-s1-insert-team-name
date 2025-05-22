@@ -416,6 +416,8 @@ namespace TeamCSFile
 
             int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0;             //< initialize variables
 
+            bool fightend = false;
+
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
             {
                 switch (Room)   // < depending on current room
@@ -521,6 +523,7 @@ namespace TeamCSFile
 
             do
             {
+
                 Console.Write(border);
 
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -566,7 +569,6 @@ namespace TeamCSFile
                 }
 
 
-
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 Console.WriteLine($"\n\n\n\n\n\n\n\n\n\n  YOU");
@@ -580,18 +582,8 @@ namespace TeamCSFile
                 Console.Write(border);
 
                 Console.WriteLine("\n\n");
-
-
-                try
-                {
-
-                    option = Convert.ToInt32(Console.ReadLine());
-
-                }
-                catch (Exception)
-                {
-                    Console.Clear();
-                }
+                
+                option = Convert.ToInt32(Console.ReadLine());
 
                 if (option == 1)    // if Attack chosen
                 {
@@ -599,41 +591,11 @@ namespace TeamCSFile
 
                     Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
 
-                    try
-                    {
-
-                        option = Convert.ToInt32(Console.ReadLine());
-
-                    }
-                    catch (Exception)
-                    {
-                        Console.Clear();
-
-                        Console.WriteLine("Invalid Input");
-
-                        Thread.Sleep(1000);
-
-                        Console.Clear();
-                    }
+                    option = Convert.ToInt32(Console.ReadLine());
 
                     Console.WriteLine("\n\nSelect a target:\n\n");
-
-                    try
-                    {
-
-                        target = Convert.ToInt32(Console.ReadLine());
-
-                    }
-                    catch (Exception)
-                    {
-                        Console.Clear();
-
-                        Console.WriteLine("Invalid Input");
-
-                        Thread.Sleep(1000);
-
-                        Console.Clear();
-                    }
+                    
+                    target = Convert.ToInt32(Console.ReadLine());
 
                     if (option == 1)    // if Light Attack chosen
                     {
@@ -815,27 +777,28 @@ namespace TeamCSFile
 
 
 
+                if (enem1Health <= 0 && enem2Health <= 0 && enem3Health <= 0 || Health <= 0)
+                {
+                    fightend = true;
+                }
 
-
-            }while (Health > 0 || enem1Health > 0 && enem2Health > 0 && enem3Health > 0);
+            } while (fightend != true);
 
 
             Console.Clear();
 
             if (Health <= 0)
             {
-                Console.WriteLine("\n\nYOU DIED");
+                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t   YOU DIED");
+
+                Thread.Sleep(5000);
             }
 
             else
             {
-                enem1Health = 0;
+                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t   A WINNER IS YOU");
 
-                enem2Health = 0;
-
-                enem3Health = 0;
-
-                Console.WriteLine("\n\nA WINNER IS YOU");
+                Thread.Sleep(5000);
             }
 
             Console.Clear();

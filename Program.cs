@@ -11,7 +11,7 @@ namespace TeamCSFile
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
 
-        public static string[] InventoryName = { "Baseball Cap", "Bluetooth Speaker", "Item 3", "Yard Chair" }; //Maybe put these inside the inventory method
+        public static string[] InventoryName = { "Baseball Cap", "Bluetooth Speaker", "Remote Control Car", "Yard Chair" }; //Maybe put these inside the inventory method
 
         //This one is for combat
         public static int[] CombatInventoryAmount = { 3, 0, 2 };

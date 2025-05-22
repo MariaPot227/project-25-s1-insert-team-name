@@ -911,7 +911,7 @@ namespace TeamCSFile
                 Console.Clear();
                 Console.WriteLine("You look around to see racks of clothing all around you, maybe what you're searching for is in these racks.");
                 Console.WriteLine("You also see that you can continue forward between these racks, but it looks like the prime spot for you to get jumped.\nDo you");
-                Console.WriteLine("1: Search the clothing racks in hopes of finding the lost item.\n2: Continue forward, knowing you are most likely to get jumped.");
+                Console.WriteLine($"1: Search the clothing racks in hopes of finding a {InventoryName[0]}.\n2: Continue forward, knowing you are most likely to get jumped.");
                 Console.WriteLine("3: Leave.");
                 int temp = 0;
                 try
@@ -943,7 +943,7 @@ namespace TeamCSFile
                         }
                         break;
                     case 2:
-                        Console.WriteLine("You venture between the racks to find the item.");
+                        Console.WriteLine($"You venture between the racks to find a {InventoryName[0]}.");
                         ClothingDeeper();
                         break;
                     case 3:
@@ -961,7 +961,7 @@ namespace TeamCSFile
             //Continue with it here for clean look.
             Console.WriteLine("Halfway to the end, something lands behind you and knocks you over.");
             Combat();
-            Console.WriteLine($"After passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
+            Console.WriteLine($"After the battle and passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
             Console.WriteLine("It looks like there is a dial on the pedestal that unlocks the glass container. Or maybe you just break the glass.\nDo you");
             bool running = true;
             while (running)
@@ -998,10 +998,20 @@ namespace TeamCSFile
                         }
                         break;
                     case 2:
-                        Console.WriteLine("You take a closer look at the dial. It is a four combination lock with 0-9 on each. ");
+                        Console.WriteLine("You take a closer look at the dial. It is a four combination lock with 0-9 on each. Entering every option might take a while.");
+                        Console.WriteLine("On the floor, a post-it note is crumpled on the floor.");
+                        Console.WriteLine("On the note is the code to the lock. You enter it into the lock and see that the glass container has unlocked.");
+                        Console.WriteLine($"You got a {InventoryName[0]}!");
+                        InventoryAmount[0]++;
+                        Console.WriteLine($"But so caught up in collecting the {InventoryName[0]}, you fail to spot the enemy behind you.");
+                        Combat();
+                        Console.WriteLine("After the battle, you decided to leave.\nEnter to continue.");
+                        Console.ReadLine();
+                        running = false;
                         break;
                     case 3:
                         Console.WriteLine("You decided to leave.\nEnter to continue.");
+                        Console.ReadLine();
                         running = false;
                         break;
                     default:

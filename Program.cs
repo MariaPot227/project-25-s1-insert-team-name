@@ -14,8 +14,8 @@ namespace TeamCSFile
         public static string[] InventoryName = { "Baseball Cap", "Bluetooth Speaker", "Remote Control Car", "Yard Chair" }; //Maybe put these inside the inventory method
 
         //This one is for combat
-        public static int[] CombatInventoryAmount = { 3, 0, 2 };
-        public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion" };
+        public static int[] CombatInventoryAmount = { 1, 1, 1, 1, 1, 1 };
+        public static string[] CombatInventoryName = {"Small Health potion","Medium Health potion","Large Health potion","Small Stamina potion", "Medium Stamina potion", "Large Stamina potion" };
 
         //Random added
         public static Random rand = new Random();
@@ -212,7 +212,7 @@ namespace TeamCSFile
         static void CombatInventory()
         {
             Console.Clear();
-            Console.WriteLine($"Your health is {Health}HP.");
+            Console.WriteLine($"Your health is {Health}HP.\nYour stamina is {Stamina}Stm");
             for (int i = 0; i < CombatInventoryAmount.Length; i++)
             {
                 if (CombatInventoryAmount[i] != 0)
@@ -280,6 +280,60 @@ namespace TeamCSFile
                         Console.ReadLine();
                     }
                     break;
+                case 4:
+                    if (CombatInventoryAmount[temp - 1] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                        Stamina = Stamina + 10;
+                        if (Stamina > 100)
+                        {
+                            Stamina = 100;
+                        }
+                        Console.WriteLine($"You gain 10 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
+                case 5:
+                    if (CombatInventoryAmount[temp - 1] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                        Stamina = Health + 25;
+                        if (Stamina > 100)
+                        {
+                            Health = 100;
+                        }
+                        Console.WriteLine($"You gain 25 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
+                case 6:
+                    if (CombatInventoryAmount[temp - 1] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                        Stamina = Stamina + 50;
+                        if (Stamina > 100)
+                        {
+                            Stamina = 100;
+                        }
+                        Console.WriteLine($"You gain 50 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
                 case 0:
                     break;
                 default:
@@ -288,6 +342,7 @@ namespace TeamCSFile
                     break;
 
             }
+            Console.Clear();
 
         }
 
@@ -811,7 +866,7 @@ namespace TeamCSFile
         static void Clothing()
         {
             Console.Clear();
-            Console.WriteLine($"You enter the Clothing section in order to find the {InventoryName[0]}."); //Need variable option for what you're finding
+            Console.WriteLine($"You enter the Clothing section in order to find the {InventoryName[0]}.");
             Console.ReadLine();
             bool running = true;
             while (running)
@@ -867,6 +922,8 @@ namespace TeamCSFile
         {
             Console.Clear();
             //Continue with it here for clean look.
+            Console.WriteLine("Halfway to the end, something lands behind you and knocks you over.");
+            Combat();
             Console.WriteLine($"After passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
             Console.WriteLine("It looks like there is a dial on the pedestal that unlocks the glass container. Or maybe you just break the glass.\nDo you");
             bool running = true;
@@ -904,7 +961,7 @@ namespace TeamCSFile
                         }
                         break;
                     case 2:
-                        Console.WriteLine("You take a closer look at the dial.");
+                        Console.WriteLine("You take a closer look at the dial. It is a four combination lock with 0-9 on each. ");
                         break;
                     case 3:
                         Console.WriteLine("You decided to leave.\nEnter to continue.");

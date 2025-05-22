@@ -12,11 +12,11 @@ namespace TeamCSFile
         // The inventory amount holds how much of an item you have, the inventory name holds the name of the item.
         public static int[] InventoryAmount = { 0, 0, 0, 0 };
 
-        public static string[] InventoryName = { "Baseball Cap", "Bluetooth Speaker", "Item 3", "Yard Chair" }; //Maybe put these inside the inventory method
+        public static string[] InventoryName = { "Baseball Cap", "Bluetooth Speaker", "Remote Control Car", "Yard Chair" }; //Maybe put these inside the inventory method
 
         //This one is for combat
-        public static int[] CombatInventoryAmount = { 3, 0, 2 };
-        public static string[] CombatInventoryName = { "Small potion", "Medium potion", "Large potion" };
+        public static int[] CombatInventoryAmount = { 1, 1, 1, 1, 1, 1 };
+        public static string[] CombatInventoryName = {"Small Health potion","Medium Health potion","Large Health potion","Small Stamina potion", "Medium Stamina potion", "Large Stamina potion" };
 
         //Random added
         public static Random rand = new Random();
@@ -213,7 +213,7 @@ namespace TeamCSFile
         static void CombatInventory()
         {
             Console.Clear();
-            Console.WriteLine($"Your health is {Health}HP.");
+            Console.WriteLine($"Your health is {Health}HP.\nYour stamina is {Stamina}Stm");
             for (int i = 0; i < CombatInventoryAmount.Length; i++)
             {
                 if (CombatInventoryAmount[i] != 0)
@@ -281,6 +281,60 @@ namespace TeamCSFile
                         Console.ReadLine();
                     }
                     break;
+                case 4:
+                    if (CombatInventoryAmount[temp - 1] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                        Stamina = Stamina + 10;
+                        if (Stamina > 100)
+                        {
+                            Stamina = 100;
+                        }
+                        Console.WriteLine($"You gain 10 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
+                case 5:
+                    if (CombatInventoryAmount[temp - 1] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                        Stamina = Health + 25;
+                        if (Stamina > 100)
+                        {
+                            Health = 100;
+                        }
+                        Console.WriteLine($"You gain 25 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
+                case 6:
+                    if (CombatInventoryAmount[temp - 1] > 0)
+                    {
+                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                        Stamina = Stamina + 50;
+                        if (Stamina > 100)
+                        {
+                            Stamina = 100;
+                        }
+                        Console.WriteLine($"You gain 50 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough of that potion");
+                        Console.ReadLine();
+                    }
+                    break;
                 case 0:
                     break;
                 default:
@@ -289,6 +343,7 @@ namespace TeamCSFile
                     break;
 
             }
+            Console.Clear();
 
         }
 
@@ -313,37 +368,37 @@ namespace TeamCSFile
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Yellow;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Green;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Blue;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Magenta;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Cyan;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Black;
 
@@ -353,43 +408,43 @@ namespace TeamCSFile
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Yellow;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Green;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Blue;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Magenta;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Cyan;
 
             Console.Clear();
 
-            Thread.Sleep(100);
+            Thread.Sleep(50);
 
             Console.BackgroundColor = ConsoleColor.Black;
 
             Console.Clear();
 
-            Thread.Sleep(1500);
+            Thread.Sleep(50);
 
             // ^ Intro to combat scenario
 
@@ -416,6 +471,8 @@ namespace TeamCSFile
             enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
 
             int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0;             //< initialize variables
+
+            bool fightend = false, guard = false;
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
             {
@@ -522,6 +579,7 @@ namespace TeamCSFile
 
             do
             {
+
                 Console.Write(border);
 
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -567,22 +625,21 @@ namespace TeamCSFile
                 }
 
 
-
                 Console.ForegroundColor = ConsoleColor.Green;
 
                 Console.WriteLine($"\n\n\n\n\n\n\n\n\n\n  YOU");
 
                 Console.ForegroundColor = ConsoleColor.White;
 
-                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard");
+                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Halve damage recieved for 1 turn, req. 10 STM)");
 
                 Console.WriteLine("\n\n");
 
                 Console.Write(border);
 
                 Console.WriteLine("\n\n");
-
-                option = Convert.ToInt16(Console.ReadLine());
+                
+                option = Convert.ToInt32(Console.ReadLine());
 
                 if (option == 1)    // if Attack chosen
                 {
@@ -593,7 +650,7 @@ namespace TeamCSFile
                     option = Convert.ToInt32(Console.ReadLine());
 
                     Console.WriteLine("\n\nSelect a target:\n\n");
-
+                    
                     target = Convert.ToInt32(Console.ReadLine());
 
                     if (option == 1)    // if Light Attack chosen
@@ -693,7 +750,7 @@ namespace TeamCSFile
 
                     }
 
-                    else    // if Hail Mary chosen
+                    else if (option == 3)   // if Hail Mary chosen
                     {
                         Console.Clear();
 
@@ -748,6 +805,41 @@ namespace TeamCSFile
                     CombatInventory();
                 }
 
+                else if (option == 3)  // if Guard chosen
+                {
+
+                    if (Stamina >= 10)
+                    {
+                        Stamina = Stamina - 10;
+
+                        Console.Clear();
+
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+                        Console.Clear();
+
+                        Thread.Sleep(100);
+
+                        Console.BackgroundColor = ConsoleColor.Black;
+
+                        Console.Clear();
+
+                        guard = true;
+                        
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tNot enough Stamina");
+
+                        Thread.Sleep(1500);
+
+                        Console.Clear();
+
+                    }
+
+
+                }
 
 
 
@@ -775,28 +867,28 @@ namespace TeamCSFile
 
 
 
+                if (enem1Health <= 0 && enem2Health <= 0 && enem3Health <= 0 || Health <= 0)
+                {
+                    fightend = true;
+                }
 
-
-
-            }while (Health > 0 || enem1Health > 0 && enem2Health > 0 && enem3Health > 0);
+            } while (fightend != true);
 
 
             Console.Clear();
 
             if (Health <= 0)
             {
-                Console.WriteLine("\n\nYOU DIED");
+                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tYOU DIED");
+
+                Thread.Sleep(5000);
             }
 
             else
             {
-                enem1Health = 0;
+                Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tA WINNER IS YOU");
 
-                enem2Health = 0;
-
-                enem3Health = 0;
-
-                Console.WriteLine("\n\nA WINNER IS YOU");
+                Thread.Sleep(5000);
             }
 
             Console.Clear();
@@ -809,7 +901,7 @@ namespace TeamCSFile
         static void Clothing()
         {
             Console.Clear();
-            Console.WriteLine($"You enter the Clothing section in order to find the {InventoryName[0]}."); //Need variable option for what you're finding
+            Console.WriteLine($"You enter the Clothing section in order to find the {InventoryName[0]}.");
             Console.ReadLine();
             bool running = true;
             while (running)
@@ -817,7 +909,7 @@ namespace TeamCSFile
                 Console.Clear();
                 Console.WriteLine("You look around to see racks of clothing all around you, maybe what you're searching for is in these racks.");
                 Console.WriteLine("You also see that you can continue forward between these racks, but it looks like the prime spot for you to get jumped.\nDo you");
-                Console.WriteLine("1: Search the clothing racks in hopes of finding the lost item.\n2: Continue forward, knowing you are most likely to get jumped.");
+                Console.WriteLine($"1: Search the clothing racks in hopes of finding a {InventoryName[0]}.\n2: Continue forward, knowing you are most likely to get jumped.");
                 Console.WriteLine("3: Leave.");
                 int temp = 0;
                 try
@@ -849,7 +941,7 @@ namespace TeamCSFile
                         }
                         break;
                     case 2:
-                        Console.WriteLine("You venture between the racks to find the item.");
+                        Console.WriteLine($"You venture between the racks to find a {InventoryName[0]}.");
                         ClothingDeeper();
                         break;
                     case 3:
@@ -865,7 +957,9 @@ namespace TeamCSFile
         {
             Console.Clear();
             //Continue with it here for clean look.
-            Console.WriteLine($"After passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
+            Console.WriteLine("Halfway to the end, something lands behind you and knocks you over.");
+            Combat();
+            Console.WriteLine($"After the battle and passing between the aisle you notice a pedestal ahead. On it is a {InventoryName[0]} on display. But it's under a glass container.");
             Console.WriteLine("It looks like there is a dial on the pedestal that unlocks the glass container. Or maybe you just break the glass.\nDo you");
             bool running = true;
             while (running)
@@ -902,10 +996,20 @@ namespace TeamCSFile
                         }
                         break;
                     case 2:
-                        Console.WriteLine("You take a closer look at the dial.");
+                        Console.WriteLine("You take a closer look at the dial. It is a four combination lock with 0-9 on each. Entering every option might take a while.");
+                        Console.WriteLine("On the floor, a post-it note is crumpled on the floor.");
+                        Console.WriteLine("On the note is the code to the lock. You enter it into the lock and see that the glass container has unlocked.");
+                        Console.WriteLine($"You got a {InventoryName[0]}!");
+                        InventoryAmount[0]++;
+                        Console.WriteLine($"But so caught up in collecting the {InventoryName[0]}, you fail to spot the enemy behind you.");
+                        Combat();
+                        Console.WriteLine("After the battle, you decided to leave.\nEnter to continue.");
+                        Console.ReadLine();
+                        running = false;
                         break;
                     case 3:
                         Console.WriteLine("You decided to leave.\nEnter to continue.");
+                        Console.ReadLine();
                         running = false;
                         break;
                     default:

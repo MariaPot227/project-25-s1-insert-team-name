@@ -1142,6 +1142,31 @@ namespace TeamCSFile
                 Console.ReadLine();
             }
 
+            void JackInTheBox()
+            {
+                Console.WriteLine("A Jack-in-the-box sits motionless. Its crank dares you.");
+                Console.Write("Crank it? (y/n): ");
+                string yn = Console.ReadLine().Trim().ToLower();
+                if (yn == "y" || yn == "yes")
+                {
+                    Console.Clear();
+                    Console.WriteLine("POP! Out jumps Jack.\nRiddle: I roll with wheels and a remote in hand. What am I?");
+                    answer = Console.ReadLine().Trim().ToLower();
+                    if (answer.Contains("remote") || answer.Contains("car"))
+                    {
+                        Console.WriteLine("Jack winks and tosses you the Remote Controlled Car.");
+                        MainInventoryCounts[1] += 1;
+                        gotItem = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Jack giggles and sinks back into his box.");
+                    }
+                    Console.WriteLine("\nPress Enter to continue.");
+                    Console.ReadLine();
+                }
+            }
+
 
 
 

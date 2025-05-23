@@ -1123,6 +1123,15 @@ namespace TeamCSFile
 
             } while (sectionActive);
 
+            void SpringSnake()
+            {
+                Console.WriteLine("You peek into a toy box. Suddenly, a spring-loaded snake leaps out!");
+                StartCombat();
+                CombatItemCounts[3] += 1;
+                Console.WriteLine("\nPress Enter to continue.");
+                Console.ReadLine();
+            }
+
             void ToyShelf()
             {
                 Console.WriteLine("You examine the shelves. A toy hums quietly in the back.");

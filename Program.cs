@@ -1065,6 +1065,65 @@ namespace TeamCSFile
             Console.WriteLine("You step into the Toys section.");
             Console.WriteLine("Aisles are packed with plushies, plastic sets, and blinking gadgets.");
             Console.WriteLine($"\n\nYou’re here looking for a {MainInventoryNames[1]} \n");
+           
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("What do you want to do?\n  " +
+                                  "1) Check the spring-loaded toy snake\n  " +
+                                  "2) Browse the toy shelf\n  " +
+                                  "3) Crank the Jack-in-the-box\n  " +
+                                  "4) Explore the spooky toy chest\n  " +
+                                  "0) Leave\n");
+
+                try
+                {
+                    playerChoice = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input");
+                    continue;
+                }
+
+                switch (playerChoice)
+                {
+                    case 0:
+                        Console.WriteLine("You leave the Toys section.");
+                        sectionActive = false;
+                        break;
+
+                    case 1:
+                        SpringSnake();
+                        break;
+
+                    case 2:
+                        ToyShelf();
+                        break;
+
+                    case 3:
+                        JackInTheBox();
+                        break;
+
+                    case 4:
+                        SpookyChest();
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice, please pick 1, 2, 3 or 4.");
+                        break;
+                }
+
+                if (gotItem)
+                {
+                    sectionActive = false;
+                    Console.WriteLine("\nPress Enter to leave.");
+                    Console.ReadLine();
+                }
+
+            } while (sectionActive);
+
+
 
 
 

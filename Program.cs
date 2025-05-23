@@ -1123,6 +1123,36 @@ namespace TeamCSFile
 
             } while (sectionActive);
 
+            void ToyShelf()
+            {
+                Console.WriteLine("You examine the shelves. A toy hums quietly in the back.");
+                Thread.Sleep(1000);
+                Console.WriteLine($"You find a {CombatItemNames[1]} resting in a toy crate and grab it.");
+                CombatItemCounts[1] += 1;
+                Console.WriteLine("\nPress Enter to continue.");
+                Console.ReadLine();
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            void StartCombat()
+            {
+                Console.WriteLine("\nA toy springs to life! You face off bravely.\n");
+                Thread.Sleep(1000);
+            }
 
 
 

@@ -1050,6 +1050,22 @@ namespace TeamCSFile
 
         static void Toys()
         {
+            string[] MainInventoryNames = { "", "Remote Controlled Car" };
+            int[] MainInventoryCounts = new int[5];
+            string[] CombatItemNames = { "", "Toy Train", "Action Figure", "Spring Snake" };
+            int[] CombatItemCounts = new int[5];
+            Random randomGenerator = new Random();
+
+            bool sectionActive = true;
+            bool gotItem = false;
+            int playerChoice = 0;
+            string answer = "";
+
+            Console.Clear();
+            Console.WriteLine("You step into the Toys section.");
+            Console.WriteLine("Aisles are packed with plushies, plastic sets, and blinking gadgets.");
+            Console.WriteLine($"\n\nYou’re here looking for a {MainInventoryNames[1]} \n");
+
 
 
 

@@ -1167,34 +1167,22 @@ namespace TeamCSFile
                 }
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            void SpookyChest()
+            {
+                Console.WriteLine("You approach a dusty, eerie chest. It creaks open on its own...");
+                StartCombat();
+                Console.WriteLine($"Inside, you find the {MainInventoryNames[1]} gleaming beneath some old plush toys.");
+                MainInventoryCounts[1] += 1;
+                gotItem = true;
+                Console.WriteLine("\nPress Enter to continue.");
+                Console.ReadLine();
+            }
 
             void StartCombat()
             {
                 Console.WriteLine("\nA toy springs to life! You face off bravely.\n");
                 Thread.Sleep(1000);
             }
-
-
-
-
-
-
-
-
 
         }
 

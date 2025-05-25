@@ -640,7 +640,7 @@ namespace TeamCSFile
 
                 Console.ForegroundColor = ConsoleColor.White;
 
-                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Halve damage recieved for 1 turn, req. 10 STM)");
+                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Take no damage for 1 turn, req. 20 STM)");
 
                 Console.WriteLine("\n\n");
 
@@ -817,9 +817,9 @@ namespace TeamCSFile
                 else if (option == 3)  // if Guard chosen
                 {
 
-                    if (Stamina >= 10)
+                    if (Stamina >= 20)
                     {
-                        Stamina = Stamina - 10;
+                        Stamina = Stamina - 20;
 
                         Console.Clear();
 

@@ -648,7 +648,21 @@ namespace TeamCSFile
 
                 Console.WriteLine("\n\n");
 
-                option = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    option = Convert.ToInt32(Console.ReadLine());
+                }
+
+                catch
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
+
+                    Thread.Sleep(2000);
+
+                    Console.Clear();
+                }
 
                 if (option == 1)    // if Attack chosen
                 {
@@ -656,11 +670,40 @@ namespace TeamCSFile
 
                     Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
 
-                    option = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        option = Convert.ToInt32(Console.ReadLine());
+                    }
+
+                    catch
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
+
+                        Thread.Sleep(2000);
+
+                        Console.Clear();
+                    }
 
                     Console.WriteLine("\n\nSelect a target:\n\n");
 
-                    target = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        target = Convert.ToInt32(Console.ReadLine());
+                    }
+
+                    catch
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
+
+                        Thread.Sleep(2000);
+
+                        Console.Clear();
+                    }
+
 
                     if (option == 1)    // if Light Attack chosen
                     {

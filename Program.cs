@@ -1065,7 +1065,7 @@ namespace TeamCSFile
             Console.WriteLine("You step into the Toys section.");
             Console.WriteLine("Aisles are packed with plushies, plastic sets, and blinking gadgets.");
             Console.WriteLine($"\n\nYou’re here looking for a {MainInventoryNames[1]} \n");
-           
+
             do
             {
                 Console.Clear();
@@ -1254,7 +1254,7 @@ namespace TeamCSFile
                         break;
 
                     case 4:
-                        Console.WriteLine("You step cautiously into the dimly lit aisle. The flickering lights above barely illuminate the path ahead.");// boss fight room if you dont get the item earlier
+                        DimlyLitAisle();
                         //Combat();
                         // InventoryAmount[2]+ 1 when getting the item
                         LeaveCase();
@@ -1349,8 +1349,8 @@ namespace TeamCSFile
                         Thread.Sleep(1000);
                         Console.WriteLine($"She digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\nHere, take this. I grabbed it earlier thinking it was a fancy radio, but it’s actually what you’re after.\nShe hands you the {InventoryName[1]}.\n");
                         Thread.Sleep(1000);
-                        Console.WriteLine("Your such a nice young person. Says the granny as she walks away");
-                        Thread.Sleep(2000);
+                        Console.WriteLine("Your such a nice young person. Says the granny as she walks away\n");
+                        Thread.Sleep(2500);
 
                         InventoryAmount[1] += 1;
                         Console.WriteLine("Item acquired! You successfully found what you were looking for.");
@@ -1359,16 +1359,39 @@ namespace TeamCSFile
                     }
                     else
                     {
-                        Console.WriteLine("Oh heavens, I was hoping you knew. Maybe we should both go back to using tin cans and string!");
+                        Console.WriteLine("Oh heavens, I was hoping you knew. Maybe we should both go back to using tin cans and string!\n");
 
                     }
-                }else
+                }
+                else
                 {
                     Console.WriteLine("You decide to leave the Granny alone.\n");
                     Thread.Sleep(1000);
                     Console.WriteLine("She looks disappointed, but you can’t help everyone.");
                     Thread.Sleep(2000);
                 }
+
+            }
+            void DimlyLitAisle()
+            {
+                Console.Clear();
+                Console.WriteLine("You step cautiously into the dimly lit aisle.\n");
+                Thread.Sleep(2000);
+                Console.WriteLine("As your foot touches the worn tile, the soft hum of the overhead lights cuts out.");
+                Thread.Sleep(1000);
+                Console.WriteLine("The faint music from the store speakers? Gone.");
+                Thread.Sleep(1000);
+                Console.WriteLine("A heavy silence settles around you, thick and unnatural.");
+                Thread.Sleep(1000);
+                Console.WriteLine("In front of you, a CRT television — ancient and dusty — clicks on without warning.");
+                Thread.Sleep(1000);
+                Console.WriteLine("A swirling pattern appears on the screen, hypnotic and strange.\r\nThen, a face forms. Pixelated. Smiling. Too wide.");
+                Thread.Sleep(1000);
+                Console.WriteLine("\"Welcome, shopper,\" it says in a stuttering monotone.\r\n\"To claim what you seek... answer this:\"");
+                Thread.Sleep(1000);
+                Console.WriteLine("");
+                //Combat();
+                // InventoryAmount[2]+ 1 when getting the item
             }
 
             void LeaveCase()

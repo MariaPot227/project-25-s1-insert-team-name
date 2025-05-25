@@ -611,7 +611,7 @@ namespace TeamCSFile
 
                 if (enem2Health > 0) //if enemy 2 is alive
                 {
-                    Console.Write($"\t2. {onfield[0]}: ");
+                    Console.Write($"\t2. {onfield[1]}: ");
 
                     Console.ForegroundColor = ConsoleColor.Red;
 
@@ -623,7 +623,7 @@ namespace TeamCSFile
 
                 if (enem3Health > 0) //if enemy 3 is alive
                 {
-                    Console.Write($"\t3. {onfield[0]}: ");
+                    Console.Write($"\t3. {onfield[2]}: ");
 
                     Console.ForegroundColor = ConsoleColor.Red;
 

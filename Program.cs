@@ -934,7 +934,7 @@ namespace TeamCSFile
 
                             Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            if (guard = !false)
+                            if (guard != false)
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
@@ -1093,7 +1093,7 @@ namespace TeamCSFile
 
                             Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            if (guard = !false)
+                            if (guard != false)
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");

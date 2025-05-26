@@ -1195,6 +1195,8 @@ namespace TeamCSFile
             bool sectionActive = true, gotItem = false; // keeps the section active until the player leaves
             int playerChoice = 0, pickUp = 0;
             string answer;
+            string yn = "";
+            bool validInput = false;
             rand = new Random();
 
             Console.Clear();
@@ -1309,9 +1311,7 @@ namespace TeamCSFile
 
             void Granny()
             {
-                string yn = "";
-                bool validInput = false;
-
+                
                 while (!validInput)
                 {
                     Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\nExcuse me, she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.\n\n");
@@ -1374,7 +1374,14 @@ namespace TeamCSFile
             }
             void DimlyLitAisle()
             {
+                
+                
                 Console.Clear();
+                Console.WriteLine("");
+
+
+                while (!validInput)
+                {
                 Console.WriteLine("You step cautiously into the dimly lit aisle.\n");
                 Thread.Sleep(2000);
                 Console.WriteLine("As your foot touches the worn tile, the soft hum of the overhead lights cuts out.");
@@ -1385,11 +1392,64 @@ namespace TeamCSFile
                 Thread.Sleep(1000);
                 Console.WriteLine("In front of you, a CRT television — ancient and dusty — clicks on without warning.");
                 Thread.Sleep(1000);
-                Console.WriteLine("A swirling pattern appears on the screen, hypnotic and strange.\r\nThen, a face forms. Pixelated. Smiling. Too wide.");
+                Console.WriteLine("A swirling pattern appears on the screen, hypnotic and strange.\nThen, a face forms. Pixelated. Smiling. Too wide.");
                 Thread.Sleep(1000);
-                Console.WriteLine("\"Welcome, shopper,\" it says in a stuttering monotone.\r\n\"To claim what you seek... answer this:\"");
+                Console.WriteLine("\"Welcome, shopper,\" it says in a stuttering monotone.\n\"To claim what you seek... answer this:\"");
                 Thread.Sleep(1000);
-                Console.WriteLine("");
+                    
+                    Console.Write("Do you want to answer the riddle or run away? ");
+                    yn = Console.ReadLine().Trim().ToLower();
+
+                    if (yn == "y" || yn == "n")
+                    {
+                        validInput = true; // exit loop
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter 'y' for yes or 'n' for no.");
+                        Thread.Sleep(1000);
+                        Console.Clear();
+                    }
+                }
+                if (yn == "y" || yn == "yes")
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("");// riddle
+
+                    answer = Convert.ToString(Console.ReadLine().Trim().ToLower());
+                    if (answer == "bluetooth" || answer == "signal" || answer == "wifi")// riddle answer
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\n");
+                        Thread.Sleep(1000);
+
+                        Console.WriteLine("“\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine($" {InventoryName[1]}.\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("\n");
+                        Thread.Sleep(2500);
+
+                        InventoryAmount[1] += 1;
+                        Console.WriteLine($"Item acquired! You successfully found what you were looking for.\n And as a bonus you got a {CombatInventoryName[2]}");
+                        gotItem = true;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n");
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("You decide to run away.\n");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("");
+                    Thread.Sleep(2000);
+                }
                 //Combat();
                 // InventoryAmount[2]+ 1 when getting the item
             }

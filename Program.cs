@@ -611,7 +611,7 @@ namespace TeamCSFile
 
                 if (enem2Health > 0) //if enemy 2 is alive
                 {
-                    Console.Write($"\t2. {onfield[0]}: ");
+                    Console.Write($"\t2. {onfield[1]}: ");
 
                     Console.ForegroundColor = ConsoleColor.Red;
 
@@ -623,7 +623,7 @@ namespace TeamCSFile
 
                 if (enem3Health > 0) //if enemy 3 is alive
                 {
-                    Console.Write($"\t3. {onfield[0]}: ");
+                    Console.Write($"\t3. {onfield[2]}: ");
 
                     Console.ForegroundColor = ConsoleColor.Red;
 
@@ -640,7 +640,7 @@ namespace TeamCSFile
 
                 Console.ForegroundColor = ConsoleColor.White;
 
-                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Halve damage recieved for 1 turn, req. 10 STM)");
+                Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Take no damage for 1 turn, req. 20 STM)");
 
                 Console.WriteLine("\n\n");
 
@@ -648,7 +648,21 @@ namespace TeamCSFile
 
                 Console.WriteLine("\n\n");
 
-                option = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    option = Convert.ToInt32(Console.ReadLine());
+                }
+
+                catch
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
+
+                    Thread.Sleep(2000);
+
+                    Console.Clear();
+                }
 
                 if (option == 1)    // if Attack chosen
                 {
@@ -656,11 +670,40 @@ namespace TeamCSFile
 
                     Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
 
-                    option = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        option = Convert.ToInt32(Console.ReadLine());
+                    }
+
+                    catch
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
+
+                        Thread.Sleep(2000);
+
+                        Console.Clear();
+                    }
 
                     Console.WriteLine("\n\nSelect a target:\n\n");
 
-                    target = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        target = Convert.ToInt32(Console.ReadLine());
+                    }
+
+                    catch
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
+
+                        Thread.Sleep(2000);
+
+                        Console.Clear();
+                    }
+
 
                     if (option == 1)    // if Light Attack chosen
                     {
@@ -817,9 +860,9 @@ namespace TeamCSFile
                 else if (option == 3)  // if Guard chosen
                 {
 
-                    if (Stamina >= 10)
+                    if (Stamina >= 20)
                     {
-                        Stamina = Stamina - 10;
+                        Stamina = Stamina - 20;
 
                         Console.Clear();
 

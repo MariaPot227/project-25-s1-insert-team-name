@@ -73,7 +73,6 @@ namespace TeamCSFile
                                   "2  Room Selection\n" +
                                   "3  Check Your inventory\n" +
                                   "4  Show areas completed\n" +
-                                  "5  Shopping list\n" + // exiting the store checkout if you have all the items you can leave final boss
                                   "0  Exit The Menu");
 
                 try
@@ -91,7 +90,7 @@ namespace TeamCSFile
                 switch (num)
                 {
                     case 1:
-                        //Rest(); // replenishes HP?
+                        Rest(); 
                         break;
 
                     case 2:
@@ -119,9 +118,27 @@ namespace TeamCSFile
 
             } while (inMenu);
 
+            void Rest()
+            {
+                Console.Write("You sit down at a chair and rest for a while");
+                Thread.Sleep(1000);
+                Health = 100;
+                Stamina = 100;
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.Write(".");
+                    Thread.Sleep(500);
+                    
+                }
+                Console.WriteLine($"\nYour Health: {Health} and Stamina: {Stamina} are restored");
+                Thread.Sleep(1000);
+                Exit();
+
+            }
+
             static void Exit()
             {
-                Console.WriteLine("Please press any key to exit");
+                Console.WriteLine("\nPlease press any key to exit");
                 Console.ReadLine();
             }
             string RoomSelection()

@@ -90,7 +90,7 @@ namespace TeamCSFile
                 switch (num)
                 {
                     case 1:
-                        Rest(); 
+                        Rest();
                         break;
 
                     case 2:
@@ -128,7 +128,7 @@ namespace TeamCSFile
                 {
                     Console.Write(".");
                     Thread.Sleep(500);
-                    
+
                 }
                 Console.WriteLine($"\nYour Health: {Health} and Stamina: {Stamina} are restored");
                 Thread.Sleep(1000);
@@ -1133,7 +1133,7 @@ namespace TeamCSFile
 
                     }
 
-                    
+
 
 
 
@@ -1483,7 +1483,7 @@ namespace TeamCSFile
         static void Electronics()
         {
             bool sectionActive = true, gotItem = false; // keeps the section active until the player leaves
-            int playerChoice = 0, pickUp = 0;
+            int playerChoice = 0;
             string answer;
             string yn = "";
             bool validInput = false;
@@ -1601,7 +1601,7 @@ namespace TeamCSFile
 
             void Granny()
             {
-                
+
                 while (!validInput)
                 {
                     Console.WriteLine("You approach the Granny, who’s poking at a wireless headset like it's an alien artifact.\nExcuse me, she says, adjusting her comically large glasses,\n'Help me get this contraption working, and I’ll make it worth your while.\n\n");
@@ -1664,49 +1664,50 @@ namespace TeamCSFile
             }
             void DimlyLitAisle()
             {
-                
-                
+
+
                 Console.Clear();
                 Console.WriteLine("");
 
 
                 while (!validInput)
                 {
-                Console.WriteLine("You step cautiously into the dimly lit aisle.\n");
-                Thread.Sleep(2000);
-                Console.WriteLine("As your foot touches the worn tile, the soft hum of the overhead lights cuts out.");
-                Thread.Sleep(1000);
-                Console.WriteLine("The faint music from the store speakers? Gone.");
-                Thread.Sleep(1000);
-                Console.WriteLine("A heavy silence settles around you, thick and unnatural.");
-                Thread.Sleep(1000);
-                Console.WriteLine("In front of you, a CRT television — ancient and dusty — clicks on without warning.");
-                Thread.Sleep(1000);
-                Console.WriteLine("A swirling pattern appears on the screen, hypnotic and strange.\nThen, a face forms. Pixelated. Smiling. Too wide.");
-                Thread.Sleep(1000);
-                Console.WriteLine("\"Welcome, shopper,\" it says in a stuttering monotone.\n\"To claim what you seek... answer this:\"");
-                Thread.Sleep(1000);
-                    
+                    Console.WriteLine("You step cautiously into the dimly lit aisle.\n");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("As your foot touches the worn tile, the soft hum of the overhead lights cuts out.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("The faint music from the store speakers? Gone.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("A heavy silence settles around you, thick and unnatural.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("In front of you, a CRT television — ancient and dusty — clicks on without warning.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("A swirling pattern appears on the screen, hypnotic and strange.\nThen, a face forms. Pixelated. Smiling. Too wide.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("\"Welcome, shopper,\" it says in a stuttering monotone.\n\"To claim what you seek... answer this:\"");
+                    Thread.Sleep(1000);
+
                     Console.Write("Do you want to answer the riddle or run away? ");
                     yn = Console.ReadLine().Trim().ToLower();
 
-                    if (yn == "y" || yn == "n")
+                    if (yn.Contains("run") || yn.Contains("riddle"))
                     {
                         validInput = true; // exit loop
                     }
                     else
                     {
-                        Console.WriteLine("Invalid input. Please enter 'y' for yes or 'n' for no.");
+                        Console.WriteLine("Invalid input.");
                         Thread.Sleep(1000);
                         Console.Clear();
                     }
+                    
                 }
-                if (yn == "y" || yn == "yes")
+                if (yn.Contains("answer") || yn.Contains("riddle"))
                 {
                     Console.Clear();
-                    Console.WriteLine("\n");
+                    Console.WriteLine("You decide try to answer the riddle.\n");
                     Thread.Sleep(1000);
-                    Console.WriteLine("");// riddle
+                    Console.WriteLine("Riddle is ...");// riddle
 
                     answer = Convert.ToString(Console.ReadLine().Trim().ToLower());
                     if (answer == "bluetooth" || answer == "signal" || answer == "wifi")// riddle answer

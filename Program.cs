@@ -1937,12 +1937,12 @@ namespace TeamCSFile
 
         static void Electronics()
         {
+
             bool sectionActive = true, gotItem = false; // keeps the section active until the player leaves
             int playerChoice = 0;
             string answer;
             string yn = "";
             bool validInput = false;
-            rand = new Random();
 
             Console.Clear();
             Console.WriteLine("You step into the Electronics section.");
@@ -2015,6 +2015,7 @@ namespace TeamCSFile
 
             void UsbCables()
             {
+                int one6 = rand.Next(0, CombatInventoryAmount.Length);
                 Console.WriteLine("You approach the USB cables. ");// combat section maybe 
                 Thread.Sleep(800);
                 Console.WriteLine("Most of them are coiled neatly on hooks... except one.");
@@ -2030,20 +2031,21 @@ namespace TeamCSFile
                 Combat();
 
                 // if you win combat you get the item
-                CombatInventoryAmount[3] += 1; // how to fail combat and not get the item
+                CombatInventoryAmount[one6] += 1; // how to fail combat and not get the item
             }
 
             void Chargers()
             {
+                int one6 = rand.Next(0, CombatInventoryAmount.Length);
                 Console.WriteLine("You sort through the pile of portable chargers. One claims to charge a fridge. Another has three buttons and no ports.\n");
                 Thread.Sleep(2000);
 
                 Console.WriteLine(
-                          $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[1]} just sitting there like a free sample.\nYou casually slip it into your inventory before anyone notices.");
-                Thread.Sleep(1500);
+                          $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[one6]} just sitting there like a free sample.\nYou casually slip it into your inventory before anyone notices.");
+                Thread.Sleep(2000);
                 Console.WriteLine("You don't see anything else useful in the area.");
 
-                CombatInventoryAmount[1] += 1;
+                CombatInventoryAmount[one6] += 1;
             }
 
             void Granny()

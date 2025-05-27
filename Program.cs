@@ -262,6 +262,7 @@ namespace TeamCSFile
                         {
                             Health = 100;
                         }
+                        CombatInventoryAmount[temp - 1]--;
                         Console.WriteLine($"You gain 10 Health. You have now have {Health}HP.\nEnter to continue");
                         Console.ReadLine();
                     }
@@ -280,6 +281,7 @@ namespace TeamCSFile
                         {
                             Health = 100;
                         }
+                        CombatInventoryAmount[temp - 1]--;
                         Console.WriteLine($"You gain 25 Health. You have now have {Health}HP.\nEnter to continue");
                         Console.ReadLine();
                     }
@@ -298,6 +300,7 @@ namespace TeamCSFile
                         {
                             Health = 100;
                         }
+                        CombatInventoryAmount[temp - 1]--;
                         Console.WriteLine($"You gain 50 Health. You have now have {Health}HP.\nEnter to continue");
                         Console.ReadLine();
                     }
@@ -316,6 +319,7 @@ namespace TeamCSFile
                         {
                             Stamina = 100;
                         }
+                        CombatInventoryAmount[temp - 1]--;
                         Console.WriteLine($"You gain 10 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
                         Console.ReadLine();
                     }
@@ -334,6 +338,7 @@ namespace TeamCSFile
                         {
                             Stamina = 100;
                         }
+                        CombatInventoryAmount[temp - 1]--;
                         Console.WriteLine($"You gain 25 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
                         Console.ReadLine();
                     }
@@ -352,6 +357,7 @@ namespace TeamCSFile
                         {
                             Stamina = 100;
                         }
+                        CombatInventoryAmount[temp - 1]--;
                         Console.WriteLine($"You gain 50 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
                         Console.ReadLine();
                     }

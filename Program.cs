@@ -1946,11 +1946,11 @@ namespace TeamCSFile
 
             Console.Clear();
             Console.WriteLine("You step into the Electronics section.");
-            //Thread.Sleep(2000);
+            Thread.Sleep(1000);
             Console.WriteLine("Rows of glittering screens, RGB keyboards and tangled cables stretch before you.");
-            //Thread.Sleep(3000);
-            Console.WriteLine($"\n\nYou’re here looking for a {InventoryName[1]} \n");  // e.g. “Smart Phone”
-            //Thread.Sleep(2000);
+            Thread.Sleep(1000);
+            Console.WriteLine($"\n\nYou’re here looking for a {InventoryName[1]} \n");
+            Thread.Sleep(1000);
             do
             {
                 Console.WriteLine("As you scan the shelves, you see:\n  " +
@@ -1958,7 +1958,7 @@ namespace TeamCSFile
                                   "2) A half-broken display of portable chargers.\n  " +
                                   "3) A frazzled Granny clutching a tangled headset.\n  " +
                                   "4) A dimly lit aisle that makes it hard to see what’s ahead.");
-                
+                Thread.Sleep(1000);
                 Console.WriteLine("What do you want to do?\n  ");
 
                 try
@@ -2084,7 +2084,7 @@ namespace TeamCSFile
                         Console.WriteLine("Granny blinks, then breaks into a wide grin.\n");
                         Thread.Sleep(1000);
 
-                        Console.WriteLine("“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.\n");
+                        Console.WriteLine("“Well I’ll be — you got it right! Smarter than the manager around here, that’s for sure.\n");// do i keep the -'s
                         Thread.Sleep(1000);
                         Console.WriteLine($"She digs around in her trolley, moving aside half a loaf of bread and some unlabelled cans.\nHere, take this. I grabbed it earlier thinking it was a fancy radio, but it’s actually what you’re after.\nShe hands you the {InventoryName[1]}.\n");
                         Thread.Sleep(1000);
@@ -2113,33 +2113,37 @@ namespace TeamCSFile
             }
             void DimlyLitAisle()
             {
-
+                int one6 = rand.Next(0, CombatInventoryAmount.Length);
                 Console.Clear();
 
                 while (!validInput)
                 {
                     Console.WriteLine("You step cautiously into the dimly lit aisle.\n");
                     Thread.Sleep(2000);
-                    Console.WriteLine("As your foot touches the worn tile, the soft hum of the overhead lights cuts out.");
-                    Thread.Sleep(1000);
+                    Console.WriteLine("As your foot touches the worn tile, the soft hum of the overhead lights cuts out.\n");
+                    Thread.Sleep(1500);
                     Console.WriteLine("The faint music from the store speakers? Gone.");
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                     Console.WriteLine("A heavy silence settles around you, thick and unnatural.");
+                    Thread.Sleep(1500);
+                    Console.WriteLine("\nIn front of you, a CRT television — ancient and dusty — clicks on without warning.");
+                    Thread.Sleep(1500);
+                    Console.WriteLine("A swirling pattern appears on the screen, hypnotic and strange.\nThen, a face forms.");
+                    Thread.Sleep(1500);
+                    Console.WriteLine("Pixelated.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("In front of you, a CRT television — ancient and dusty — clicks on without warning.");
+                    Console.WriteLine("Smiling much too wide.\n");
                     Thread.Sleep(1000);
-                    Console.WriteLine("A swirling pattern appears on the screen, hypnotic and strange.\nThen, a face forms. Pixelated. Smiling. Too wide.");
+                    Console.WriteLine("“Welcome, shopper,” it says in a stuttering monotone.\n“To claim what you seek... answer this riddle”\n");
                     Thread.Sleep(1000);
-                    Console.WriteLine("\"Welcome, shopper,\" it says in a stuttering monotone.\n\"To claim what you seek... answer this:\"");
-                    Thread.Sleep(1000);
-
-                    Console.Write("Do you want to answer the riddle or run away? ");
+                    Console.WriteLine("The screen flickers, as if waiting. Watching. The grin stays frozen. Unmoving");
+                    Thread.Sleep(2000);
+                    Console.Write("Do you answer the riddle... or do you turn and flee?");
                     yn = Console.ReadLine().Trim().ToLower();
 
-                    if (yn.Contains("run") || yn.Contains("riddle"))
+                    if (yn.Contains("flee") || yn.Contains("riddle"))
                     {
                         validInput = true; // exit loop
-                        yn = "";
                     }
                     else
                     {
@@ -2151,47 +2155,58 @@ namespace TeamCSFile
                 }
                 validInput = false;
 
-                if (yn.Contains("answer") || yn.Contains("riddle"))
+                if (yn.Contains("answer") || yn.Contains("riddle"))// riddle
                 {
                     Console.Clear();
                     Console.WriteLine("You decide try to answer the riddle.\n");
                     Thread.Sleep(1000);
-                    Console.WriteLine("Riddle is ...");// riddle
+                    Console.WriteLine("I glow without fire and speak without breath,\r\nI summon your gaze 'til long after death.\n");
+                    Console.WriteLine("I'm always nearby, yet you'll never hold me tight,\nI live in your pocket and steal sleep each night.");
 
                     answer = Convert.ToString(Console.ReadLine().Trim().ToLower());
-                    if (answer == "bluetooth" || answer == "signal" || answer == "wifi")// riddle answer
+                    if (answer.Contains("phone") || answer.Contains("tablet"))// riddle answer options
                     {
                         Console.Clear();
-                        Console.WriteLine("\n");
+                        Console.WriteLine("The screen glitches, its pixels warping into a twisted smile.\n");
                         Thread.Sleep(1000);
 
-                        Console.WriteLine("“\n");
+                        Console.WriteLine("“Impressive,” it croaks, voice now echoing and deeper. “Few remember the truth behind the glow.”\n");
                         Thread.Sleep(1000);
-                        Console.WriteLine($" {InventoryName[1]}.\n");
+                        Console.WriteLine($"A drawer beneath the CRT clicks open with a hiss, revealing the {InventoryName[1]}.\n");
                         Thread.Sleep(1000);
-                        Console.WriteLine("\n");
-                        Thread.Sleep(2500);
+                        Console.WriteLine("“Take your prize, clever one… but beware. The store watches those who see too much.”\n");
+                        Thread.Sleep(2000);
 
                         InventoryAmount[1] += 1;
-                        Console.WriteLine($"Item acquired! You successfully found what you were looking for.\n And as a bonus you got a {CombatInventoryName[2]}");
+                        Console.WriteLine($"Item acquired! You successfully found what you were looking for.\n And as a bonus you got a {CombatInventoryName[one6]}");
                         gotItem = true;
 
                     }
                     else
                     {
-                        Console.WriteLine("\n");
+                        Console.WriteLine("The screen flickers violently. The smile distorts into a sneer. A piercing static fills the aisle.\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("“Foolish shopper,” it hisses, voice now a low growl. “You dare waste my time?”\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("“Then let the forgotten ones remind you.”\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("Vents rattle. Display shelves tremble. From the shadows of the electronics section, something stirs — cords twitching, batteries humming, plastic limbs dragging across linoleum.\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("The store is sending its enforcers.\n");
+
+                        LeaveCase();
+                        Combat();
 
                     }
                 }
                 else
                 {
-                    Console.WriteLine("You decide to run away.\n");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("");
+                    Console.WriteLine("You turn and sprint away, heart pounding in your chest.\n");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("The eerie glow fades behind you, but a chill lingers, like unseen eyes tracking your every step.");
                     Thread.Sleep(2000);
                 }
-                //Combat();
-                // InventoryAmount[2]+ 1 when getting the item
+                
             }
 
             void LeaveCase()

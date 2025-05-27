@@ -2126,7 +2126,7 @@ namespace TeamCSFile
                     Thread.Sleep(1500);
                     Console.WriteLine("A heavy silence settles around you, thick and unnatural.");
                     Thread.Sleep(1500);
-                    Console.WriteLine("\nIn front of you, a CRT television — ancient and dusty — clicks on without warning.");
+                    Console.WriteLine("\nIn front of you, a CRT television, old and dusty, clicks on without warning.");
                     Thread.Sleep(1500);
                     Console.WriteLine("A swirling pattern appears on the screen, hypnotic and strange.\nThen, a face forms.");
                     Thread.Sleep(1500);
@@ -2138,7 +2138,7 @@ namespace TeamCSFile
                     Thread.Sleep(1000);
                     Console.WriteLine("The screen flickers, as if waiting. Watching. The grin stays frozen. Unmoving");
                     Thread.Sleep(2000);
-                    Console.Write("Do you answer the riddle... or do you turn and flee?");
+                    Console.Write("Do you answer the riddle... or do you turn and flee?\n");
                     yn = Console.ReadLine().Trim().ToLower();
 
                     if (yn.Contains("flee") || yn.Contains("riddle"))
@@ -2167,10 +2167,10 @@ namespace TeamCSFile
                     if (answer.Contains("phone") || answer.Contains("tablet"))// riddle answer options
                     {
                         Console.Clear();
-                        Console.WriteLine("The screen glitches, its pixels warping into a twisted smile.\n");
+                        Console.WriteLine("The screen glitches, its pixels warping into a sinster pout.\n");
                         Thread.Sleep(1000);
 
-                        Console.WriteLine("“Impressive,” it croaks, voice now echoing and deeper. “Few remember the truth behind the glow.”\n");
+                        Console.WriteLine("“Impressive,” it croaks, voice now echoing. “Few remember the truth behind the glow.”\n");
                         Thread.Sleep(1000);
                         Console.WriteLine($"A drawer beneath the CRT clicks open with a hiss, revealing the {InventoryName[1]}.\n");
                         Thread.Sleep(1000);
@@ -2190,7 +2190,7 @@ namespace TeamCSFile
                         Thread.Sleep(1000);
                         Console.WriteLine("“Then let the forgotten ones remind you.”\n");
                         Thread.Sleep(1000);
-                        Console.WriteLine("Vents rattle. Display shelves tremble. From the shadows of the electronics section, something stirs — cords twitching, batteries humming, plastic limbs dragging across linoleum.\n");
+                        Console.WriteLine("Vents rattle. Display shelves tremble. From the shadows of the electronics section, something stirs, cords twitching, batteries humming, plastic limbs dragging across linoleum.\n");
                         Thread.Sleep(1000);
                         Console.WriteLine("The store is sending its enforcers.\n");
 

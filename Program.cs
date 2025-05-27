@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Globalization;
-using System.IO.Pipes;
-using System.Runtime.Intrinsics.X86;
-using System.Security.Cryptography.X509Certificates;
+
 using System.Threading;
 namespace TeamCSFile
 {

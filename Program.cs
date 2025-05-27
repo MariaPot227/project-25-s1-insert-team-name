@@ -1620,7 +1620,7 @@ namespace TeamCSFile
                         Console.Clear();
                     }
                 }
-
+                validInput = false;
                 if (yn == "y" || yn == "yes")
                 {
                     Console.Clear();
@@ -1665,10 +1665,7 @@ namespace TeamCSFile
             void DimlyLitAisle()
             {
 
-
                 Console.Clear();
-                Console.WriteLine("");
-
 
                 while (!validInput)
                 {
@@ -1693,6 +1690,7 @@ namespace TeamCSFile
                     if (yn.Contains("run") || yn.Contains("riddle"))
                     {
                         validInput = true; // exit loop
+                        yn = "";
                     }
                     else
                     {
@@ -1700,8 +1698,10 @@ namespace TeamCSFile
                         Thread.Sleep(1000);
                         Console.Clear();
                     }
-                    
+
                 }
+                validInput = false;
+
                 if (yn.Contains("answer") || yn.Contains("riddle"))
                 {
                     Console.Clear();

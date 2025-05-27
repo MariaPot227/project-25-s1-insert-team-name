@@ -1509,15 +1509,8 @@ namespace TeamCSFile
                                   "2) A half-broken display of portable chargers.\n  " +
                                   "3) A frazzled Granny clutching a tangled headset.\n  " +
                                   "4) A dimly lit aisle that makes it hard to see what’s ahead.");
-                Console.WriteLine("\n\n\nPress Enter to continue.");
-                Console.ReadLine();
-                Console.Clear();
-                Console.WriteLine("What do you want to do?\n  " +
-                                  "1) Approach the USB cables.\n  " +
-                                  "2) Investigate the portable chargers.\n  " +
-                                  "3) Help the Granny with her headset.\n  " +
-                                  "4) Go down the dimly lit aisle.\n  " +
-                                  "0) Leave the section.\n");
+                
+                Console.WriteLine("What do you want to do?\n  ");
 
                 try
                 {
@@ -1527,7 +1520,7 @@ namespace TeamCSFile
                 {
                     Console.WriteLine("Invalid Input");
                 }
-
+                Console.Clear();
                 switch (playerChoice)
                 {
                     case 0:
@@ -1547,13 +1540,12 @@ namespace TeamCSFile
 
                     case 3:
                         Granny();
-
                         LeaveCase();
                         break;
 
                     case 4:
                         DimlyLitAisle();
-                        //Combat();
+                        
                         // InventoryAmount[2]+ 1 when getting the item
                         LeaveCase();
                         break;

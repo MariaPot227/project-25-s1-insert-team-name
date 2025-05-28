@@ -1839,7 +1839,7 @@ namespace TeamCSFile
 
         static void Camping()
         {
-            bool yesno;
+            bool yesno, gamble = false;
 
             int threechoice = 0, twochoice = 0, reel1 = 0, reel2 = 0, reel3 = 0;
 
@@ -1927,7 +1927,7 @@ namespace TeamCSFile
                 Console.WriteLine("\nUpon closer inspection, you notice there is a slot machine built into the dam, with a sign saying that you will gain entry if you hit the jackpot.");
                 Thread.Sleep(3000);
                 Console.WriteLine("\nIt seems you have no choice but to gamble if you want the chair...");
-                Thread.Sleep(4000);
+                Thread.Sleep(6000);
                 Console.Clear();
 
                 reel1 = rand.Next(1, 8);
@@ -1948,25 +1948,32 @@ namespace TeamCSFile
 
                 Thread.Sleep(500);
 
-                if (reel1 == 7 && reel2 == 7 && reel3 == 7)
+                while (gamble != true)
                 {
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
-                    Thread.Sleep(3000);
-                    Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");
-                    Thread.Sleep(3000);
-                    Console.WriteLine("\nYou quickly grab the Yard Chair and make a beeline back to the entrance before any more chicanery can occur.");
-                    InventoryAmount[3]++;
+
+
+
+                    if (reel1 == 7 && reel2 == 7 && reel3 == 7)
+                    {
+
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("\nYou quickly grab the Yard Chair and make a beeline back to the entrance before any more chicanery can occur.");
+                        InventoryAmount[3]++;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tTip: 90% of gamblers quit right before they win big");
+                    }
+
+                    Thread.Sleep(2000);
+
+                    Console.Clear();
+                    Hub();
                 }
-
-                else
-                {
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tTip: 90% of gamblers quit right before they win big");
-                }
-
-                Thread.Sleep(2000);
-
-                Console.Clear();
-
 
 
 

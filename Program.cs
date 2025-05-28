@@ -1948,33 +1948,37 @@ namespace TeamCSFile
 
                 Thread.Sleep(500);
 
-                while (gamble != true)
+                while (gamble = false)
                 {
 
 
 
                     if (reel1 == 7 && reel2 == 7 && reel3 == 7)
                     {
-
+                        gamble = true;
                         Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
                         Thread.Sleep(3000);
                         Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");
                         Thread.Sleep(3000);
                         Console.WriteLine("\nYou quickly grab the Yard Chair and make a beeline back to the entrance before any more chicanery can occur.");
                         InventoryAmount[3]++;
+                        Thread.Sleep(3000);
+                        Console.Clear();
                     }
 
                     else
                     {
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tTip: 90% of gamblers quit right before they win big");
+                        Console.WriteLine("\n\n\n\t\t\t\t\t\t\t\t\t\t\tTip: 90% of gamblers quit right before they win big");
+                        Thread.Sleep(2000);
+                        Console.Clear();
                     }
 
-                    Thread.Sleep(2000);
+                    
 
-                    Console.Clear();
-                    Hub();
+                    
+                    
                 }
-
+                Hub();
 
 
 

@@ -127,7 +127,7 @@ namespace TeamCSFile
                 Console.WriteLine("1  Rest\n" +
                                   "2  Room Selection\n" +
                                   "3  Check Your inventory\n" +
-                                  "4  Show areas completed\n" +
+                                  "4  Go to Checkout\n" +
                                   "0  Exit The Menu");
 
                 try
@@ -157,7 +157,7 @@ namespace TeamCSFile
                         break;
 
                     case 4:
-                        //AreasCompleted();
+                        inMenu = Checkout();
                         break;
 
                     case 0:
@@ -1709,6 +1709,7 @@ namespace TeamCSFile
         {
             Console.Clear();
             Console.WriteLine($"You enter the Clothing section in order to find the {InventoryName[0]}.");
+            Console.WriteLine("Enter to continue.");
             Console.ReadLine();
             bool running = true;
             while (running)
@@ -2273,42 +2274,28 @@ namespace TeamCSFile
                 Console.ReadLine();
             }
         }
-
-
-        string[] kmartItems = new string[]
-           {
-                //Electronics
-
-                 "Bluetooth Speaker",
-                 "Smart Phone",
-                 "gaming Console",
-                 "Smart Watch",
-                 "Portable Charger",
-                 
-                 //Clothing
-
-                 "Men's Hoodie",
-                 "Women's Jeans",
-                 "Running Shoes",
-                 "Baseball cap",
-                 "Swimsuit",
-
-                 //Camping
-                
-                 "Sleeping Bag",
-                 "Tent",
-                 "Camping Stove",
-                 "Flashlight",
-                 "portable Cooler",
-
-                 //Toys
-
-                 "Remote Control Car",
-                 "Building Blocks Set",
-                 "Action Figure",
-                 "Board Game",
-                 "Plush Teddy Bare",
-           };
+        static bool Checkout()
+        {
+            Console.Clear();
+            if (InventoryAmount[0] > 1 && InventoryAmount[1] > 1 && InventoryAmount[2] > 1 && InventoryAmount[3] > 1)
+            {
+                Console.WriteLine("With everything you need, you walk to the checkout." +
+                    "\nYou approach the checkout worker and put your items on the counter." +
+                    "\nThey scan the items and the total comes out to $129.96" +
+                    "\nYou pay and exit the store, having completed your shopping for today.");
+                Console.WriteLine("\nPress enter to finish the game.");
+                Console.ReadLine();
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("You are missing items to contine to the checkout. " +
+                    "\nMake sure you have got everything you need before checking out." +
+                    "\nEnter to continue.");
+                Console.ReadLine();
+                return false;
+            }
+        }
 
 
 
@@ -2359,7 +2346,7 @@ namespace TeamCSFile
 
 
 
-    }
+        }
 }
 
 

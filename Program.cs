@@ -1839,9 +1839,9 @@ namespace TeamCSFile
 
         static void Camping()
         {
-            bool yesno, gamble = false;
+            bool yesno;
 
-            int threechoice = 0, twochoice = 0, reel1 = 0, reel2 = 0, reel3 = 0;
+            int threechoice = 0, twochoice = 0, reel1 = 0, reel2 = 0, reel3 = 0, gamblewin = 0;
 
             Console.Clear();
 
@@ -1930,6 +1930,11 @@ namespace TeamCSFile
                 Thread.Sleep(6000);
                 Console.Clear();
 
+
+                while (gamblewin != 1)
+                {
+
+
                 reel1 = rand.Next(1, 8);
 
                 reel2 = rand.Next(1, 8);
@@ -1948,14 +1953,9 @@ namespace TeamCSFile
 
                 Thread.Sleep(500);
 
-                while (gamble = false)
-                {
-
-
-
                     if (reel1 == 7 && reel2 == 7 && reel3 == 7)
                     {
-                        gamble = true;
+                        gamblewin = 1;
                         Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
                         Thread.Sleep(3000);
                         Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");

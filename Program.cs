@@ -1839,6 +1839,129 @@ namespace TeamCSFile
 
         static void Camping()
         {
+            bool yesno;
+
+            int threechoice = 0, twochoice = 0;
+
+            Console.Clear();
+
+            while (Room == 4)
+            {
+                Console.WriteLine("\nYou head off in the direction of the store's Camping department in search of a foldable Yard Chair.");
+                Thread.Sleep(1000);
+                Console.WriteLine("\nAs you approach the outer aisles of the department you feel an inexplicable chill run over your body. Something isn't right, but you aren't sure what.");
+                Thread.Sleep(1000);
+                Console.WriteLine("\n\nWhat do you do next?\n\n");
+                Console.Write("\n1. Proceed forward into the tents aisle");
+                Console.Write("\n2. Go around and enter via the fishing aisle");
+                Console.Write("\n3. Turn around and leave");
+
+                threechoice = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Thread.Sleep(1000);
+                switch (threechoice)
+                {
+                    case 1:
+                        Console.WriteLine("\nAs you walk through the aisle the lights suddenly blow, one by one. Now enshrouded by darkness, you can faintly see what looks like a headtorch hanging on one of the racks.");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("\n\nDo you choose to reach out for it, or to stumble your way to the prized Yard Chair in the dark?");
+                        Thread.Sleep(3000);
+                        Console.Write("\n1. Attempt to grab the torch");
+                        Console.Write("\n2. Continue without it");
+
+                        threechoice = Convert.ToInt32(Console.ReadLine());
+                        Console.Clear();
+                        Thread.Sleep(3000);
+                        break;
+
+                    case 2:
+                        Console.WriteLine("\nAs you walk through the aisle you notice that the floor is wet, perhaps a cleaner left their job unfinished.");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("\n..but upon looking down, you realise that you are somehow standing in the middle of a river flowing straight through the aisle?");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("\n\nBefore you can react to this bizarre situation, a figure leaps toward you out of the water!");
+                        Thread.Sleep(3000);
+                        Combat();
+                        
+
+                        break;
+
+
+                    case 3:
+                        Console.Clear();
+                        Console.Write("\nYou turned back and made a tactical retreat to the entrance.");
+                        Console.Read();
+                        Thread.Sleep(3000);
+
+                        Hub();
+
+                        break;
+                
+                
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

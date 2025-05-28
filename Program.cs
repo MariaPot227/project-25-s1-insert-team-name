@@ -2477,7 +2477,7 @@ namespace TeamCSFile
                     "\nYou pay and exit the store, having completed your shopping for today.");
                 Console.WriteLine("\nPress enter to finish the game.");
                 Console.ReadLine();
-                return true;
+                return false;
             }
             else
             {
@@ -2485,7 +2485,7 @@ namespace TeamCSFile
                     "\nMake sure you have got everything you need before checking out." +
                     "\nEnter to continue.");
                 Console.ReadLine();
-                return false;
+                return true;
             }
         }
 

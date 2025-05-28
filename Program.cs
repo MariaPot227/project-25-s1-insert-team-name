@@ -1919,8 +1919,12 @@ namespace TeamCSFile
 
                 }
 
-
+                Console.Clear();
+                Console.WriteLine("\nYou have arrived at your destination. You see a lone Yard Chair propped up against a shelf at the mouth of the unexplainable river that is flowing through the store.");
+                Thread.Sleep(3000);
+               
                 
+
 
 
 

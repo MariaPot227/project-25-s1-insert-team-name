@@ -2277,7 +2277,7 @@ namespace TeamCSFile
         static bool Checkout()
         {
             Console.Clear();
-            if (InventoryAmount[0] > 1 && InventoryAmount[1] > 1 && InventoryAmount[2] > 1 && InventoryAmount[3] > 1)
+            if (InventoryAmount[0] > 0 && InventoryAmount[1] > 0 && InventoryAmount[2] > 0 && InventoryAmount[3] > 0)
             {
                 Console.WriteLine("With everything you need, you walk to the checkout." +
                     "\nYou approach the checkout worker and put your items on the counter." +

@@ -1017,7 +1017,7 @@ namespace TeamCSFile
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
-                                guard = false;
+                                
                             }
 
                             else
@@ -1078,7 +1078,7 @@ namespace TeamCSFile
                                 Thread.Sleep(1000);
 
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..But you withstood the attack and sustained no damage!");
-                                guard = false;
+                                
                             }
 
                             else
@@ -1212,7 +1212,7 @@ namespace TeamCSFile
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
-                                guard = false;
+                                
                             }
 
                             else
@@ -1405,7 +1405,7 @@ namespace TeamCSFile
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
-                                guard = false;
+                                
                             }
 
                             else
@@ -1442,7 +1442,7 @@ namespace TeamCSFile
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
-                                guard = false;
+                                
                             }
 
                             else
@@ -1516,7 +1516,7 @@ namespace TeamCSFile
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
-                                guard = false;
+                                
                             }
 
                             else
@@ -1576,7 +1576,7 @@ namespace TeamCSFile
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
-                                guard = false;
+                               
                             }
 
                             else
@@ -1612,7 +1612,7 @@ namespace TeamCSFile
                             {
                                 Thread.Sleep(1000);
                                 Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
-                                guard = false;
+                                
                             }
 
                             else
@@ -1641,7 +1641,7 @@ namespace TeamCSFile
 
                     }
 
-
+                    guard = false; // resets guard after turn
 
 
 
@@ -1848,9 +1848,9 @@ namespace TeamCSFile
             while (Room == 4)
             {
                 Console.WriteLine("\nYou head off in the direction of the store's Camping department in search of a foldable Yard Chair.");
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 Console.WriteLine("\nAs you approach the outer aisles of the department you feel an inexplicable chill run over your body. Something isn't right, but you aren't sure what.");
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 Console.WriteLine("\n\nWhat do you do next?\n\n");
                 Console.Write("\n1. Proceed forward into the tents aisle");
                 Console.Write("\n2. Go around and enter via the fishing aisle");
@@ -1858,7 +1858,7 @@ namespace TeamCSFile
 
                 threechoice = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 switch (threechoice)
                 {
                     case 1:
@@ -1869,7 +1869,7 @@ namespace TeamCSFile
                         Console.Write("\n1. Attempt to grab the torch");
                         Console.Write("\n2. Continue without it");
 
-                        threechoice = Convert.ToInt32(Console.ReadLine());
+                        twochoice = Convert.ToInt32(Console.ReadLine());
                         Console.Clear();
                         Thread.Sleep(3000);
                         break;
@@ -1890,19 +1890,37 @@ namespace TeamCSFile
                     case 3:
                         Console.Clear();
                         Console.Write("\nYou turned back and made a tactical retreat to the entrance.");
-                        Console.Read();
                         Thread.Sleep(3000);
 
                         Hub();
 
                         break;
-                
-                
+
+
+                }
+
+                switch (twochoice)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.Write("\nYou take the torch and place it on your head. However, its light illuminates an enemy!");
+                        Thread.Sleep(3000);
+                        Combat();
+                        break;
+
+
+                    case 2:
+                        Console.Clear();
+                        Console.Write("\nYou choose to continue without the torch. Unfortunately, you overestimated how many carrots you eat and are hit by a sneak attack!");
+                        Thread.Sleep(3000);
+                        Combat();
+                        break;
+                        
+
                 }
 
 
-
-
+                
 
 
 

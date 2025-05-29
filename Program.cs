@@ -1839,13 +1839,13 @@ namespace TeamCSFile
 
         static void Camping()
         {
-            bool yesno;
+            bool yesno, doNotSpamHubPlz = true;
 
             int threechoice = 0, twochoice = 0, reel1 = 0, reel2 = 0, reel3 = 0, gamblewin = 0;
 
             Console.Clear();
 
-            while (Room == 4)
+            while (doNotSpamHubPlz)
             {
                 Console.WriteLine("\nYou head off in the direction of the store's Camping department in search of a foldable Yard Chair.");
                 Thread.Sleep(3000);
@@ -1892,152 +1892,91 @@ namespace TeamCSFile
                         Console.Write("\nYou turned back and made a tactical retreat to the entrance.");
                         Thread.Sleep(3000);
 
-                        Hub();
 
                         break;
 
 
                 }
+                if (doNotSpamHubPlz)
+                { 
+                    switch (twochoice)
+                    {
+                        case 1:
+                            Console.Clear();
+                            Console.Write("\nYou take the torch and place it on your head. However, its light illuminates an enemy!");
+                            Thread.Sleep(3000);
+                            Combat();
+                            break;
 
-                switch (twochoice)
-                {
-                    case 1:
-                        Console.Clear();
-                        Console.Write("\nYou take the torch and place it on your head. However, its light illuminates an enemy!");
-                        Thread.Sleep(3000);
-                        Combat();
-                        break;
 
-
-                    case 2:
-                        Console.Clear();
-                        Console.Write("\nYou choose to continue without the torch. Unfortunately, you overestimated how many carrots you eat and are hit by a sneak attack!");
-                        Thread.Sleep(3000);
-                        Combat();
-                        break;
+                        case 2:
+                            Console.Clear();
+                            Console.Write("\nYou choose to continue without the torch. Unfortunately, you overestimated how many carrots you eat and are hit by a sneak attack!");
+                            Thread.Sleep(3000);
+                            Combat();
+                            break;
                         
 
-                }
-
-                Console.Clear();
-                Console.WriteLine("\nYou have arrived at your destination. You see a lone Yard Chair propped up against a shelf at the mouth of the unexplainable river that is now flowing through the store.");
-                Thread.Sleep(3000);
-                Console.WriteLine("\n..but before you can get to it, a group of beavers jump out of the water and set a new record for dam construction speedrunning and block your path.");
-                Thread.Sleep(3000);
-                Console.WriteLine("\nUpon closer inspection, you notice there is a slot machine built into the dam, with a sign saying that you will gain entry if you hit the jackpot.");
-                Thread.Sleep(3000);
-                Console.WriteLine("\nIt seems you have no choice but to gamble if you want the chair...");
-                Thread.Sleep(6000);
-                Console.Clear();
-
-
-                while (gamblewin != 1)
-                {
-
-
-                reel1 = rand.Next(1, 8);
-
-                reel2 = rand.Next(1, 8);
-
-                reel3 = rand.Next(1, 8);
-
-                Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
-
-                Thread.Sleep(500);
-
-                Console.Write($" {reel2}");
-
-                Thread.Sleep(500);
-
-                Console.Write($" {reel3}");
-
-                Thread.Sleep(500);
-
-                    if (reel1 == 7 && reel2 == 7 && reel3 == 7)
-                    {
-                        gamblewin = 1;
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("\nYou quickly grab the Yard Chair and make a beeline back to the entrance before any more chicanery can occur.");
-                        InventoryAmount[3]++;
-                        Thread.Sleep(3000);
-                        Console.Clear();
                     }
 
-                    else
+                    Console.Clear();
+                    Console.WriteLine("\nYou have arrived at your destination. You see a lone Yard Chair propped up against a shelf at the mouth of the unexplainable river that is now flowing through the store.");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("\n..but before you can get to it, a group of beavers jump out of the water and set a new record for dam construction speedrunning and block your path.");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("\nUpon closer inspection, you notice there is a slot machine built into the dam, with a sign saying that you will gain entry if you hit the jackpot.");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("\nIt seems you have no choice but to gamble if you want the chair...");
+                    Thread.Sleep(6000);
+                    Console.Clear();
+
+
+                    while (gamblewin != 1)
                     {
-                        Console.WriteLine("\n\n\n\t\t\t\t\t\t\t\t\t\t\tTip: 90% of gamblers quit right before they win big");
-                        Thread.Sleep(2000);
-                        Console.Clear();
+
+
+                        reel1 = rand.Next(1, 8);
+
+                        reel2 = rand.Next(1, 8);
+
+                        reel3 = rand.Next(1, 8);
+
+
+                        Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
+
+                        Thread.Sleep(500);
+
+                        Console.Write($" {reel2}");
+
+                        Thread.Sleep(500);
+
+                        Console.Write($" {reel3}");
+
+                        Thread.Sleep(500);
+
+                        if (reel1 == 7 && reel2 == 7 && reel3 == 7)
+                        {
+                            gamblewin = 1;
+                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("\nYou quickly grab the Yard Chair and make a beeline back to the entrance before any more chicanery can occur.");
+                            InventoryAmount[3]++;
+                            doNotSpamHubPlz = false;
+                            Thread.Sleep(3000);
+                            Console.Clear();
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("\n\n\n\t\t\t\t\t\t\t\t\t\t\tTip: 90% of gamblers quit right before they win big");
+                            Thread.Sleep(2000);
+                            Console.Clear();
+                        }
                     }
-
-                    
-
-                    
-                    
                 }
-                Hub();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
 
@@ -2153,6 +2092,7 @@ namespace TeamCSFile
                         Console.WriteLine("Jack winks and tosses you the Remote Controlled Car.");
                         MainInventoryCounts[1] += 1;
                         gotItem = true;
+                        InventoryAmount[2]++;
                     }
                     else
                     {
@@ -2170,6 +2110,7 @@ namespace TeamCSFile
                 Console.WriteLine($"Inside, you find the {MainInventoryNames[1]} gleaming beneath some old plush toys.");
                 MainInventoryCounts[1] += 1;
                 gotItem = true;
+                InventoryAmount[2]++;
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
             }
@@ -2491,54 +2432,7 @@ namespace TeamCSFile
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
+    }
 }
 
 

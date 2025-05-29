@@ -990,660 +990,668 @@ namespace TeamCSFile
 
                 for (int i = 0; i < enemies; i++)
                 {
-                    enemmove = rand.Next(1, 31);
-
-                    switch (enemmove)
+                    if ((i == 0 && enem1Health > 0) || (i == 1 && enem2Health > 0) || (i == 2 && enem3Health > 0))
                     {
 
-                        case 1:
 
-                            Console.Clear();
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                        enemmove = rand.Next(1, 31);
 
-                            Console.Clear();
+                        switch (enemmove)
+                        {
 
-                            Thread.Sleep(100);
+                            case 1:
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            enemattack = rand.Next(5, 21);
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Thread.Sleep(100);
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                
-                            }
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Console.Clear();
 
-                            Thread.Sleep(2500);
+                                enemattack = rand.Next(5, 21);
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            break;
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
 
-                        case 2:
+                                }
 
-                            Console.Clear();
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is rethinking its career path.");
+                                Thread.Sleep(2500);
 
-                            Thread.Sleep(2000);
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            break;
+                            case 2:
 
-                        case 3:
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is rethinking its career path.");
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is thinking about the Roman Empire.");
+                                Thread.Sleep(2000);
 
-                            Thread.Sleep(2000);
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            break;
+                            case 3:
 
-                        case 4:
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is thinking about the Roman Empire.");
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Thread.Sleep(2000);
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            Thread.Sleep(100);
+                                break;
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                            case 4:
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            enemattack = rand.Next(5, 21);
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Console.Clear();
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
+                                Thread.Sleep(100);
 
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..But you withstood the attack and sustained no damage!");
-                                
-                            }
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Console.Clear();
 
-                            Thread.Sleep(2500);
+                                enemattack = rand.Next(5, 21);
 
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Console.Clear();
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
 
-                            break;
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..But you withstood the attack and sustained no damage!");
 
-                        case 5:
+                                }
 
-                            Console.Clear();
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is silently judging you.");
+                                Thread.Sleep(2500);
 
-                            Thread.Sleep(2000);
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                break;
 
-                        case 6:
+                            case 5:
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} pulled out its phone and started playing Subway Surfers.");
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is silently judging you.");
 
-                            Thread.Sleep(2000);
+                                Thread.Sleep(2000);
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                break;
 
-                        case 7:
+                            case 6:
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if you believe in our lord, who art in Heaven.");
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} pulled out its phone and started playing Subway Surfers.");
 
-                            Thread.Sleep(2000);
+                                Thread.Sleep(2000);
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                break;
 
-                        case 8:
+                            case 7:
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attempted to explain insider trading to you.");
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if you believe in our lord, who art in Heaven.");
 
-                            Thread.Sleep(2000);
+                                Thread.Sleep(2000);
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                break;
 
-                        case 9:
+                            case 8:
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if your refrigerator is running.");
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attempted to explain insider trading to you.");
 
-                            Thread.Sleep(2000);
+                                Thread.Sleep(2000);
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                break;
 
+                            case 9:
 
-                        case 10:
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if your refrigerator is running.");
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Thread.Sleep(2000);
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            Thread.Sleep(100);
+                                break;
 
-                            Console.BackgroundColor = ConsoleColor.Black;
 
-                            Console.Clear();
+                            case 10:
 
-                            enemattack = rand.Next(5, 21);
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                guard = false;
-                            }
+                                Console.Clear();
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Thread.Sleep(100);
 
-                            Thread.Sleep(2500);
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                enemattack = rand.Next(5, 21);
 
-                        case 11:
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Console.Clear();
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
+                                    guard = false;
+                                }
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Console.Clear();
+                                Thread.Sleep(2500);
 
-                            Thread.Sleep(100);
+                                Console.Clear();
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                break;
 
-                            Console.Clear();
+                            case 11:
 
-                            enemattack = rand.Next(5, 21);
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                
-                            }
+                                Console.Clear();
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Thread.Sleep(100);
 
-                            Thread.Sleep(2500);
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                enemattack = rand.Next(5, 21);
 
-                        case 12:
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Console.Clear();
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                }
 
-                            Console.Clear();
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Thread.Sleep(100);
+                                Thread.Sleep(2500);
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            enemattack = rand.Next(5, 21);
+                            case 12:
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Console.Clear();
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                guard = false;
-                            }
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Console.Clear();
 
-                            Thread.Sleep(2500);
+                                Thread.Sleep(100);
 
-                            Console.Clear();
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            break;
+                                Console.Clear();
 
-                        case 13:
+                                enemattack = rand.Next(5, 21);
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is beginning to Morb.");
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
+                                    guard = false;
+                                }
 
-                            Thread.Sleep(2000);
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Console.Clear();
+                                Thread.Sleep(2500);
 
-                            break;
+                                Console.Clear();
 
-                        case 14:
+                                break;
 
-                            Console.Clear();
+                            case 13:
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} wants to get off Mr. Bones' wild ride.");
+                                Console.Clear();
 
-                            Thread.Sleep(2000);
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is beginning to Morb.");
 
-                            Console.Clear();
+                                Thread.Sleep(2000);
 
-                            break;
+                                Console.Clear();
 
+                                break;
 
-                        case 15:
+                            case 14:
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} loves legitimate theatre.");
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} wants to get off Mr. Bones' wild ride.");
 
-                            Thread.Sleep(2000);
+                                Thread.Sleep(2000);
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                break;
 
-                        case 16:
 
-                            Console.Clear();
+                            case 15:
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to spell ICUP.");
+                                Console.Clear();
 
-                            Thread.Sleep(2000);
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} loves legitimate theatre.");
 
-                            Console.Clear();
+                                Thread.Sleep(2000);
 
-                            break;
+                                Console.Clear();
 
-                        case 17:
+                                break;
 
-                            Console.Clear();
+                            case 16:
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to spell ICUP.");
 
-                            Thread.Sleep(100);
+                                Thread.Sleep(2000);
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            enemattack = rand.Next(5, 21);
+                            case 17:
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Console.Clear();
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                guard = false;
-                            }
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Console.Clear();
 
-                            Thread.Sleep(2500);
+                                Thread.Sleep(100);
 
-                            Console.Clear();
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            break;
+                                Console.Clear();
 
-                        case 18:
+                                enemattack = rand.Next(5, 21);
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is suffering from Jaundice.");
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
+                                    guard = false;
+                                }
 
-                            Thread.Sleep(2000);
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Console.Clear();
+                                Thread.Sleep(2500);
 
-                            break;
+                                Console.Clear();
 
-                        case 19:
+                                break;
 
-                            Console.Clear();
+                            case 18:
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} did an impression of construction equipment.");
+                                Console.Clear();
 
-                            Thread.Sleep(2000);
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is suffering from Jaundice.");
 
-                            Console.Clear();
+                                Thread.Sleep(2000);
 
-                            break;
+                                Console.Clear();
 
-                        case 20:
+                                break;
 
-                            Console.Clear();
+                            case 19:
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} says: What's the deal with airline food?");
+                                Console.Clear();
 
-                            Thread.Sleep(2000);
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} did an impression of construction equipment.");
 
-                            Console.Clear();
+                                Thread.Sleep(2000);
 
-                            break;
+                                Console.Clear();
 
-                        case 21:
+                                break;
 
-                            Console.Clear();
+                            case 20:
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} says: What's the deal with airline food?");
 
-                            Thread.Sleep(100);
+                                Thread.Sleep(2000);
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            enemattack = rand.Next(5, 21);
+                            case 21:
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Console.Clear();
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                
-                            }
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Console.Clear();
 
-                            Thread.Sleep(2500);
+                                Thread.Sleep(100);
 
-                            Console.Clear();
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            break;
+                                Console.Clear();
 
+                                enemattack = rand.Next(5, 21);
 
-                        case 22:
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Console.Clear();
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                }
 
-                            Console.Clear();
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Thread.Sleep(100);
+                                Thread.Sleep(2500);
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            case 22:
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                
-                            }
+                                Console.Clear();
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            Thread.Sleep(2500);
+                                Console.Clear();
 
-                            Console.Clear();
+                                Thread.Sleep(100);
 
-                            break;
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                        case 23:
+                                Console.Clear();
 
-                            Console.Clear();
+                                enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} thought we were having Steamed Clams.");
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Thread.Sleep(2000);
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
 
-                            Console.Clear();
+                                }
 
-                            break;
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
+                                Thread.Sleep(2500);
 
-                        case 24:
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to play Wonderwall.");
+                            case 23:
 
-                            Thread.Sleep(2000);
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} thought we were having Steamed Clams.");
 
-                            break;
+                                Thread.Sleep(2000);
 
+                                Console.Clear();
 
-                        case 25:
+                                break;
 
-                            Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} took a swig from a brown paper bag.");
+                            case 24:
 
-                            Thread.Sleep(2000);
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to play Wonderwall.");
 
-                            break;
+                                Thread.Sleep(2000);
 
-                        case 26:
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            Console.Clear();
+                            case 25:
 
-                            Thread.Sleep(100);
+                                Console.Clear();
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} took a swig from a brown paper bag.");
 
-                            Console.Clear();
+                                Thread.Sleep(2000);
 
-                            enemattack = rand.Next(5, 21);
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                break;
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                
-                            }
+                            case 26:
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                Console.Clear();
 
-                            Thread.Sleep(2500);
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                Thread.Sleep(100);
 
-                        case 27:
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t{onfield[i]} knows what you did.");
+                                enemattack = rand.Next(5, 21);
 
-                            Thread.Sleep(2000);
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Console.Clear();
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
 
-                            break;
+                                }
 
-                        case 28:
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Console.Clear();
+                                Thread.Sleep(2500);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t{onfield[i]} pulled your IP address.");
+                                Console.Clear();
 
-                            Thread.Sleep(2000);
+                                break;
 
-                            Console.Clear();
+                            case 27:
 
-                            break;
+                                Console.Clear();
 
-                        case 29:
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t{onfield[i]} knows what you did.");
 
-                            Console.Clear();
+                                Thread.Sleep(2000);
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.Clear();
 
-                            Console.Clear();
+                                break;
 
-                            Thread.Sleep(100);
+                            case 28:
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t{onfield[i]} pulled your IP address.");
 
-                            enemattack = rand.Next(5, 21);
+                                Thread.Sleep(2000);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Console.Clear();
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                               
-                            }
+                                break;
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                            case 29:
 
-                            Thread.Sleep(2500);
+                                Console.Clear();
 
-                            Console.Clear();
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
-                            break;
+                                Console.Clear();
 
-                        case 30:
+                                Thread.Sleep(100);
 
-                            Console.Clear();
+                                Console.BackgroundColor = ConsoleColor.Black;
 
-                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.Clear();
 
-                            Console.Clear();
+                                enemattack = rand.Next(5, 21);
 
-                            Thread.Sleep(100);
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
-                            Console.BackgroundColor = ConsoleColor.Black;
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
 
-                            Console.Clear();
+                                }
 
-                            enemattack = rand.Next(5, 21);
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                                Thread.Sleep(2500);
 
-                            if (guard != false)
-                            {
-                                Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                
-                            }
+                                Console.Clear();
 
-                            else
-                            {
-                                Health = Health - enemattack;
-                            }
+                                break;
 
-                            Thread.Sleep(2500);
+                            case 30:
 
-                            Console.Clear();
+                                Console.Clear();
 
-                            break;
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
 
+                                Console.Clear();
 
+                                Thread.Sleep(100);
 
+                                Console.BackgroundColor = ConsoleColor.Black;
 
+                                Console.Clear();
 
+                                enemattack = rand.Next(5, 21);
 
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
+                                if (guard != false)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
 
+                                }
 
+                                else
+                                {
+                                    Health = Health - enemattack;
+                                }
 
+                                Thread.Sleep(2500);
 
+                                Console.Clear();
 
+                                break;
 
 
+
+
+
+
+
+
+
+                        }
+
+
+
+
+
+
+                    }   guard = false; // resets guard after turn
+
+                    if (i == 2)
+                    {
+                        i = 0;
                     }
-
-                    guard = false; // resets guard after turn
-
-
 
 
 

@@ -2092,7 +2092,7 @@ namespace TeamCSFile
                         Console.WriteLine("Jack winks and tosses you the Remote Controlled Car.");
                         InventoryAmount[2]++;
                         gotItem = true;
-                        InventoryAmount[2]++;
+                       
                     }
                     else
                     {
@@ -2110,8 +2110,7 @@ namespace TeamCSFile
                 Console.WriteLine($"Inside, you find the {InventoryName[2]} gleaming beneath some old plush toys.");
                 InventoryAmount[2]++;
                 gotItem = true;
-                Console.WriteLine("\nPress Enter to continue.");
-                Console.ReadLine();
+
             }
 
             void StartCombat()

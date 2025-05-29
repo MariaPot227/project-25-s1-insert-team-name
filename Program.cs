@@ -445,7 +445,7 @@ namespace TeamCSFile
 
             string[] Room2Enemies = { "Cordspawn", "Dataleech", "Cable Golem", "Ampster", "Charger? I Hardly Know Her!" };
 
-            string[] Room3Enemies = { "TestEnemy1", "TestEnemy2", "TestEnemy3", "TestEnemy4", "TestEnemy5" };
+            string[] Room3Enemies = { "ToyShelf", "SpringSnake", "JackInTheBox", "SpookyChest", "Quiggle" };
 
             string[] Room4Enemies = { "Tent-Acles", "Leon Trotsky Memorial Iceaxe", "Carabiner? I Hardly Know Her!", "Freedom Camper", "Boots Made For Walkin'" };
 
@@ -2047,8 +2047,8 @@ namespace TeamCSFile
 
         static void Toys()
         {
-            string[] MainInventoryNames = { "", "Remote Controlled Car" };
-            int[] MainInventoryCounts = new int[5];
+            
+            int[] InventoryAmount = new int[5];
             string[] CombatItemNames = { "", "Toy Train", "Action Figure", "Spring Snake" };
             int[] CombatItemCounts = new int[5];
             Random randomGenerator = new Random();
@@ -2061,7 +2061,7 @@ namespace TeamCSFile
             Console.Clear();
             Console.WriteLine("You step into the Toys section.");
             Console.WriteLine("Aisles are packed with plushies, plastic sets, and blinking gadgets.");
-            Console.WriteLine($"\n\nYou’re here looking for a {MainInventoryNames[1]} \n");
+            Console.WriteLine($"\n\nYou’re here looking for a {InventoryName[2]} \n");
 
             do
             {
@@ -2124,7 +2124,7 @@ namespace TeamCSFile
             {
                 Console.WriteLine("You peek into a toy box. Suddenly, a spring-loaded snake leaps out!");
                 StartCombat();
-                CombatItemCounts[3] += 1;
+                CombatItemCounts[2]++;
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
             }
@@ -2134,7 +2134,7 @@ namespace TeamCSFile
                 Console.WriteLine("You examine the shelves. A toy hums quietly in the back.");
                 Thread.Sleep(1000);
                 Console.WriteLine($"You find a {CombatItemNames[1]} resting in a toy crate and grab it.");
-                CombatItemCounts[1] += 1;
+                CombatItemCounts[2]++;
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
             }
@@ -2152,7 +2152,7 @@ namespace TeamCSFile
                     if (answer.Contains("remote") || answer.Contains("car"))
                     {
                         Console.WriteLine("Jack winks and tosses you the Remote Controlled Car.");
-                        MainInventoryCounts[1] += 1;
+                        InventoryAmount[2]++;
                         gotItem = true;
                     }
                     else
@@ -2168,8 +2168,8 @@ namespace TeamCSFile
             {
                 Console.WriteLine("You approach a dusty, eerie chest. It creaks open on its own...");
                 StartCombat();
-                Console.WriteLine($"Inside, you find the {MainInventoryNames[1]} gleaming beneath some old plush toys.");
-                MainInventoryCounts[1] += 1;
+                Console.WriteLine($"Inside, you find the {InventoryName[2]} gleaming beneath some old plush toys.");
+                InventoryAmount[2]++;
                 gotItem = true;
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
@@ -2179,6 +2179,7 @@ namespace TeamCSFile
             {
                 Console.WriteLine("\nA toy springs to life! You face off bravely.\n");
                 Thread.Sleep(1000);
+                Combat();
             }
 
         }

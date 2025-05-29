@@ -974,7 +974,7 @@ namespace TeamCSFile
 
                     else
                     {
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\tNot enough Stamina");
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\tNot enough Stamina");
 
                         Thread.Sleep(1500);
 
@@ -1016,7 +1016,7 @@ namespace TeamCSFile
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 
                             }
 
@@ -1071,13 +1071,13 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
 
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..But you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..But you withstood the attack and sustained no damage!");
                                 
                             }
 
@@ -1097,7 +1097,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is silently judging you.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is silently judging you.");
 
                             Thread.Sleep(2000);
 
@@ -1109,7 +1109,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} pulled out its phone and started playing Subway Surfers.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} pulled out its phone and started playing Subway Surfers.");
 
                             Thread.Sleep(2000);
 
@@ -1121,7 +1121,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if you believe in our lord, who art in Heaven.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if you believe in our lord, who art in Heaven.");
 
                             Thread.Sleep(2000);
 
@@ -1133,7 +1133,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attempted to explain insider trading to you.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attempted to explain insider trading to you.");
 
                             Thread.Sleep(2000);
 
@@ -1145,7 +1145,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if your refrigerator is running.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if your refrigerator is running.");
 
                             Thread.Sleep(2000);
 
@@ -1170,12 +1170,12 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 guard = false;
                             }
 
@@ -1211,7 +1211,7 @@ namespace TeamCSFile
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 
                             }
 
@@ -1242,12 +1242,12 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 guard = false;
                             }
 
@@ -1266,7 +1266,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is beginning to Morb.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is beginning to Morb.");
 
                             Thread.Sleep(2000);
 
@@ -1278,7 +1278,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} wants to get off Mr. Bones' wild ride.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} wants to get off Mr. Bones' wild ride.");
 
                             Thread.Sleep(2000);
 
@@ -1291,7 +1291,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} loves legitimate theatre.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} loves legitimate theatre.");
 
                             Thread.Sleep(2000);
 
@@ -1303,7 +1303,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to spell ICUP.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to spell ICUP.");
 
                             Thread.Sleep(2000);
 
@@ -1327,12 +1327,12 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 guard = false;
                             }
 
@@ -1351,7 +1351,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is suffering from Jaundice.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is suffering from Jaundice.");
 
                             Thread.Sleep(2000);
 
@@ -1363,7 +1363,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} did an impression of construction equipment.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} did an impression of construction equipment.");
 
                             Thread.Sleep(2000);
 
@@ -1375,7 +1375,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} says: What's the deal with airline food?");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} says: What's the deal with airline food?");
 
                             Thread.Sleep(2000);
 
@@ -1399,12 +1399,12 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 
                             }
 
@@ -1436,12 +1436,12 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 
                             }
 
@@ -1460,7 +1460,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} thought we were having Steamed Clams.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} thought we were having Steamed Clams.");
 
                             Thread.Sleep(2000);
 
@@ -1473,7 +1473,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to play Wonderwall.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to play Wonderwall.");
 
                             Thread.Sleep(2000);
 
@@ -1486,7 +1486,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} took a swig from a brown paper bag.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} took a swig from a brown paper bag.");
 
                             Thread.Sleep(2000);
 
@@ -1510,12 +1510,12 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 
                             }
 
@@ -1534,7 +1534,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} knows what you did.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t{onfield[i]} knows what you did.");
 
                             Thread.Sleep(2000);
 
@@ -1546,7 +1546,7 @@ namespace TeamCSFile
 
                             Console.Clear();
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} pulled your IP address.");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t{onfield[i]} pulled your IP address.");
 
                             Thread.Sleep(2000);
 
@@ -1570,12 +1570,12 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                
                             }
 
@@ -1606,12 +1606,12 @@ namespace TeamCSFile
 
                             enemattack = rand.Next(5, 21);
 
-                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
 
                             if (guard != false)
                             {
                                 Thread.Sleep(1000);
-                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\tbut you withstood the attack and sustained no damage!");
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
                                 
                             }
 
@@ -1687,6 +1687,7 @@ namespace TeamCSFile
             if (Health <= 0)
             {
                 Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tYOU DIED");
+                Health = 1; //resets hp
 
                 Thread.Sleep(5000);
             }
@@ -1958,9 +1959,9 @@ namespace TeamCSFile
                         gamblewin = 1;
                         Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
                         Thread.Sleep(3000);
-                        Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");
                         Thread.Sleep(3000);
-                        Console.WriteLine("\nYou quickly grab the Yard Chair and make a beeline back to the entrance before any more chicanery can occur.");
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tYou quickly grab the Yard Chair and make a beeline back to the entrance before any more chicanery can occur.");
                         InventoryAmount[3]++;
                         Thread.Sleep(3000);
                         Console.Clear();

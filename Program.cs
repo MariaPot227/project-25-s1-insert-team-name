@@ -1648,10 +1648,7 @@ namespace TeamCSFile
 
                     }   guard = false; // resets guard after turn
 
-                    if (i == 2)
-                    {
-                        i = 0;
-                    }
+                    
 
 
 

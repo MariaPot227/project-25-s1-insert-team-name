@@ -1862,7 +1862,18 @@ namespace TeamCSFile
                 Console.Write("\n2. Go around and enter via the fishing aisle");
                 Console.Write("\n3. Turn around and leave");
 
-                threechoice = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    while (threechoice != 1 && threechoice != 2 && threechoice != 3)
+                    {
+                        threechoice = Convert.ToInt32(Console.ReadLine());
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Huh");
+                    Console.ReadLine();
+                }
                 Console.Clear();
                 Thread.Sleep(3000);
                 switch (threechoice)
@@ -1875,7 +1886,18 @@ namespace TeamCSFile
                         Console.Write("\n1. Attempt to grab the torch");
                         Console.Write("\n2. Continue without it");
 
-                        twochoice = Convert.ToInt32(Console.ReadLine());
+                        try
+                        {
+                            while (threechoice != 1 && threechoice != 2 && threechoice != 3)
+                            {
+                                twochoice = Convert.ToInt32(Console.ReadLine());
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Huh");
+                            Console.ReadLine();
+                        }
                         Console.Clear();
                         Thread.Sleep(3000);
                         break;

@@ -1986,9 +1986,8 @@ namespace TeamCSFile
 
         static void Toys()
         {
-            
-            int[] InventoryAmount = new int[5];
-            string[] CombatItemNames = { "", "Toy Train", "Action Figure", "Spring Snake" };
+
+            int one6 = rand.Next(0 , CombatInventoryAmount.Length);
             int[] CombatItemCounts = new int[5];
             Random randomGenerator = new Random();
 
@@ -2072,7 +2071,7 @@ namespace TeamCSFile
             {
                 Console.WriteLine("You examine the shelves. A toy hums quietly in the back.");
                 Thread.Sleep(1000);
-                Console.WriteLine($"You find a {CombatItemNames[1]} resting in a toy crate and grab it.");
+                Console.WriteLine($"You find a {CombatInventoryName[one6]} resting in a toy crate and grab it.");
                 CombatItemCounts[2]++;
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
@@ -2111,7 +2110,6 @@ namespace TeamCSFile
                 Console.WriteLine($"Inside, you find the {InventoryName[2]} gleaming beneath some old plush toys.");
                 InventoryAmount[2]++;
                 gotItem = true;
-                InventoryAmount[2]++;
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
             }

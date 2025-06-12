@@ -92,13 +92,6 @@ namespace TeamCSFile
             Console.WriteLine("Press Enter to proceed");
             Console.ReadLine();
             Hub();
-
-
-
-
-
-
-
         }
 
         static void Hub()
@@ -1614,29 +1607,9 @@ namespace TeamCSFile
 
                                 break;
 
-
-
-
-
-
-
-
-
                         }
 
-
-
-
-
-
                     }   guard = false; // resets guard after turn
-
-                    
-
-
-
-
-
 
                 }
 
@@ -1667,10 +1640,7 @@ namespace TeamCSFile
 
             Console.Clear();
 
-
         }
-
-
 
         static void Clothing()
         {

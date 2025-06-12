@@ -101,11 +101,6 @@ namespace TeamCSFile
 
         }
 
-
-
-
-
-
         static void Hub()
         {
 
@@ -265,10 +260,6 @@ namespace TeamCSFile
             }
 
         }
-
-
-
-
 
         static void Inventory()
         {
@@ -433,11 +424,6 @@ namespace TeamCSFile
             Console.Clear();
 
         }
-
-
-
-
-
 
         public static void Combat()
         {
@@ -607,9 +593,6 @@ namespace TeamCSFile
 
 
             }
-
-
-
 
             // v Enemy Names and amount
 
@@ -1657,28 +1640,6 @@ namespace TeamCSFile
 
                 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 if (enem1Health <= 0 && enem2Health <= 0 && enem3Health <= 0 || Health <= 0)
                 {
                     fightend = true;
@@ -1839,9 +1800,6 @@ namespace TeamCSFile
                 Console.Clear();
             }
         }
-
-
-
 
         static void Camping()
         {
@@ -2007,10 +1965,6 @@ namespace TeamCSFile
             }
         }
 
-
-
-
-
         static void Toys()
         {
 
@@ -2148,10 +2102,6 @@ namespace TeamCSFile
             }
 
         }
-
-
-
-
 
         static void Electronics()
         {
@@ -2457,6 +2407,3 @@ namespace TeamCSFile
         }
     }
 }
-
-
-

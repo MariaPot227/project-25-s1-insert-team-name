@@ -2053,7 +2053,7 @@ namespace TeamCSFile
                 Console.WriteLine("You examine the shelves. A toy hums quietly in the back.");
                 Thread.Sleep(1000);
                 Console.WriteLine($"You find a {CombatInventoryName[one6]} resting in a toy crate and grab it.");
-                CombatItemCounts[2]++;
+                CombatInventoryAmount[one6]++;
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
             }

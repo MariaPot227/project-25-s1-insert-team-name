@@ -451,20 +451,9 @@ namespace TeamCSFile
             }
             // ^ Intro to combat scenario
             // v Attack List
-            int Light = 20, Strong = 35; // < values are how much damage each attack does (and stamina drained?)
-            // v Amount of enemies, random number per battle
-            int enemies = 0;        // < number of enemies in battle
-
-            string[] onfield = { "null", "null", "null" };    // < array of the enemies that are on the field, will be populated by pulling from room's array of possible enemies
-
-            int PullEnemy = 0;
-
-            Random rand = new Random();
-
-            enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
-
-            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0, enemattack = 0, enemmove = 0;             //< initialize variables
-
+            int enemies = rand.Next(1, 4), pullEnemy = 0; // < values are how much damage each attack does, plus how many enemies on screen (and stamina drained?)
+            string[] onfield = {"null", "null", "null"};    // < array of the enemies that are on the field, will be populated by pulling from room's array of possible enemies
+            int enem1Health = 0, enem2Health = 0, enem3Health = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0, enemattack = 0, enemmove = 0;
             bool fightend = false, guard = false;
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
@@ -472,101 +461,51 @@ namespace TeamCSFile
                 switch (Room)   // < depending on current room
                 {
                     case 1:             // < if player is in Room 1 (Clothing Section)
-
-                        PullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
-
-                        onfield[i] = Room1Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
-
+                        pullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
+                        onfield[i] = Room1Enemies[pullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
                         break;
-
                     case 2:
-
-                        PullEnemy = rand.Next(Room2Enemies.Length);
-
-                        onfield[i] = Room2Enemies[PullEnemy];
-
+                        pullEnemy = rand.Next(Room2Enemies.Length);
+                        onfield[i] = Room2Enemies[pullEnemy];
                         break;
-
                     case 3:
-
-                        PullEnemy = rand.Next(Room3Enemies.Length);
-
-                        onfield[i] = Room3Enemies[PullEnemy];
-
+                        pullEnemy = rand.Next(Room3Enemies.Length);
+                        onfield[i] = Room3Enemies[pullEnemy];
                         break;
-
                     case 4:
-
-                        PullEnemy = rand.Next(Room4Enemies.Length);
-
-                        onfield[i] = Room4Enemies[PullEnemy];
-
+                        pullEnemy = rand.Next(Room4Enemies.Length);
+                        onfield[i] = Room4Enemies[pullEnemy];
                         break;
-
                     default:
                         break;
-
                 }
-
-
-
-
-
             }
-
             // v Enemy Names and amount
-
             switch (enemies)                        // < changes starting text depending on number of enemies
             {
-
                 case 1:                            // < if there is only one enemy
-
                     Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tA wild {onfield[0]} approaches!");  // < tells user what enemy they are facing
-
                     enem1Health = 100;
-
                     break;
-
                 case 2:
-
                     Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tYou are stopped by {onfield[0]} and {onfield[1]}.");
-
                     enem1Health = 100;
-
                     enem2Health = 100;
-
                     break;
-
                 case 3:
-
                     Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tYou run into {onfield[0]}, {onfield[1]} and {onfield[2]}");
-
                     enem1Health = 100;
-
                     enem2Health = 100;
-
                     enem3Health = 100;
-
                     break;
-
-
                 default:
                     // < for boss battles?
                     break;
-
-
-
-
             }
-
             Thread.Sleep(2500);
-
             Console.Clear();
-
             // Combat UI v
-
             string border = new string('-', 209);
-
             do
             {
 

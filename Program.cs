@@ -653,104 +653,60 @@ namespace TeamCSFile
                             Console.ReadLine();
                             Console.Clear();
                         }
-
-
                     }
-
                     else if (option == 3)   // if Hail Mary chosen
                     {
                         Console.Clear();
-
                         reel1 = rand.Next(1, 8);
-
                         reel2 = rand.Next(1, 8);
-
                         reel3 = rand.Next(1, 8);
-
                         Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
-
                         Thread.Sleep(500);
-
                         Console.Write($" {reel2}");
-
                         Thread.Sleep(500);
-
                         Console.Write($" {reel3}");
-
                         Thread.Sleep(500);
-
                         if (reel1 == 7 && reel2 == 7 && reel3 == 7)
                         {
                             enem1Health = 0;
-
                             enem2Health = 0;
-
                             enem3Health = 0;
-
-                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
-
-
-
+                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day, enter to continue.");
                         }
-
                         else
                         {
-                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tAlas, nothing happened");
+                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tAlas, nothing happened, enter to continue.");
                         }
-
-                        Thread.Sleep(2000);
-
+                        Console.ReadLine();
                         Console.Clear();
-
                     }
-
-
                 }
-
                 else if (option == 2)  // if Items chosen
                 {
                     CombatInventory();
                 }
-
                 else if (option == 3)  // if Guard chosen
                 {
-
                     if (Stamina >= 20)
                     {
                         Stamina = Stamina - 20;
-
                         Console.Clear();
-
                         Console.BackgroundColor = ConsoleColor.DarkGreen;
-
                         Console.Clear();
-
                         Thread.Sleep(100);
-
                         Console.BackgroundColor = ConsoleColor.Black;
-
                         Console.Clear();
-
                         guard = true;
-
                     }
-
                     else
                     {
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\tNot enough Stamina");
-
-                        Thread.Sleep(1500);
-
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\tNot enough Stamina, enter to continue.");
+                        Console.ReadLine();
                         Console.Clear();
-
                     }
-
-
                 }
 
-
                 // v Enemy Turn
-
                 for (int i = 0; i < enemies; i++)
                 {
                     if ((i == 0 && enem1Health > 0) || (i == 1 && enem2Health > 0) || (i == 2 && enem3Health > 0))

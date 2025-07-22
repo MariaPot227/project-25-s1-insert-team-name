@@ -1940,7 +1940,6 @@ namespace TeamCSFile
         //making this section more efficient to be more readable and adding new features
         static void Toys()
         {
-
             int one6 = rand.Next(0 , CombatInventoryAmount.Length);
             int[] CombatItemCounts = new int[5];
             Random randomGenerator = new Random();
@@ -1954,7 +1953,6 @@ namespace TeamCSFile
             Console.WriteLine("You step into the Toys section.");
             Console.WriteLine("Aisles are packed with plushies, plastic sets, and blinking gadgets.");
             Console.WriteLine($"\n\nYou’re here looking for a {InventoryName[2]} \n");
-
             do
             {
                 Console.Clear();
@@ -1964,7 +1962,6 @@ namespace TeamCSFile
                                   "3) Crank the Jack-in-the-box\n  " +
                                   "4) Explore the spooky toy chest\n  " +
                                   "0) Leave\n");
-
                 try
                 {
                     playerChoice = Convert.ToInt32(Console.ReadLine());
@@ -1974,44 +1971,35 @@ namespace TeamCSFile
                     Console.WriteLine("Invalid input");
                     continue;
                 }
-
                 switch (playerChoice)
                 {
                     case 0:
                         Console.WriteLine("You leave the Toys section.");
                         sectionActive = false;
                         break;
-
                     case 1:
                         SpringSnake();
                         break;
-
                     case 2:
                         ToyShelf();
                         break;
-
                     case 3:
                         JackInTheBox();
                         break;
-
                     case 4:
                         SpookyChest();
                         break;
-
                     default:
                         Console.WriteLine("Invalid choice, please pick 1, 2, 3 or 4.");
                         break;
                 }
-
                 if (gotItem)
                 {
                     sectionActive = false;
                     Console.WriteLine("\nPress Enter to leave.");
                     Console.ReadLine();
                 }
-
             } while (sectionActive);
-
             void SpringSnake()
             {
                 Console.WriteLine("You peek into a toy box. Suddenly, a spring-loaded snake leaps out!");
@@ -2020,7 +2008,6 @@ namespace TeamCSFile
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
             }
-
             void ToyShelf()
             {
                 Console.WriteLine("You examine the shelves. A toy hums quietly in the back.");
@@ -2030,7 +2017,6 @@ namespace TeamCSFile
                 Console.WriteLine("\nPress Enter to continue.");
                 Console.ReadLine();
             }
-
             void JackInTheBox()
             {
                 Console.WriteLine("A Jack-in-the-box sits motionless. Its crank dares you.");
@@ -2045,8 +2031,7 @@ namespace TeamCSFile
                     {
                         Console.WriteLine("Jack winks and tosses you the Remote Controlled Car.");
                         InventoryAmount[2]++;
-                        gotItem = true;
-                       
+                        gotItem = true; 
                     }
                     else
                     {
@@ -2056,7 +2041,6 @@ namespace TeamCSFile
                     Console.ReadLine();
                 }
             }
-
             void SpookyChest()
             {
                 Console.WriteLine("You approach a dusty, eerie chest. It creaks open on its own...");
@@ -2064,18 +2048,14 @@ namespace TeamCSFile
                 Console.WriteLine($"Inside, you find the {InventoryName[2]} gleaming beneath some old plush toys.");
                 InventoryAmount[2]++;
                 gotItem = true;
-
             }
-
             void StartCombat()
             {
                 Console.WriteLine("\nA toy springs to life! You face off bravely.\n");
                 Thread.Sleep(1000);
                 Combat();
             }
-
         }
-
         static void Electronics()
         {
 

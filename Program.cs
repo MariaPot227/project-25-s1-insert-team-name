@@ -421,111 +421,38 @@ namespace TeamCSFile
         public static void Combat()
         {
             string[] Room1Enemies = { "Clothesliner", "Fashion Police", "Velcrofiend", "Zipperfang", "Sweater? I Hardly Know Her!" };
-
             string[] Room2Enemies = { "Cordspawn", "Dataleech", "Cable Golem", "Ampster", "Charger? I Hardly Know Her!" };
-
             string[] Room3Enemies = { "Toy Shelf", "Spring-Snake", "Jack-In-The-Box", "Spooky Chest", "Quiggle" };
-
             string[] Room4Enemies = { "Tent-Acles", "Leon Trotsky Memorial Iceaxe", "Carabiner? I Hardly Know Her!", "Freedom Camper", "Boots Made For Walkin'" };
-
-            Console.Clear();
-
-            Console.BackgroundColor = ConsoleColor.Red;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Yellow;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Green;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Blue;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Magenta;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Cyan;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Black;
-
-            Console.Clear();
-
-            Console.BackgroundColor = ConsoleColor.Red;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Yellow;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Green;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Blue;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Magenta;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Cyan;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Black;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
+            for (int i = 0; i < 2; i++)
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Magenta;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Clear();
+                Thread.Sleep(50);
+            }
             // ^ Intro to combat scenario
-
-
-
-
             // v Attack List
-
             int Light = 20, Strong = 35; // < values are how much damage each attack does (and stamina drained?)
-
-
-
-
             // v Amount of enemies, random number per battle
-
             int enemies = 0;        // < number of enemies in battle
 
             string[] onfield = { "null", "null", "null" };    // < array of the enemies that are on the field, will be populated by pulling from room's array of possible enemies

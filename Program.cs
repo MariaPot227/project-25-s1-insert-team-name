@@ -506,231 +506,152 @@ namespace TeamCSFile
             Console.Clear();
             // Combat UI v
             string border = new string('-', 209);
+
+            // Combat loop
             do
             {
-
                 Console.Write(border);
-
                 Console.ForegroundColor = ConsoleColor.Red;
-
                 Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tENEMIES");
-
                 Console.ForegroundColor = ConsoleColor.White;
-
                 if (enem1Health > 0) //if enemy 1 is alive
                 {
                     Console.Write($"\n\n\t\t\t\t\t\t\t\t\t1. {onfield[0]}: ");
-
                     Console.ForegroundColor = ConsoleColor.Red;
-
                     Console.Write($"{enem1Health}HP ");
-
                     Console.ForegroundColor = ConsoleColor.White;
-
                 }
-
                 if (enem2Health > 0) //if enemy 2 is alive
                 {
                     Console.Write($"\t2. {onfield[1]}: ");
-
                     Console.ForegroundColor = ConsoleColor.Red;
-
                     Console.Write($"{enem2Health}HP ");
-
                     Console.ForegroundColor = ConsoleColor.White;
-
                 }
-
                 if (enem3Health > 0) //if enemy 3 is alive
                 {
                     Console.Write($"\t3. {onfield[2]}: ");
-
                     Console.ForegroundColor = ConsoleColor.Red;
-
                     Console.Write($"{enem3Health}HP ");
-
                     Console.ForegroundColor = ConsoleColor.White;
-
                 }
-
-
                 Console.ForegroundColor = ConsoleColor.Green;
-
                 Console.WriteLine($"\n\n\n\n\n\n\n\n\n\n  YOU");
-
                 Console.ForegroundColor = ConsoleColor.White;
-
                 Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Take no damage for 1 turn, req. 20 STM)");
-
                 Console.WriteLine("\n\n");
-
                 Console.Write(border);
-
                 Console.WriteLine("\n\n");
-
                 try
                 {
                     option = Convert.ToInt32(Console.ReadLine());
                 }
-
                 catch
                 {
                     Console.Clear();
-
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
-
-                    Thread.Sleep(2000);
-
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input, enter to continue.");
+                    Console.ReadLine();
                     Console.Clear();
                 }
-
                 if (option == 1)    // if Attack chosen
                 {
                     Console.WriteLine("\n\nSelect an attack\n\n");
-
                     Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
-
                     try
                     {
                         option = Convert.ToInt32(Console.ReadLine());
                     }
-
                     catch
                     {
                         Console.Clear();
-
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
-
-                        Thread.Sleep(2000);
-
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input, enter to continue.");
+                        Console.ReadLine();
                         Console.Clear();
                     }
-
                     Console.WriteLine("\n\nSelect a target:\n\n");
-
                     try
                     {
                         target = Convert.ToInt32(Console.ReadLine());
                     }
-
                     catch
                     {
                         Console.Clear();
-
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
-
-                        Thread.Sleep(2000);
-
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input, enter to continue.");
+                        Console.ReadLine();
                         Console.Clear();
                     }
-
-
                     if (option == 1)    // if Light Attack chosen
                     {
                         if (Stamina >= 10)
                         {
                             Stamina = Stamina - 10;
-
                             Console.Clear();
-
                             Console.BackgroundColor = ConsoleColor.White;
-
                             Console.Clear();
-
                             Thread.Sleep(100);
-
                             Console.BackgroundColor = ConsoleColor.Black;
-
                             Console.Clear();
-
                             switch (target) //enemy chosen
                             {
-
                                 case 1:
                                     enem1Health = enem1Health - 20;
                                     Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[0]} for 20 damage!");
                                     Thread.Sleep(2000);
                                     break;
-
                                 case 2:
                                     enem2Health = enem2Health - 20;
                                     Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[1]} for 20 damage!");
                                     Thread.Sleep(2000);
                                     break;
-
                                 default:
                                     enem3Health = enem3Health - 20;
                                     Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[2]} for 20 damage!");
                                     Thread.Sleep(2000);
                                     break;
                             }
-
-
                         }
-
                         else
                         {
-                            Console.WriteLine("\n\nNot enough Stamina");
-
-                            Thread.Sleep(1500);
-
+                            Console.WriteLine("\n\nNot enough Stamina, enter to continue.");
+                            Console.ReadLine();
                             Console.Clear();
-
                         }
-
-
                     }
-
                     else if (option == 2)    // if Heavy Attack chosen
                     {
                         if (Stamina >= 20)
                         {
                             Stamina = Stamina - 20;
-
                             Console.Clear();
-
                             Console.BackgroundColor = ConsoleColor.White;
-
                             Console.Clear();
-
                             Thread.Sleep(100);
-
                             Console.BackgroundColor = ConsoleColor.Black;
-
                             Console.Clear();
-
                             switch (target) //enemy chosen
                             {
-
                                 case 1:
                                     enem1Health = enem1Health - 40;
                                     Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[0]} for 40 damage!");
                                     Thread.Sleep(2000);
                                     break;
-
                                 case 2:
                                     enem2Health = enem2Health - 40;
                                     Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[1]} for 40 damage!");
                                     Thread.Sleep(2000);
                                     break;
-
                                 default:
                                     enem3Health = enem3Health - 40;
                                     Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[2]} for 40 damage!");
                                     Thread.Sleep(2000);
                                     break;
                             }
-
                         }
-
                         else
                         {
-                            Console.WriteLine("\n\nNot enough Stamina");
-
-                            Thread.Sleep(1500);
-
+                            Console.WriteLine("\n\nNot enough Stamina, enter to continue.");
+                            Console.ReadLine();
                             Console.Clear();
-
                         }
 
 

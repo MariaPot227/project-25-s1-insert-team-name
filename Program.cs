@@ -111,7 +111,9 @@ namespace TeamCSFile
             {
                 Console.Clear();
 
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("Main Menu\n" + "Please select from the numbers below\n");
+                Console.ResetColor();
                 Console.WriteLine("1  Rest\n" +
                                   "2  Room Selection\n" +
                                   "3  Check Your inventory\n" +

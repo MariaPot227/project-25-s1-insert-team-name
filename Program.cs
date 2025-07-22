@@ -1913,6 +1913,8 @@ namespace TeamCSFile
                         if (reel1 == 7 && reel2 == 7 && reel3 == 7)
                         {
                             gamblewin = 1;
+
+                            Console.ForegroundColor = ConsoleColor.Green;   //change test color to green
                             Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
                             Thread.Sleep(3000);
                             Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");

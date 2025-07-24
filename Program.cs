@@ -1056,6 +1056,7 @@ namespace TeamCSFile
                             Console.WriteLine("\nYou hear a mechanism click as the slot machine moves to reveal a hidden passage through the dam.");
                             Thread.Sleep(3000);
                             Console.WriteLine("\nYou quickly grab the Yard Chair and make a beeline back to the entrance before any more chicanery can occur.");
+                            Console.ResetColor();
                             InventoryAmount[3]++;
                             doNotSpamHubPlz = false;
                             Thread.Sleep(3000);

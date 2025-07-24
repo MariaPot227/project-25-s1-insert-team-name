@@ -707,54 +707,37 @@ namespace TeamCSFile
                 }
 
                 // v Enemy Turn
+                string[] attackType = {" is rethinking its career path.", " is thinking about the Roman Empire.", " is silently judging you.", 
+                " pulled out its phone and started playing Subway Surfers.", " asked you if you believe in our lord, who art in Heaven.",
+                " attempted to explain insider trading to you.", " asked you if your refrigerator is running."};
                 for (int i = 0; i < enemies; i++)
                 {
                     if ((i == 0 && enem1Health > 0) || (i == 1 && enem2Health > 0) || (i == 2 && enem3Health > 0))
                     {
-
-
-
                         enemmove = rand.Next(1, 31);
-
                         switch (enemmove)
                         {
-
                             case 1:
-
                                 Console.Clear();
-
                                 Console.BackgroundColor = ConsoleColor.DarkRed;
-
                                 Console.Clear();
-
                                 Thread.Sleep(100);
-
                                 Console.BackgroundColor = ConsoleColor.Black;
-
                                 Console.Clear();
-
                                 enemattack = rand.Next(5, 21);
-
                                 Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
                                 if (guard != false)
                                 {
                                     Thread.Sleep(1000);
                                     Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-
                                 }
-
                                 else
                                 {
                                     Health = Health - enemattack;
                                 }
-
                                 Thread.Sleep(2500);
-
                                 Console.Clear();
-
                                 break;
-
                             case 2:
 
                                 Console.Clear();

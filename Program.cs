@@ -26,9 +26,10 @@ namespace TeamCSFile
         public static int Room = 0; // < lets combat method know which room the player is in and thus which set of enemies to pull from
         //------------------------------
 
+
         static void Main()
         { // Intro :
-
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             string[] kmart = new string[] {"" +
                 "" +
                 "" +
@@ -39,7 +40,7 @@ namespace TeamCSFile
                 "" +
                 "" +
                 "" +
-                "                                                                                                                                                                                 ",    
+                "                                                                                                                                                                                 ",
              "                            .=============================================-                 ..:----------------------------------------------------------------------------=--..                  ",
              "                           .=#*++++++++++++++++++++++++++++++++++++++++*#+.            ..:=+*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++***###+=:.                     ",
              "                           -####*************************************###=.         .:=+**++++**************************************************************#########*=:.                          ",
@@ -71,22 +72,22 @@ namespace TeamCSFile
              "      .####*************************************#%%%-                    ...-+%%%%%#####***********************************************************************+=++***#*+:.                       ",
              "     .+##########################################%%=                            .-+##%%%%#########################################################################**++++***#*=:..                 ",
              "    .=#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+                                  .:=*#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#######*+=:.            ",
-             "    .:::::::::::::::::::::::::::::::::::::::::::::.                                      ..:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::..          ", 
+             "    .:::::::::::::::::::::::::::::::::::::::::::::.                                      ..:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::..          ",
              "                                                                                                                                                                                                  ",
-                                                                                                                                                                                                   
+
             };
 
-            Console.WriteLine("Please expand the console window.\n"+
+            Console.WriteLine("Please expand the console window.\n" +
                 "Press enter to continue");
             Console.ReadLine();
-            
-            foreach(string line in kmart)
+
+            foreach (string line in kmart)
             {
                 Console.WriteLine(line);
                 Thread.Sleep(100);
             } // do we want this ?
-            
-            
+
+
             Console.WriteLine("Your goal is to get an item from all four rooms/sections. \nEach room has different obstacles. \nFind all four items and make it to checkout to finish shopping" +
                 $" GOOD LUCK. \nYou need to find a {InventoryName[0]}, a {InventoryName[1]}, a {InventoryName[2]} and a {InventoryName[3]}");
             Console.WriteLine("Press Enter to proceed");
@@ -111,12 +112,60 @@ namespace TeamCSFile
             {
                 Console.Clear();
 
-                Console.WriteLine("Main Menu\n" + "Please select from the numbers below\n");
-                Console.WriteLine("1  Rest\n" +
-                                  "2  Room Selection\n" +
-                                  "3  Check Your inventory\n" +
-                                  "4  Go to Checkout\n" +
-                                  "0  Exit The Menu");
+                int boxWidth = 40; 
+                int leftPadding = (Console.WindowWidth - boxWidth) / 2; 
+
+                void WriteCenteredLine(string text) 
+                {
+                    Console.SetCursorPosition(leftPadding, Console.CursorTop);
+                    
+
+                    Console.WriteLine(text);
+                    
+                }
+
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                WriteCenteredLine("╔══════════════════════════════════════╗");
+                WriteCenteredLine("║             MAIN MENU                ║");
+                WriteCenteredLine("╠══════════════════════════════════════╣");
+
+ 
+                Console.SetCursorPosition(leftPadding, Console.CursorTop);
+
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write("║");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write(" Please select from the numbers below ");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("║");
+                WriteCenteredLine("╠══════════════════════════════════════╣");
+
+                void WriteOption(string text)
+                {
+                    Console.SetCursorPosition(leftPadding, Console.CursorTop);
+
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.Write("║");
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+
+                    Console.Write(text.PadRight(37)); 
+
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine(" ║");
+                }
+
+                WriteOption(" 1 ▸ Rest");
+                WriteOption(" 2 ▸ Room Selection");
+                WriteOption(" 3 ▸ Check Your Inventory");
+                WriteOption(" 4 ▸ Go to Checkout");
+                WriteOption(" 0 ▸ Exit the Menu");
+
+   
+                WriteCenteredLine("╚══════════════════════════════════════╝");
+
+                Console.ResetColor();
+
 
                 try
                 {

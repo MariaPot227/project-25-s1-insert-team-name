@@ -1071,10 +1071,12 @@ namespace TeamCSFile
             }
         }
 
+
+        //Work still in progress
+        //making this section more efficient to be more readable and adding new features
         static void Toys()
         {
-
-            int one6 = rand.Next(0 , CombatInventoryAmount.Length);
+            int one6 = rand.Next(0, CombatInventoryAmount.Length);
             int[] CombatItemCounts = new int[5];
             Random randomGenerator = new Random();
 
@@ -1084,107 +1086,127 @@ namespace TeamCSFile
             string answer = "";
 
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("You step into the Toys section.");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Aisles are packed with plushies, plastic sets, and blinking gadgets.");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"\n\nYou’re here looking for a {InventoryName[2]} \n");
+            Console.ResetColor();
 
             do
             {
                 Console.Clear();
-                Console.WriteLine("What do you want to do?\n  " +
-                                  "1) Check the spring-loaded toy snake\n  " +
-                                  "2) Browse the toy shelf\n  " +
-                                  "3) Crank the Jack-in-the-box\n  " +
-                                  "4) Explore the spooky toy chest\n  " +
-                                  "0) Leave\n");
-
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("What do you want to do?\n" +
+                                  "  1) Check the spring-loaded toy snake\n" +
+                                  "  2) Browse the toy shelf\n" +
+                                  "  3) Crank the Jack-in-the-box\n" +
+                                  "  4) Explore the spooky toy chest\n" +
+                                  "  0) Leave\n");
+                Console.ResetColor();
                 try
                 {
                     playerChoice = Convert.ToInt32(Console.ReadLine());
                 }
                 catch (Exception)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input");
+                    Console.ResetColor();
                     continue;
                 }
-
                 switch (playerChoice)
                 {
                     case 0:
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("You leave the Toys section.");
+                        Console.ResetColor();
                         sectionActive = false;
                         break;
-
                     case 1:
                         SpringSnake();
                         break;
-
                     case 2:
                         ToyShelf();
                         break;
-
                     case 3:
                         JackInTheBox();
                         break;
-
                     case 4:
                         SpookyChest();
                         break;
-
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid choice, please pick 1, 2, 3 or 4.");
+                        Console.ResetColor();
                         break;
                 }
-
                 if (gotItem)
                 {
                     sectionActive = false;
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("\nPress Enter to leave.");
+                    Console.ResetColor();
                     Console.ReadLine();
                 }
-
             } while (sectionActive);
 
             void SpringSnake()
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("You peek into a toy box. Suddenly, a spring-loaded snake leaps out!");
+                Console.ResetColor();
                 StartCombat();
                 CombatItemCounts[2]++;
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("\nPress Enter to continue.");
+                Console.ResetColor();
                 Console.ReadLine();
             }
 
             void ToyShelf()
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("You examine the shelves. A toy hums quietly in the back.");
                 Thread.Sleep(1000);
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"You find a {CombatInventoryName[one6]} resting in a toy crate and grab it.");
+                Console.ResetColor();
                 CombatInventoryAmount[one6]++;
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("\nPress Enter to continue.");
+                Console.ResetColor();
                 Console.ReadLine();
             }
 
             void JackInTheBox()
             {
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("A Jack-in-the-box sits motionless. Its crank dares you.");
+                Console.ResetColor();
                 Console.Write("Crank it? (y/n): ");
                 string yn = Console.ReadLine().Trim().ToLower();
                 if (yn == "y" || yn == "yes")
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("POP! Out jumps Jack.\nRiddle: I roll with wheels and a remote in hand. What am I?");
+                    Console.ResetColor();
                     answer = Console.ReadLine().Trim().ToLower();
                     if (answer.Contains("remote") || answer.Contains("car"))
                     {
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Jack winks and tosses you the Remote Controlled Car.");
                         InventoryAmount[2]++;
                         gotItem = true;
-                       
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.WriteLine("Jack giggles and sinks back into his box.");
                     }
+                    Console.ResetColor();
                     Console.WriteLine("\nPress Enter to continue.");
                     Console.ReadLine();
                 }
@@ -1192,21 +1214,25 @@ namespace TeamCSFile
 
             void SpookyChest()
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("You approach a dusty, eerie chest. It creaks open on its own...");
+                Console.ResetColor();
                 StartCombat();
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"Inside, you find the {InventoryName[2]} gleaming beneath some old plush toys.");
+                Console.ResetColor();
                 InventoryAmount[2]++;
                 gotItem = true;
-
             }
 
             void StartCombat()
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("\nA toy springs to life! You face off bravely.\n");
+                Console.ResetColor();
                 Thread.Sleep(1000);
                 Combat();
             }
-
         }
 
         static void Electronics()

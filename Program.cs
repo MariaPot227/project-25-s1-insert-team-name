@@ -470,123 +470,39 @@ namespace TeamCSFile
         public static void Combat()
         {
             string[] Room1Enemies = { "Clothesliner", "Fashion Police", "Velcrofiend", "Zipperfang", "Sweater? I Hardly Know Her!" };
-
             string[] Room2Enemies = { "Cordspawn", "Dataleech", "Cable Golem", "Ampster", "Charger? I Hardly Know Her!" };
-
             string[] Room3Enemies = { "Toy Shelf", "Spring-Snake", "Jack-In-The-Box", "Spooky Chest", "Quiggle" };
-
             string[] Room4Enemies = { "Tent-Acles", "Leon Trotsky Memorial Iceaxe", "Carabiner? I Hardly Know Her!", "Freedom Camper", "Boots Made For Walkin'" };
-
-            Console.Clear();
-
-            Console.BackgroundColor = ConsoleColor.Red;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Yellow;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Green;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Blue;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Magenta;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Cyan;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Black;
-
-            Console.Clear();
-
-            Console.BackgroundColor = ConsoleColor.Red;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Yellow;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Green;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Blue;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Magenta;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Cyan;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
-            Console.BackgroundColor = ConsoleColor.Black;
-
-            Console.Clear();
-
-            Thread.Sleep(50);
-
+            for (int i = 0; i < 2; i++)
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Magenta;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.Clear();
+                Thread.Sleep(50);
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Clear();
+                Thread.Sleep(50);
+            }
             // ^ Intro to combat scenario
-
-
-
-
             // v Attack List
-
-            int Light = 20, Strong = 35; // < values are how much damage each attack does (and stamina drained?)
-
-
-
-
-            // v Amount of enemies, random number per battle
-
-            int enemies = 0;        // < number of enemies in battle
-
-            string[] onfield = { "null", "null", "null" };    // < array of the enemies that are on the field, will be populated by pulling from room's array of possible enemies
-
-            int PullEnemy = 0;
-
-            Random rand = new Random();
-
-            enemies = rand.Next(1, 4);  // < generates number of enemies that will appear in the battle, from 1 - 3 (4 exclusive)
-
-            int enem1Health = 0, enem2Health = 0, enem3Health = 0, bossHealth = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0, enemattack = 0, enemmove = 0;             //< initialize variables
-
+            int enemies = rand.Next(1, 4), pullEnemy = 0; // < values are how much damage each attack does, plus how many enemies on screen (and stamina drained?)
+            string[] onfield = {"null", "null", "null"};    // < array of the enemies that are on the field, will be populated by pulling from room's array of possible enemies
+            int enem1Health = 0, enem2Health = 0, enem3Health = 0, target = 0, option = 0, reel1 = 0, reel2 = 0, reel3 = 0, enemattack = 0, enemmove = 0;
             bool fightend = false, guard = false;
 
             for (int i = 0; i < enemies; i++)     // will loop as many times as there are enemies in the battle as decided by rng earlier (1-3 ^)
@@ -594,1103 +510,274 @@ namespace TeamCSFile
                 switch (Room)   // < depending on current room
                 {
                     case 1:             // < if player is in Room 1 (Clothing Section)
-
-                        PullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
-
-                        onfield[i] = Room1Enemies[PullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
-
+                        pullEnemy = rand.Next(Room1Enemies.Length);     // < generates random number to pick random enemy from available
+                        onfield[i] = Room1Enemies[pullEnemy];               // < assigns a random enemy as decided from the previous line to the current field slot
                         break;
-
                     case 2:
-
-                        PullEnemy = rand.Next(Room2Enemies.Length);
-
-                        onfield[i] = Room2Enemies[PullEnemy];
-
+                        pullEnemy = rand.Next(Room2Enemies.Length);
+                        onfield[i] = Room2Enemies[pullEnemy];
                         break;
-
                     case 3:
-
-                        PullEnemy = rand.Next(Room3Enemies.Length);
-
-                        onfield[i] = Room3Enemies[PullEnemy];
-
+                        pullEnemy = rand.Next(Room3Enemies.Length);
+                        onfield[i] = Room3Enemies[pullEnemy];
                         break;
-
                     case 4:
-
-                        PullEnemy = rand.Next(Room4Enemies.Length);
-
-                        onfield[i] = Room4Enemies[PullEnemy];
-
+                        pullEnemy = rand.Next(Room4Enemies.Length);
+                        onfield[i] = Room4Enemies[pullEnemy];
                         break;
-
                     default:
                         break;
-
                 }
-
-
-
-
-
             }
-
             // v Enemy Names and amount
-
             switch (enemies)                        // < changes starting text depending on number of enemies
             {
-
                 case 1:                            // < if there is only one enemy
-
                     Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tA wild {onfield[0]} approaches!");  // < tells user what enemy they are facing
-
                     enem1Health = 100;
-
                     break;
-
                 case 2:
-
                     Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tYou are stopped by {onfield[0]} and {onfield[1]}.");
-
                     enem1Health = 100;
-
                     enem2Health = 100;
-
                     break;
-
                 case 3:
-
                     Console.WriteLine($"\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tYou run into {onfield[0]}, {onfield[1]} and {onfield[2]}");
-
                     enem1Health = 100;
-
                     enem2Health = 100;
-
                     enem3Health = 100;
-
                     break;
-
-
                 default:
                     // < for boss battles?
                     break;
-
-
-
-
             }
-
             Thread.Sleep(2500);
-
             Console.Clear();
-
             // Combat UI v
-
             string border = new string('-', 209);
 
+            // Combat loop
             do
             {
-
                 Console.Write(border);
-
                 Console.ForegroundColor = ConsoleColor.Red;
-
                 Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tENEMIES");
-
                 Console.ForegroundColor = ConsoleColor.White;
-
                 if (enem1Health > 0) //if enemy 1 is alive
                 {
                     Console.Write($"\n\n\t\t\t\t\t\t\t\t\t1. {onfield[0]}: ");
-
                     Console.ForegroundColor = ConsoleColor.Red;
-
                     Console.Write($"{enem1Health}HP ");
-
                     Console.ForegroundColor = ConsoleColor.White;
-
                 }
-
                 if (enem2Health > 0) //if enemy 2 is alive
                 {
                     Console.Write($"\t2. {onfield[1]}: ");
-
                     Console.ForegroundColor = ConsoleColor.Red;
-
                     Console.Write($"{enem2Health}HP ");
-
                     Console.ForegroundColor = ConsoleColor.White;
-
                 }
-
                 if (enem3Health > 0) //if enemy 3 is alive
                 {
                     Console.Write($"\t3. {onfield[2]}: ");
-
                     Console.ForegroundColor = ConsoleColor.Red;
-
                     Console.Write($"{enem3Health}HP ");
-
                     Console.ForegroundColor = ConsoleColor.White;
-
                 }
-
-
                 Console.ForegroundColor = ConsoleColor.Green;
-
                 Console.WriteLine($"\n\n\n\n\n\n\n\n\n\n  YOU");
-
                 Console.ForegroundColor = ConsoleColor.White;
-
                 Console.Write($"\n\nHP: {Health}\t\tSTM: {Stamina}\n\n\n1. Attack\t\t2. Items\t\t3. Guard (Take no damage for 1 turn, req. 20 STM)");
-
                 Console.WriteLine("\n\n");
-
                 Console.Write(border);
-
                 Console.WriteLine("\n\n");
-
                 try
                 {
                     option = Convert.ToInt32(Console.ReadLine());
                 }
-
                 catch
                 {
                     Console.Clear();
-
-                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
-
-                    Thread.Sleep(2000);
-
+                    Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input, enter to continue.");
+                    Console.ReadLine();
                     Console.Clear();
                 }
-
                 if (option == 1)    // if Attack chosen
                 {
                     Console.WriteLine("\n\nSelect an attack\n\n");
-
                     Console.WriteLine("\n\n1. Light Attack (20 DMG, req. 10 STM)\t\t2. Heavy Attack (40 DMG, req 20 STM)\t\t3. Hail Mary (Do I feel lucky?)\n\n");
-
                     try
                     {
                         option = Convert.ToInt32(Console.ReadLine());
                     }
-
                     catch
                     {
                         Console.Clear();
-
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
-
-                        Thread.Sleep(2000);
-
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input, enter to continue.");
+                        Console.ReadLine();
                         Console.Clear();
                     }
-
                     Console.WriteLine("\n\nSelect a target:\n\n");
-
                     try
                     {
                         target = Convert.ToInt32(Console.ReadLine());
                     }
-
                     catch
                     {
                         Console.Clear();
-
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input");
-
-                        Thread.Sleep(2000);
-
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tInvalid input, enter to continue.");
+                        Console.ReadLine();
                         Console.Clear();
                     }
-
-
-                    if (option == 1)    // if Light Attack chosen
+                    if (option == 1 && Stamina >= 10 || option == 2 && Stamina >= 20)
                     {
-                        if (Stamina >= 10)
+                        Stamina -= option * 10;
+                        Console.Clear();
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.Clear();
+                        Thread.Sleep(100);
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.Clear();
+                        switch (target) //enemy chosen
                         {
-                            Stamina = Stamina - 10;
-
-                            Console.Clear();
-
-                            Console.BackgroundColor = ConsoleColor.White;
-
-                            Console.Clear();
-
-                            Thread.Sleep(100);
-
-                            Console.BackgroundColor = ConsoleColor.Black;
-
-                            Console.Clear();
-
-                            switch (target) //enemy chosen
-                            {
-
-                                case 1:
-                                    enem1Health = enem1Health - 20;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[0]} for 20 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-
-                                case 2:
-                                    enem2Health = enem2Health - 20;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[1]} for 20 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-
-                                default:
-                                    enem3Health = enem3Health - 20;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[2]} for 20 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-                            }
-
-
+                            case 1:
+                                enem1Health -= option * 20;
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[0]} for {option * 20} damage!");
+                                Thread.Sleep(2000);
+                                break;
+                            case 2:
+                                enem2Health -= option * 20;
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[1]} for {option * 20} damage!");
+                                Thread.Sleep(2000);
+                                break;
+                            default:
+                                enem3Health -= option * 20;
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[2]} for {option * 20} damage!");
+                                Thread.Sleep(2000);
+                                break;
                         }
-
-                        else
-                        {
-                            Console.WriteLine("\n\nNot enough Stamina");
-
-                            Thread.Sleep(1500);
-
-                            Console.Clear();
-
-                        }
-
 
                     }
-
-                    else if (option == 2)    // if Heavy Attack chosen
-                    {
-                        if (Stamina >= 20)
-                        {
-                            Stamina = Stamina - 20;
-
-                            Console.Clear();
-
-                            Console.BackgroundColor = ConsoleColor.White;
-
-                            Console.Clear();
-
-                            Thread.Sleep(100);
-
-                            Console.BackgroundColor = ConsoleColor.Black;
-
-                            Console.Clear();
-
-                            switch (target) //enemy chosen
-                            {
-
-                                case 1:
-                                    enem1Health = enem1Health - 40;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[0]} for 40 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-
-                                case 2:
-                                    enem2Health = enem2Health - 40;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[1]} for 40 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-
-                                default:
-                                    enem3Health = enem3Health - 40;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[2]} for 40 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-                            }
-
-                        }
-
-                        else
-                        {
-                            Console.WriteLine("\n\nNot enough Stamina");
-
-                            Thread.Sleep(1500);
-
-                            Console.Clear();
-
-                        }
-
-
-                    }
-
                     else if (option == 3)   // if Hail Mary chosen
                     {
                         Console.Clear();
-
                         reel1 = rand.Next(1, 8);
-
                         reel2 = rand.Next(1, 8);
-
                         reel3 = rand.Next(1, 8);
-
                         Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
-
                         Thread.Sleep(500);
-
                         Console.Write($" {reel2}");
-
                         Thread.Sleep(500);
-
                         Console.Write($" {reel3}");
-
                         Thread.Sleep(500);
-
                         if (reel1 == 7 && reel2 == 7 && reel3 == 7)
                         {
                             enem1Health = 0;
-
                             enem2Health = 0;
-
                             enem3Health = 0;
-
-                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
-
-
-
+                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day, enter to continue.");
                         }
-
                         else
                         {
-                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tAlas, nothing happened");
+                            Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tAlas, nothing happened, enter to continue.");
                         }
-
-                        Thread.Sleep(2000);
-
+                        Console.ReadLine();
                         Console.Clear();
-
                     }
-
-
+                    else
+                    {
+                        Console.WriteLine("\n\nNot enough Stamina, enter to continue.");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
                 }
-
                 else if (option == 2)  // if Items chosen
                 {
                     CombatInventory();
                 }
-
                 else if (option == 3)  // if Guard chosen
                 {
-
                     if (Stamina >= 20)
                     {
                         Stamina = Stamina - 20;
-
                         Console.Clear();
-
                         Console.BackgroundColor = ConsoleColor.DarkGreen;
-
                         Console.Clear();
-
                         Thread.Sleep(100);
-
                         Console.BackgroundColor = ConsoleColor.Black;
-
                         Console.Clear();
-
                         guard = true;
-
                     }
-
                     else
                     {
-                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\tNot enough Stamina");
-
-                        Thread.Sleep(1500);
-
+                        Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\tNot enough Stamina, enter to continue.");
+                        Console.ReadLine();
                         Console.Clear();
-
                     }
-
-
                 }
 
-
                 // v Enemy Turn
-
+                string[] attackType = {" is rethinking its career path.", " is thinking about the Roman Empire.", " is silently judging you.", 
+                " pulled out its phone and started playing Subway Surfers.", " asked you if you believe in our lord, who art in Heaven.",
+                " attempted to explain insider trading to you.", " asked you if your refrigerator is running.", " is beginning to Morb.",
+                " wants to get off Mr. Bones' wild ride.", " loves legitimate theatre", " asked you to spell ICUP.", " is suffering from Jaundice.",
+                " did an impression of construction equipment.", " says: What's the deal with airline food?", " thought we were having Steamed Clams.",
+                " asked you to play Wonderwall.", " took a swig from a brown paper bag.", " knows what you did.", " pulled your IP address."};
                 for (int i = 0; i < enemies; i++)
                 {
                     if ((i == 0 && enem1Health > 0) || (i == 1 && enem2Health > 0) || (i == 2 && enem3Health > 0))
                     {
-
-
-
-                        enemmove = rand.Next(1, 31);
-
-                        switch (enemmove)
+                        enemmove = rand.Next(0, 30);
+                        if (enemmove < 19)
                         {
-
-                            case 1:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 2:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is rethinking its career path.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 3:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} is thinking about the Roman Empire.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 4:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..But you withstood the attack and sustained no damage!");
-
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-
-                                Console.Clear();
-
-                                break;
-
-                            case 5:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is silently judging you.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 6:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} pulled out its phone and started playing Subway Surfers.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 7:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if you believe in our lord, who art in Heaven.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 8:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attempted to explain insider trading to you.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 9:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you if your refrigerator is running.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-
-                            case 10:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                    guard = false;
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 11:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 12:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                    guard = false;
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 13:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is beginning to Morb.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 14:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} wants to get off Mr. Bones' wild ride.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-
-                            case 15:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} loves legitimate theatre.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 16:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to spell ICUP.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 17:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-                                    guard = false;
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 18:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} is suffering from Jaundice.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 19:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} did an impression of construction equipment.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 20:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} says: What's the deal with airline food?");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 21:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-
-                            case 22:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 23:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} thought we were having Steamed Clams.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-
-                            case 24:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} asked you to play Wonderwall.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-
-                            case 25:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} took a swig from a brown paper bag.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 26:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 27:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t{onfield[i]} knows what you did.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 28:
-
-                                Console.Clear();
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t{onfield[i]} pulled your IP address.");
-
-                                Thread.Sleep(2000);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 29:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
-                            case 30:
-
-                                Console.Clear();
-
-                                Console.BackgroundColor = ConsoleColor.DarkRed;
-
-                                Console.Clear();
-
-                                Thread.Sleep(100);
-
-                                Console.BackgroundColor = ConsoleColor.Black;
-
-                                Console.Clear();
-
-                                enemattack = rand.Next(5, 21);
-
-                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
-
-                                if (guard != false)
-                                {
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
-
-                                }
-
-                                else
-                                {
-                                    Health = Health - enemattack;
-                                }
-
-                                Thread.Sleep(2500);
-
-                                Console.Clear();
-
-                                break;
-
+                            Console.Clear();
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]}{attackType[enemmove]}");
+                            Thread.Sleep(2000);
+                            Console.Clear();
                         }
-
+                        else
+                        {
+                            Console.Clear();
+                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                            Console.Clear();
+                            Thread.Sleep(100);
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.Clear();
+                            enemattack = rand.Next(5, 21);
+                            Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]} attacks for {enemattack} damage!");
+                            if (guard != false)
+                            {
+                                Thread.Sleep(1000);
+                                Console.WriteLine($"\n\n\t\t\t\t\t\t\t\t\t\t..but you withstood the attack and sustained no damage!");
+                            }
+                            else
+                            {
+                                Health = Health - enemattack;
+                            }
+                            Thread.Sleep(2500);
+                            Console.Clear();
+                        }
                     }   guard = false; // resets guard after turn
-
                 }
-
                 if (enem1Health <= 0 && enem2Health <= 0 && enem3Health <= 0 || Health <= 0)
                 {
                     fightend = true;
                 }
-
             } while (fightend != true);
-
-
             Console.Clear();
-
             if (Health <= 0)
             {
                 Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tYOU DIED");
                 Health = 1; //resets hp
-
                 Thread.Sleep(5000);
             }
-
             else
             {
                 Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tA WINNER IS YOU");
-
                 Thread.Sleep(5000);
             }
-
             Console.Clear();
-
         }
-
         static void Clothing()
         {
             Console.Clear();
@@ -1986,10 +1073,12 @@ namespace TeamCSFile
             }
         }
 
+
+        //Work still in progress
+        //making this section more efficient to be more readable and adding new features
         static void Toys()
         {
-
-            int one6 = rand.Next(0 , CombatInventoryAmount.Length);
+            int one6 = rand.Next(0, CombatInventoryAmount.Length);
             int[] CombatItemCounts = new int[5];
             Random randomGenerator = new Random();
 
@@ -1999,107 +1088,127 @@ namespace TeamCSFile
             string answer = "";
 
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("You step into the Toys section.");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Aisles are packed with plushies, plastic sets, and blinking gadgets.");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"\n\nYou’re here looking for a {InventoryName[2]} \n");
+            Console.ResetColor();
 
             do
             {
                 Console.Clear();
-                Console.WriteLine("What do you want to do?\n  " +
-                                  "1) Check the spring-loaded toy snake\n  " +
-                                  "2) Browse the toy shelf\n  " +
-                                  "3) Crank the Jack-in-the-box\n  " +
-                                  "4) Explore the spooky toy chest\n  " +
-                                  "0) Leave\n");
-
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("What do you want to do?\n" +
+                                  "  1) Check the spring-loaded toy snake\n" +
+                                  "  2) Browse the toy shelf\n" +
+                                  "  3) Crank the Jack-in-the-box\n" +
+                                  "  4) Explore the spooky toy chest\n" +
+                                  "  0) Leave\n");
+                Console.ResetColor();
                 try
                 {
                     playerChoice = Convert.ToInt32(Console.ReadLine());
                 }
                 catch (Exception)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input");
+                    Console.ResetColor();
                     continue;
                 }
-
                 switch (playerChoice)
                 {
                     case 0:
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("You leave the Toys section.");
+                        Console.ResetColor();
                         sectionActive = false;
                         break;
-
                     case 1:
                         SpringSnake();
                         break;
-
                     case 2:
                         ToyShelf();
                         break;
-
                     case 3:
                         JackInTheBox();
                         break;
-
                     case 4:
                         SpookyChest();
                         break;
-
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid choice, please pick 1, 2, 3 or 4.");
+                        Console.ResetColor();
                         break;
                 }
-
                 if (gotItem)
                 {
                     sectionActive = false;
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("\nPress Enter to leave.");
+                    Console.ResetColor();
                     Console.ReadLine();
                 }
-
             } while (sectionActive);
 
             void SpringSnake()
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("You peek into a toy box. Suddenly, a spring-loaded snake leaps out!");
+                Console.ResetColor();
                 StartCombat();
                 CombatItemCounts[2]++;
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("\nPress Enter to continue.");
+                Console.ResetColor();
                 Console.ReadLine();
             }
 
             void ToyShelf()
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("You examine the shelves. A toy hums quietly in the back.");
                 Thread.Sleep(1000);
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"You find a {CombatInventoryName[one6]} resting in a toy crate and grab it.");
+                Console.ResetColor();
                 CombatInventoryAmount[one6]++;
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("\nPress Enter to continue.");
+                Console.ResetColor();
                 Console.ReadLine();
             }
 
             void JackInTheBox()
             {
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("A Jack-in-the-box sits motionless. Its crank dares you.");
+                Console.ResetColor();
                 Console.Write("Crank it? (y/n): ");
                 string yn = Console.ReadLine().Trim().ToLower();
                 if (yn == "y" || yn == "yes")
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("POP! Out jumps Jack.\nRiddle: I roll with wheels and a remote in hand. What am I?");
+                    Console.ResetColor();
                     answer = Console.ReadLine().Trim().ToLower();
                     if (answer.Contains("remote") || answer.Contains("car"))
                     {
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Jack winks and tosses you the Remote Controlled Car.");
                         InventoryAmount[2]++;
                         gotItem = true;
-                       
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.WriteLine("Jack giggles and sinks back into his box.");
                     }
+                    Console.ResetColor();
                     Console.WriteLine("\nPress Enter to continue.");
                     Console.ReadLine();
                 }
@@ -2107,21 +1216,25 @@ namespace TeamCSFile
 
             void SpookyChest()
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("You approach a dusty, eerie chest. It creaks open on its own...");
+                Console.ResetColor();
                 StartCombat();
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"Inside, you find the {InventoryName[2]} gleaming beneath some old plush toys.");
+                Console.ResetColor();
                 InventoryAmount[2]++;
                 gotItem = true;
-
             }
 
             void StartCombat()
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("\nA toy springs to life! You face off bravely.\n");
+                Console.ResetColor();
                 Thread.Sleep(1000);
                 Combat();
             }
-
         }
 
         static void Electronics()

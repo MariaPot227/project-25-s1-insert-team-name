@@ -580,79 +580,34 @@ namespace TeamCSFile
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    if (option == 1)    // if Light Attack chosen
+                    if (option == 1 && Stamina >= 10 || option == 2 && Stamina >= 20)
                     {
-                        if (Stamina >= 10)
+                        Stamina -= option * 10;
+                        Console.Clear();
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.Clear();
+                        Thread.Sleep(100);
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.Clear();
+                        switch (target) //enemy chosen
                         {
-                            Stamina = Stamina - 10;
-                            Console.Clear();
-                            Console.BackgroundColor = ConsoleColor.White;
-                            Console.Clear();
-                            Thread.Sleep(100);
-                            Console.BackgroundColor = ConsoleColor.Black;
-                            Console.Clear();
-                            switch (target) //enemy chosen
-                            {
-                                case 1:
-                                    enem1Health = enem1Health - 20;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[0]} for 20 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-                                case 2:
-                                    enem2Health = enem2Health - 20;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[1]} for 20 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-                                default:
-                                    enem3Health = enem3Health - 20;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[2]} for 20 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-                            }
+                            case 1:
+                                enem1Health -= option * 20;
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[0]} for {option * 20} damage!");
+                                Thread.Sleep(2000);
+                                break;
+                            case 2:
+                                enem2Health -= option * 20;
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[1]} for {option * 20} damage!");
+                                Thread.Sleep(2000);
+                                break;
+                            default:
+                                enem3Health -= option * 20;
+                                Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[2]} for {option * 20} damage!");
+                                Thread.Sleep(2000);
+                                break;
                         }
-                        else
-                        {
-                            Console.WriteLine("\n\nNot enough Stamina, enter to continue.");
-                            Console.ReadLine();
-                            Console.Clear();
-                        }
-                    }
-                    else if (option == 2)    // if Heavy Attack chosen
-                    {
-                        if (Stamina >= 20)
-                        {
-                            Stamina = Stamina - 20;
-                            Console.Clear();
-                            Console.BackgroundColor = ConsoleColor.White;
-                            Console.Clear();
-                            Thread.Sleep(100);
-                            Console.BackgroundColor = ConsoleColor.Black;
-                            Console.Clear();
-                            switch (target) //enemy chosen
-                            {
-                                case 1:
-                                    enem1Health = enem1Health - 40;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[0]} for 40 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-                                case 2:
-                                    enem2Health = enem2Health - 40;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[1]} for 40 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-                                default:
-                                    enem3Health = enem3Health - 40;
-                                    Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\tYou attack {onfield[2]} for 40 damage!");
-                                    Thread.Sleep(2000);
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("\n\nNot enough Stamina, enter to continue.");
-                            Console.ReadLine();
-                            Console.Clear();
-                        }
+
                     }
                     else if (option == 3)   // if Hail Mary chosen
                     {
@@ -677,6 +632,12 @@ namespace TeamCSFile
                         {
                             Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tAlas, nothing happened, enter to continue.");
                         }
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n\nNot enough Stamina, enter to continue.");
                         Console.ReadLine();
                         Console.Clear();
                     }
@@ -718,7 +679,7 @@ namespace TeamCSFile
                     if ((i == 0 && enem1Health > 0) || (i == 1 && enem2Health > 0) || (i == 2 && enem3Health > 0))
                     {
                         enemmove = rand.Next(0, 30);
-                        if (enemmove < 18)
+                        if (enemmove < 19)
                         {
                             Console.Clear();
                             Console.WriteLine($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t{onfield[i]}{attackType[enemmove]}");
@@ -748,38 +709,26 @@ namespace TeamCSFile
                             Console.Clear();
                         }
                     }   guard = false; // resets guard after turn
-
                 }
-
                 if (enem1Health <= 0 && enem2Health <= 0 && enem3Health <= 0 || Health <= 0)
                 {
                     fightend = true;
                 }
-
             } while (fightend != true);
-
-
             Console.Clear();
-
             if (Health <= 0)
             {
                 Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tYOU DIED");
                 Health = 1; //resets hp
-
                 Thread.Sleep(5000);
             }
-
             else
             {
                 Console.WriteLine("\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\tA WINNER IS YOU");
-
                 Thread.Sleep(5000);
             }
-
             Console.Clear();
-
         }
-
         static void Clothing()
         {
             Console.Clear();

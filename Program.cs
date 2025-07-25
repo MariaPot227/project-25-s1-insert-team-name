@@ -1036,7 +1036,7 @@ namespace TeamCSFile
 
                             Thread.Sleep(2000);
                             Console.Clear();
-                            break;
+                            Hub();
                         }
 
                         Console.Clear();

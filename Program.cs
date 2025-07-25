@@ -1027,11 +1027,18 @@ namespace TeamCSFile
                     {
 
 
-                        reel1 = rand.Next(1, 8);
+                        //reel1 = rand.Next(1, 8);
 
-                        reel2 = rand.Next(1, 8);
+                        //reel2 = rand.Next(1, 8);
 
-                        reel3 = rand.Next(1, 8);
+                        //reel3 = rand.Next(1, 8);
+
+
+                        int[] weightedSlots = { 1, 2, 3, 4, 5, 6, 7, 7, 7}; //increasing chances like mario party dice
+
+                        reel1 = weightedSlots[rand.Next(0, weightedSlots.Length)];
+                        reel2 = weightedSlots[rand.Next(0, weightedSlots.Length)];
+                        reel3 = weightedSlots[rand.Next(0, weightedSlots.Length)];
 
 
                         Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");

@@ -1025,7 +1025,21 @@ namespace TeamCSFile
 
                     while (gamblewin != 1)
                     {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Press [Enter] to spin the reels or type 'exit' to leave");
+                        string input = Console.ReadLine();
+                        Console.ResetColor();
 
+                        if (input?.ToLower() == "exit")
+                        {
+                            Console.WriteLine("You step away from the slot machine...");
+
+                            Thread.Sleep(2000);
+                            Console.Clear();
+                            break;
+                        }
+
+                        Console.Clear();
 
                         reel1 = rand.Next(1, 8);
 

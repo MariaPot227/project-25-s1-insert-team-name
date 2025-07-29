@@ -306,11 +306,40 @@ namespace TeamCSFile
         static void Inventory()
         {
             Console.Clear();
-            for (int i = 0; i < InventoryAmount.Length; i++)
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+            // Width of the box
+            int boxWidth = 40;
+
+           
+
+            Console.WriteLine("╔" + new string('═', boxWidth - 2) + "╗");
+            Console.WriteLine("║           INVENTORY LIST             ║");
+            Console.WriteLine("╠" + new string('═', boxWidth - 2) + "╣");
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            for (int i = 0; i < InventoryName.Length; i++)
             {
-                Console.WriteLine($"You have {InventoryAmount[i]} {InventoryName[i]}s.");
+                // Prepare the line content
+                string line = $" {InventoryAmount[i],3} x {InventoryName[i]}";
+             
+                line = line.PadRight(boxWidth - 4);
+
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write("║");
+
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write(line);
+
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("  ║");
             }
-            Console.WriteLine("Press enter to continue.");
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("╚" + new string('═', boxWidth - 2) + "╝");
+
+            Console.ResetColor();
+            Console.WriteLine("\nPress Enter to continue...");
             Console.ReadLine();
 
         }

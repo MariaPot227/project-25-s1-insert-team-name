@@ -1004,11 +1004,11 @@ namespace TeamCSFile
                     Console.Clear();
                     while (gamblewin != 1)
                     {
-<<<<<<< HEAD
+
                         reel1 = rand.Next(1, 8);
                         reel2 = rand.Next(1, 8);
                         reel3 = rand.Next(1, 8);
-=======
+
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Press [Enter] to spin the reels or type 'exit' to leave");
                         string input = Console.ReadLine();
@@ -1045,10 +1045,10 @@ namespace TeamCSFile
                         reel3 = weightedSlots[rand.Next(0, weightedSlots.Length)];
 
 
->>>>>>> origin/main
+
                         Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
                         Thread.Sleep(500);
-                        Console.Write($" {reel2}")
+                        Console.Write($" {reel2}");
                         Thread.Sleep(500);
                         Console.Write($" {reel3}");
                         Thread.Sleep(500);

@@ -325,7 +325,6 @@ namespace TeamCSFile
                 {
                     Console.WriteLine($"Enter {i + 1} to use one of your {CombatInventoryAmount[i]} {CombatInventoryName[i]}s.\n");
                 }
-
             }
             Console.WriteLine("Enter the item you want to do or 0 if you want to exit.");
             int temp = 0;
@@ -339,132 +338,49 @@ namespace TeamCSFile
                 Console.ReadLine();
             }
             Console.Clear();
-            switch (temp)
+            if ((new[] { 1, 2, 3 }).Contains(temp) && CombatInventoryAmount[temp - 1] > 0)
             {
-                case 1:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Health = Health + 25;  //Change this and the other values like this for the amount of health you want the potion to do. 
-                        if (Health > 100)
-                        {
-                            Health = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 25 Health. You have now have {Health}HP.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 2:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Health = Health + 50;
-                        if (Health > 100)
-                        {
-                            Health = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 50 Health. You have now have {Health}HP.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 3:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Health = Health + 100;
-                        if (Health > 100)
-                        {
-                            Health = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 100 Health. You have now have {Health}HP.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 4:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Stamina = Stamina + 25;
-                        if (Stamina > 100)
-                        {
-                            Stamina = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 25 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 5:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Stamina = Health + 50;
-                        if (Stamina > 100)
-                        {
-                            Stamina = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 50 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 6:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Stamina = Stamina + 100;
-                        if (Stamina > 100)
-                        {
-                            Stamina = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 100 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 0:
-                    break;
-                default:
-                    Console.WriteLine("Invalid Input. Please keep it between 0-3");
-                    Console.ReadLine();
-                    break;
-
+                Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                CombatInventoryAmount[temp - 1]--;
+                if (temp == 3)
+                {
+                    temp++;
+                }
+                Health = Health + (temp * 25);
+                if (Health > 100)
+                {
+                    Health = 100;
+                }
+                Console.WriteLine($"You gain {temp * 25} Health. You have now have {Health}HP.\nEnter to continue");
+                Console.ReadLine();
+            }
+            else if ((new[] { 4, 5, 6 }).Contains(temp) && CombatInventoryAmount[temp - 1] > 0)
+            {
+                Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                CombatInventoryAmount[temp - 1]--;
+                if (temp == 6)
+                {
+                    temp++;
+                }
+                Stamina = Stamina + ((temp - 3) * 25);
+                if (Stamina > 100)
+                {
+                    Stamina = 100;
+                }
+                Console.WriteLine($"You gain {(temp - 3) * 25} Stamina. You have now have {Stamina}Stm.\nEnter to continue");
+                Console.ReadLine();
+            }
+            else if (temp == 0)
+            {
+                Console.WriteLine("Exiting. Enter to continue");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input.\nEnter to continue");
+                Console.ReadLine();
             }
             Console.Clear();
-
         }
 
         public static void Combat()

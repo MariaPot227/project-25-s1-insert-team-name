@@ -868,7 +868,7 @@ namespace TeamCSFile
 
                         try
                         {
-                            while (threechoice != 1 && threechoice != 2 && threechoice != 3)
+                            while (twochoice != 1 && twochoice != 2)
                             {
                                 twochoice = Convert.ToInt32(Console.ReadLine());
                             }
@@ -941,27 +941,7 @@ namespace TeamCSFile
 
                     while (gamblewin != 1)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Press [Enter] to spin the reels or type 'exit' to leave");
-                        string input = Console.ReadLine();
-                        Console.ResetColor();
-
-                        if (input?.ToLower() == "exit")
-                        {
-                            Console.WriteLine("You step away from the slot machine...");
-
-                            Thread.Sleep(2000);
-                            Console.Clear();
-
-                            threechoice = 0;
-                            twochoice = 0;
-                           
-                         
-
-                            break;
-                        }
-
-                        Console.Clear();
+                        
 
                         //reel1 = rand.Next(1, 8);
 
@@ -1012,6 +992,28 @@ namespace TeamCSFile
                             Thread.Sleep(2000);
                             Console.Clear();
                         }
+
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Press [Enter] to spin the reels or type 'exit' to leave");
+                        string input = Console.ReadLine();
+                        Console.ResetColor();
+
+                        if (input?.ToLower() == "exit")
+                        {
+                            Console.WriteLine("You step away from the slot machine...");
+
+                            Thread.Sleep(2000);
+                            Console.Clear();
+
+                            threechoice = 0;
+                            twochoice = 0;
+                            doNotSpamHubPlz = false;
+
+
+                            gamblewin = 1;
+                        }
+
+                        Console.Clear();
                     }
                 }
             }

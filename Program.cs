@@ -1036,7 +1036,13 @@ namespace TeamCSFile
 
                             Thread.Sleep(2000);
                             Console.Clear();
-                            Hub();
+
+                            threechoice = 0;
+                            twochoice = 0;
+                           
+                         
+
+                            break;
                         }
 
                         Console.Clear();

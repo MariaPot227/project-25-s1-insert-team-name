@@ -311,8 +311,6 @@ namespace TeamCSFile
             // Width of the box
             int boxWidth = 40;
 
-
-
             Console.WriteLine("╔" + new string('═', boxWidth - 2) + "╗");
             Console.WriteLine("║           INVENTORY LIST             ║");
             Console.WriteLine("╠" + new string('═', boxWidth - 2) + "╣");
@@ -322,7 +320,6 @@ namespace TeamCSFile
             {
                 // Prepare the line content
                 string line = $" {InventoryAmount[i],3} x {InventoryName[i]}";
-
                 line = line.PadRight(boxWidth - 4);
 
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -342,7 +339,6 @@ namespace TeamCSFile
             Console.WriteLine("\nPress Enter to continue...");
             Console.ReadLine();
 
-        }
         }
 
         static void CombatInventory()

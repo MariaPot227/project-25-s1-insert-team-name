@@ -124,6 +124,20 @@ namespace TeamCSFile
                     
                 }
 
+                int maxHealth = 100;
+                int maxStamina = 100;
+
+                int barLength = 20; // total characters for bar
+
+                string GetBar(int current, int max)
+                {
+                    int filled = (int)((double)current / max * barLength);
+                    return new string('█', filled).PadRight(barLength, '-');
+                }
+
+                Console.WriteLine($"Health : [{GetBar(Health, maxHealth)}] {Health}/{maxHealth}");
+                Console.WriteLine($"Stamina: [{GetBar(Stamina, maxStamina)}] {Stamina}/{maxStamina}");
+
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 WriteCenteredLine("╔══════════════════════════════════════╗");
                 WriteCenteredLine("║             MAIN MENU                ║");

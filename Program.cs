@@ -311,8 +311,6 @@ namespace TeamCSFile
             // Width of the box
             int boxWidth = 40;
 
-           
-
             Console.WriteLine("╔" + new string('═', boxWidth - 2) + "╗");
             Console.WriteLine("║           INVENTORY LIST             ║");
             Console.WriteLine("╠" + new string('═', boxWidth - 2) + "╣");
@@ -322,7 +320,6 @@ namespace TeamCSFile
             {
                 // Prepare the line content
                 string line = $" {InventoryAmount[i],3} x {InventoryName[i]}";
-             
                 line = line.PadRight(boxWidth - 4);
 
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -354,7 +351,6 @@ namespace TeamCSFile
                 {
                     Console.WriteLine($"Enter {i + 1} to use one of your {CombatInventoryAmount[i]} {CombatInventoryName[i]}s.\n");
                 }
-
             }
             Console.WriteLine("Enter the item you want to do or 0 if you want to exit.");
             int temp = 0;
@@ -368,132 +364,49 @@ namespace TeamCSFile
                 Console.ReadLine();
             }
             Console.Clear();
-            switch (temp)
+            if ((new[] { 1, 2, 3 }).Contains(temp) && CombatInventoryAmount[temp - 1] > 0)
             {
-                case 1:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Health = Health + 25;  //Change this and the other values like this for the amount of health you want the potion to do. 
-                        if (Health > 100)
-                        {
-                            Health = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 25 Health. You have now have {Health}HP.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 2:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Health = Health + 50;
-                        if (Health > 100)
-                        {
-                            Health = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 50 Health. You have now have {Health}HP.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 3:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Health = Health + 100;
-                        if (Health > 100)
-                        {
-                            Health = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 100 Health. You have now have {Health}HP.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 4:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Stamina = Stamina + 25;
-                        if (Stamina > 100)
-                        {
-                            Stamina = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 25 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 5:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Stamina = Health + 50;
-                        if (Stamina > 100)
-                        {
-                            Stamina = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 50 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 6:
-                    if (CombatInventoryAmount[temp - 1] > 0)
-                    {
-                        Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
-                        Stamina = Stamina + 100;
-                        if (Stamina > 100)
-                        {
-                            Stamina = 100;
-                        }
-                        CombatInventoryAmount[temp - 1]--;
-                        Console.WriteLine($"You gain 100 Stamina. You have now have {Stamina}Stm.\nEnter to continue");
-                        Console.ReadLine();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You don't have enough of that potion");
-                        Console.ReadLine();
-                    }
-                    break;
-                case 0:
-                    break;
-                default:
-                    Console.WriteLine("Invalid Input. Please keep it between 0-3");
-                    Console.ReadLine();
-                    break;
-
+                Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                CombatInventoryAmount[temp - 1]--;
+                if (temp == 3)
+                {
+                    temp++;
+                }
+                Health = Health + (temp * 25);
+                if (Health > 100)
+                {
+                    Health = 100;
+                }
+                Console.WriteLine($"You gain {temp * 25} Health. You have now have {Health}HP.\nEnter to continue");
+                Console.ReadLine();
+            }
+            else if ((new[] { 4, 5, 6 }).Contains(temp) && CombatInventoryAmount[temp - 1] > 0)
+            {
+                Console.WriteLine($"You use one of your {CombatInventoryName[temp - 1]}s");
+                CombatInventoryAmount[temp - 1]--;
+                if (temp == 6)
+                {
+                    temp++;
+                }
+                Stamina = Stamina + ((temp - 3) * 25);
+                if (Stamina > 100)
+                {
+                    Stamina = 100;
+                }
+                Console.WriteLine($"You gain {(temp - 3) * 25} Stamina. You have now have {Stamina}Stm.\nEnter to continue");
+                Console.ReadLine();
+            }
+            else if (temp == 0)
+            {
+                Console.WriteLine("Exiting. Enter to continue");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input.\nEnter to continue");
+                Console.ReadLine();
             }
             Console.Clear();
-
         }
 
         public static void Combat()
@@ -938,7 +851,8 @@ namespace TeamCSFile
 
         static void Camping()
         {
-            bool yesno, doNotSpamHubPlz = true;
+            bool doNotSpamHubPlz = true;
+
             int threechoice = 0, twochoice = 0, reel1 = 0, reel2 = 0, reel3 = 0, gamblewin = 0;
             Console.Clear();
             while (doNotSpamHubPlz)
@@ -947,23 +861,23 @@ namespace TeamCSFile
                 Thread.Sleep(3000);
                 Console.WriteLine("\nAs you approach the outer aisles of the department you feel an inexplicable chill run over your body. Something isn't right, but you aren't sure what.");
                 Thread.Sleep(3000);
-                Console.WriteLine("\n\nWhat do you do next?\n\n");
-                Console.Write("\n1. Proceed forward into the tents aisle");
-                Console.Write("\n2. Go around and enter via the fishing aisle");
-                Console.Write("\n3. Turn around and leave");
-                try
+                while (threechoice != 1 && threechoice != 2 && threechoice != 3)
                 {
-                    while (threechoice != 1 && threechoice != 2 && threechoice != 3)
+                    Console.WriteLine("\n\nWhat do you do next?\n\n");
+                    Console.Write("\n1. Proceed forward into the tents aisle");
+                    Console.Write("\n2. Go around and enter via the fishing aisle");
+                    Console.Write("\n3. Turn around and leave");
+                    try
                     {
                         threechoice = Convert.ToInt32(Console.ReadLine());
                     }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Huh");
+                        Console.ReadLine();
+                    }
+                    Console.Clear();
                 }
-                catch (Exception)
-                {
-                    Console.WriteLine("Huh");
-                    Console.ReadLine();
-                }
-                Console.Clear();
                 Thread.Sleep(3000);
                 switch (threechoice)
                 {
@@ -974,17 +888,17 @@ namespace TeamCSFile
                         Thread.Sleep(3000);
                         Console.Write("\n1. Attempt to grab the torch");
                         Console.Write("\n2. Continue without it");
-                        try
+                        while (twochoice != 1 && twochoice != 2)
                         {
-                            while (threechoice != 1 && threechoice != 2 && threechoice != 3)
+                            try
                             {
                                 twochoice = Convert.ToInt32(Console.ReadLine());
                             }
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Huh");
-                            Console.ReadLine();
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Huh");
+                                Console.ReadLine();
+                            }
                         }
                         Console.Clear();
                         Thread.Sleep(3000);
@@ -1031,26 +945,38 @@ namespace TeamCSFile
                     Console.WriteLine("\nIt seems you have no choice but to gamble if you want the chair...");
                     Thread.Sleep(6000);
                     Console.Clear();
+
+
                     while (gamblewin != 1)
                     {
+                        Console.Clear();
+
+                        //reel1 = rand.Next(1, 8);
+
+                        //reel2 = rand.Next(1, 8);
+
+                        //reel3 = rand.Next(1, 8);
 
 
-                        reel1 = rand.Next(1, 8);
+                        int[] weightedSlots = { 1, 2, 3, 4, 5, 6, 7, 7, 7}; //increasing chances like mario party dice
 
-                        reel2 = rand.Next(1, 8);
-
-                        reel3 = rand.Next(1, 8);
+                        reel1 = weightedSlots[rand.Next(0, weightedSlots.Length)];
+                        reel2 = weightedSlots[rand.Next(0, weightedSlots.Length)];
+                        reel3 = weightedSlots[rand.Next(0, weightedSlots.Length)];
 
 
                         Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
                         Thread.Sleep(500);
-                        Console.Write($" {reel2}")
+                        Console.Write($" {reel2}");
                         Thread.Sleep(500);
                         Console.Write($" {reel3}");
+
                         Thread.Sleep(500);
+
                         if (reel1 == 7 && reel2 == 7 && reel3 == 7)
                         {
                             gamblewin = 1;
+
                             Console.ForegroundColor = ConsoleColor.Green;   //change test color to green
                             Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
                             Thread.Sleep(3000);
@@ -1069,6 +995,25 @@ namespace TeamCSFile
                             Thread.Sleep(2000);
                             Console.Clear();
                         }
+
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Press [Enter] to spin the reels or type 'exit' to leave");
+                        string input = Console.ReadLine();
+                        Console.ResetColor();
+
+                        if (input?.ToLower() == "exit")
+                        {
+                            Console.WriteLine("You step away from the slot machine...");
+                            Thread.Sleep(2000);
+                            Console.Clear();
+
+                            threechoice = 0;
+                            twochoice = 0;
+                            doNotSpamHubPlz = false;
+                            gamblewin = 1;
+                        }
+
+                        Console.Clear();
                     }
                 }
             }

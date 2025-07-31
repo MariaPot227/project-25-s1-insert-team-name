@@ -825,7 +825,7 @@ namespace TeamCSFile
 
         static void Camping()
         {
-            bool yesno, doNotSpamHubPlz = true;
+            bool doNotSpamHubPlz = true;
 
             int threechoice = 0, twochoice = 0, reel1 = 0, reel2 = 0, reel3 = 0, gamblewin = 0;
 
@@ -837,24 +837,23 @@ namespace TeamCSFile
                 Thread.Sleep(3000);
                 Console.WriteLine("\nAs you approach the outer aisles of the department you feel an inexplicable chill run over your body. Something isn't right, but you aren't sure what.");
                 Thread.Sleep(3000);
-                Console.WriteLine("\n\nWhat do you do next?\n\n");
-                Console.Write("\n1. Proceed forward into the tents aisle");
-                Console.Write("\n2. Go around and enter via the fishing aisle");
-                Console.Write("\n3. Turn around and leave");
-
-                try
+                while (threechoice != 1 && threechoice != 2 && threechoice != 3)
                 {
-                    while (threechoice != 1 && threechoice != 2 && threechoice != 3)
+                    Console.WriteLine("\n\nWhat do you do next?\n\n");
+                    Console.Write("\n1. Proceed forward into the tents aisle");
+                    Console.Write("\n2. Go around and enter via the fishing aisle");
+                    Console.Write("\n3. Turn around and leave");
+                    try
                     {
                         threechoice = Convert.ToInt32(Console.ReadLine());
                     }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Huh");
+                        Console.ReadLine();
+                    }
+                    Console.Clear();
                 }
-                catch (Exception)
-                {
-                    Console.WriteLine("Huh");
-                    Console.ReadLine();
-                }
-                Console.Clear();
                 Thread.Sleep(3000);
                 switch (threechoice)
                 {
@@ -890,20 +889,12 @@ namespace TeamCSFile
                         Console.WriteLine("\n\nBefore you can react to this bizarre situation, a figure leaps toward you out of the water!");
                         Thread.Sleep(3000);
                         Combat();
-                        
-
                         break;
-
-
                     case 3:
                         Console.Clear();
                         Console.Write("\nYou turned back and made a tactical retreat to the entrance.");
                         Thread.Sleep(3000);
-
-
                         break;
-
-
                 }
                 if (doNotSpamHubPlz)
                 { 
@@ -915,16 +906,12 @@ namespace TeamCSFile
                             Thread.Sleep(3000);
                             Combat();
                             break;
-
-
                         case 2:
                             Console.Clear();
                             Console.Write("\nYou choose to continue without the torch. Unfortunately, you overestimated how many carrots you eat and are hit by a sneak attack!");
                             Thread.Sleep(3000);
                             Combat();
                             break;
-                        
-
                     }
 
                     Console.Clear();
@@ -1001,15 +988,12 @@ namespace TeamCSFile
                         if (input?.ToLower() == "exit")
                         {
                             Console.WriteLine("You step away from the slot machine...");
-
                             Thread.Sleep(2000);
                             Console.Clear();
 
                             threechoice = 0;
                             twochoice = 0;
                             doNotSpamHubPlz = false;
-
-
                             gamblewin = 1;
                         }
 

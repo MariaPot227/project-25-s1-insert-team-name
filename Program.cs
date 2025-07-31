@@ -910,11 +910,8 @@ namespace TeamCSFile
         static void Camping()
         {
             bool yesno, doNotSpamHubPlz = true;
-
             int threechoice = 0, twochoice = 0, reel1 = 0, reel2 = 0, reel3 = 0, gamblewin = 0;
-
             Console.Clear();
-
             while (doNotSpamHubPlz)
             {
                 Console.WriteLine("\nYou head off in the direction of the store's Camping department in search of a foldable Yard Chair.");
@@ -925,7 +922,6 @@ namespace TeamCSFile
                 Console.Write("\n1. Proceed forward into the tents aisle");
                 Console.Write("\n2. Go around and enter via the fishing aisle");
                 Console.Write("\n3. Turn around and leave");
-
                 try
                 {
                     while (threechoice != 1 && threechoice != 2 && threechoice != 3)
@@ -949,7 +945,6 @@ namespace TeamCSFile
                         Thread.Sleep(3000);
                         Console.Write("\n1. Attempt to grab the torch");
                         Console.Write("\n2. Continue without it");
-
                         try
                         {
                             while (threechoice != 1 && threechoice != 2 && threechoice != 3)
@@ -965,7 +960,6 @@ namespace TeamCSFile
                         Console.Clear();
                         Thread.Sleep(3000);
                         break;
-
                     case 2:
                         Console.WriteLine("\nAs you walk through the aisle you notice that the floor is wet, perhaps a cleaner left their job unfinished.");
                         Thread.Sleep(3000);
@@ -974,20 +968,12 @@ namespace TeamCSFile
                         Console.WriteLine("\n\nBefore you can react to this bizarre situation, a figure leaps toward you out of the water!");
                         Thread.Sleep(3000);
                         Combat();
-                        
-
                         break;
-
-
                     case 3:
                         Console.Clear();
                         Console.Write("\nYou turned back and made a tactical retreat to the entrance.");
                         Thread.Sleep(3000);
-
-
                         break;
-
-
                 }
                 if (doNotSpamHubPlz)
                 { 
@@ -999,18 +985,13 @@ namespace TeamCSFile
                             Thread.Sleep(3000);
                             Combat();
                             break;
-
-
                         case 2:
                             Console.Clear();
                             Console.Write("\nYou choose to continue without the torch. Unfortunately, you overestimated how many carrots you eat and are hit by a sneak attack!");
                             Thread.Sleep(3000);
                             Combat();
                             break;
-                        
-
                     }
-
                     Console.Clear();
                     Console.WriteLine("\nYou have arrived at your destination. You see a lone Yard Chair propped up against a shelf at the mouth of the unexplainable river that is now flowing through the store.");
                     Thread.Sleep(3000);
@@ -1021,62 +1002,26 @@ namespace TeamCSFile
                     Console.WriteLine("\nIt seems you have no choice but to gamble if you want the chair...");
                     Thread.Sleep(6000);
                     Console.Clear();
-
-
                     while (gamblewin != 1)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Press [Enter] to spin the reels or type 'exit' to leave");
-                        string input = Console.ReadLine();
-                        Console.ResetColor();
-
-                        if (input?.ToLower() == "exit")
-                        {
-                            Console.WriteLine("You step away from the slot machine...");
-
-                            Thread.Sleep(2000);
-                            Console.Clear();
-
-                            threechoice = 0;
-                            twochoice = 0;
-                           
-                         
-
-                            break;
-                        }
-
-                        Console.Clear();
-
-                        //reel1 = rand.Next(1, 8);
-
-                        //reel2 = rand.Next(1, 8);
-
-                        //reel3 = rand.Next(1, 8);
 
 
-                        int[] weightedSlots = { 1, 2, 3, 4, 5, 6, 7, 7, 7}; //increasing chances like mario party dice
+                        reel1 = rand.Next(1, 8);
 
-                        reel1 = weightedSlots[rand.Next(0, weightedSlots.Length)];
-                        reel2 = weightedSlots[rand.Next(0, weightedSlots.Length)];
-                        reel3 = weightedSlots[rand.Next(0, weightedSlots.Length)];
+                        reel2 = rand.Next(1, 8);
+
+                        reel3 = rand.Next(1, 8);
 
 
                         Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
-
                         Thread.Sleep(500);
-
-                        Console.Write($" {reel2}");
-
+                        Console.Write($" {reel2}")
                         Thread.Sleep(500);
-
                         Console.Write($" {reel3}");
-
                         Thread.Sleep(500);
-
                         if (reel1 == 7 && reel2 == 7 && reel3 == 7)
                         {
                             gamblewin = 1;
-
                             Console.ForegroundColor = ConsoleColor.Green;   //change test color to green
                             Console.WriteLine("\n\n\t\t\t\t\t\t\t\t\t\t\t\tToday is your lucky day");
                             Thread.Sleep(3000);
@@ -1089,7 +1034,6 @@ namespace TeamCSFile
                             Thread.Sleep(3000);
                             Console.Clear();
                         }
-
                         else
                         {
                             Console.WriteLine("\n\n\n\t\t\t\t\t\t\t\t\t\t\tTip: 90% of gamblers quit right before they win big");
@@ -1100,10 +1044,6 @@ namespace TeamCSFile
                 }
             }
         }
-
-
-        //Work still in progress
-        //making this section more efficient to be more readable and adding new features
         static void Toys()
         {
             int one6 = rand.Next(0, CombatInventoryAmount.Length);
@@ -1367,17 +1307,76 @@ namespace TeamCSFile
             void Chargers()
             {
                 int one6 = rand.Next(0, CombatInventoryAmount.Length);
-                Console.WriteLine("You sort through the pile of portable chargers. One claims to charge a fridge. Another has three buttons and no ports.\n");
+                string yn = "";
+                bool validInput = false;
+
+                Console.WriteLine("You sort through the pile of portable chargers.");
+                Thread.Sleep(1000);
+                Console.WriteLine("One claims to charge a fridge. Another has three buttons and no ports.");
                 Thread.Sleep(2000);
 
-                Console.WriteLine(
-                          $"Then — jackpot! Behind a toppled charger display, you spot a {CombatInventoryName[one6]} just sitting there like a free sample.\nYou casually slip it into your inventory before anyone notices.");
-                Thread.Sleep(2000);
-                Console.WriteLine("You don't see anything else useful in the area.");
-
+                Console.WriteLine("Behind a toppled charger display, you spot a basic but functional charger.\nYou casually slip it into your inventory before anyone notices.");
                 CombatInventoryAmount[one6] += 1;
-            }
+                Thread.Sleep(1000);
 
+                Console.WriteLine("\nBut just as you’re about to leave, you notice something odd...");
+                Thread.Sleep(1000);
+                Console.WriteLine("A glowing, unlabelled charger rests on a pedestal of old instruction manuals.");
+                Thread.Sleep(1000);
+                Console.WriteLine("It hums softly — like it’s... waiting.");
+                Thread.Sleep(1000);
+
+                // Input validation loop
+                while (!validInput)
+                {
+                    Console.Write("\nDo you want to pick it up? (y/n): ");
+                    yn = Console.ReadLine().Trim().ToLower();
+
+                    if (yn == "y" || yn == "yes" || yn == "n" || yn == "no")
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please type 'y' for yes or 'n' for no.");
+                        Thread.Sleep(1000);
+                    }
+                }
+
+                Console.Clear();
+                if (yn == "y" || yn == "yes")
+                {
+                    Console.WriteLine("You reach for the glowing charger...");
+                    Thread.Sleep(1500);
+
+                    int chance = rand.Next(1, 101); // 1 to 100
+
+                    if (chance <= 60)
+                    {
+                        Console.WriteLine("It warms in your hand — a smooth surge of energy pulses through your fingers.");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("This isn’t just a charger. It’s a rare energy module!");
+                        CombatInventoryAmount[one6] += 2; // Bonus item
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You quickly stash it before anyone sees.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("As your fingers brush the casing, it snaps open with a sharp crack!");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("A blast of static arcs across the shelves — and something stirs nearby...");
+                        Thread.Sleep(1500);
+                        Console.WriteLine("You triggered a trap!");
+                        LeaveCase();
+                        Combat(); // Ambush!
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("You decide it’s not worth the risk and walk away.");
+                    Thread.Sleep(1000);
+                }
+            }
             void Granny()
             {
 

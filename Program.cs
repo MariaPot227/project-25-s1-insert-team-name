@@ -1015,7 +1015,7 @@ namespace TeamCSFile
 
                         Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
                         Thread.Sleep(500);
-                        Console.Write($" {reel2}")
+                        Console.Write($" {reel2}");
                         Thread.Sleep(500);
                         Console.Write($" {reel3}");
                         Thread.Sleep(500);

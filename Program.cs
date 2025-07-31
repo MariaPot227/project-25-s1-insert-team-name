@@ -1005,50 +1005,17 @@ namespace TeamCSFile
                     while (gamblewin != 1)
                     {
 
+
                         reel1 = rand.Next(1, 8);
+
                         reel2 = rand.Next(1, 8);
+
                         reel3 = rand.Next(1, 8);
-
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Press [Enter] to spin the reels or type 'exit' to leave");
-                        string input = Console.ReadLine();
-                        Console.ResetColor();
-
-                        if (input?.ToLower() == "exit")
-                        {
-                            Console.WriteLine("You step away from the slot machine...");
-
-                            Thread.Sleep(2000);
-                            Console.Clear();
-
-                            threechoice = 0;
-                            twochoice = 0;
-                           
-                         
-
-                            break;
-                        }
-
-                        Console.Clear();
-
-                        //reel1 = rand.Next(1, 8);
-
-                        //reel2 = rand.Next(1, 8);
-
-                        //reel3 = rand.Next(1, 8);
-
-
-                        int[] weightedSlots = { 1, 2, 3, 4, 5, 6, 7, 7, 7}; //increasing chances like mario party dice
-
-                        reel1 = weightedSlots[rand.Next(0, weightedSlots.Length)];
-                        reel2 = weightedSlots[rand.Next(0, weightedSlots.Length)];
-                        reel3 = weightedSlots[rand.Next(0, weightedSlots.Length)];
-
 
 
                         Console.Write($"\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t{reel1}");
                         Thread.Sleep(500);
-                        Console.Write($" {reel2}");
+                        Console.Write($" {reel2}")
                         Thread.Sleep(500);
                         Console.Write($" {reel3}");
                         Thread.Sleep(500);
